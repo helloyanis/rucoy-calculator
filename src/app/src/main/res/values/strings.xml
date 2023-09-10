@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Rucoy calculator</string>
+    <string name="title_train">Train</string>
+    <string name="title_ptrain">Power train</string>
+    <string name="title_skull">Skull</string>
+    <string name="base_level">Base level</string>
+    <string name="stat_level">Stat level (with buffs)</string>
+    <string name="weapon_atk">Weapon attack</string>
+</resources>
