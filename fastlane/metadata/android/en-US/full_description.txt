@@ -1,0 +1,4 @@
+Calculate various things related to Rucoy Online:
+* Training calculation : Input your stats and get which mob to train on!
+* Power training calculation : Not yet avilable
+* Skull calculation : Get how much gold you need to skull!
