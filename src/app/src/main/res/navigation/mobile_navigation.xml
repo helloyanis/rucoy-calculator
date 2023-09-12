@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.helloyanis.rucoycalculator.ui.ptrain.PtrainFragment"
+        android:name="com.helloyanis.rucoycalculator.ui.credits.CreditsFragment"
         android:label="@string/title_ptrain"
-        tools:layout="@layout/ptrain" />
+        tools:layout="@layout/credits" />
 
     <fragment
         android:id="@+id/navigation_notifications"
