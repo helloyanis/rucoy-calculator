@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_train"
         android:icon="@drawable/train"
         android:title="@string/title_train" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_skull"
         android:icon="@drawable/skull"
         android:title="@string/title_skull" />
 
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_credits"
         android:icon="@drawable/credits"
         android:title="@string/title_credits" />
 

@@ -49,7 +49,7 @@ class GitHubReleaseChecker(private val context: Context, private val repositoryU
 
                     if (isUpdateAvailable(latestVersion)) {
                         showToast("Update available: $latestVersion")
-                        showToast("Go to GitHub to update!")
+                        showToast("Go on GitHub to update!")
                     } else {
                         //showToast("You are using the latest version.")
                     }
@@ -62,7 +62,7 @@ class GitHubReleaseChecker(private val context: Context, private val repositoryU
 
     private fun isUpdateAvailable(latestVersion: String): Boolean {
         // Replace this with the current installed version of your app.
-        val currentVersion = "2.0"
+        val currentVersion = "2.1"
 
         // Split the version strings into individual parts.
         val currentVersionParts = currentVersion.split(".")

@@ -33,7 +33,8 @@ class SkullFragment : Fragment() {
         _binding = SkullBinding.inflate(inflater, container, false)
         setalldisplays("No data")
         val editTextNumber = binding.root.findViewById<EditText>(R.id.editTextNumber)
-
+        Toast.makeText(context, "Skull formula is incorrect.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Please wait for an update where I will fix it.", Toast.LENGTH_LONG).show()
         // Ajoutez un écouteur de texte à votre EditText
         editTextNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -47,7 +48,7 @@ class SkullFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 val userInput = s.toString()
                 if (userInput.isNotEmpty()) {
-                    calcskull(userInput.toInt())
+                    calcskull(userInput.toDouble())
                 }
             }
         })
@@ -66,15 +67,37 @@ class SkullFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.redskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.blackskullvalue).text = string
     }
-    private fun calcskull(int: Int) {
-        if(int<1){
-            setalldisplays("Invalid data")
-        }else{
-            binding.root.findViewById<TextView>(R.id.whiteskullvalue).text = (int*50).toString() + "G needed\n"+(int*50).toString()+"G lost"
-            binding.root.findViewById<TextView>(R.id.yellowskullvalue).text = (int*150).toString() + "G needed\n" + (int*150).toString() +"G lost"
-            binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = (int*600).toString() + "G needed \n" + (int*450) + "G lost"
-            binding.root.findViewById<TextView>(R.id.redskullvalue).text = (int*1950).toString() + "G needed\n" + (int*1350) + "G lost"
-            binding.root.findViewById<TextView>(R.id.blackskullvalue).text = (int*6000).toString() + "G needed\n" + (int*4050) + "G lost"
+    private fun calcskull(double: Double) {
+        val str0 = if((double*50).toString().substringAfter(".").length==1){
+            (double*50).toString().substringBefore(".")
+        }else {
+            (double * 50).toString()
         }
+        binding.root.findViewById<TextView>(R.id.whiteskullvalue).text = str0 + "G needed"
+        val str1 = if((double*150).toString().substringAfter(".").length==1){
+            (double*150).toString().substringBefore(".")
+        }else {
+            (double*150).toString()
+        }
+        binding.root.findViewById<TextView>(R.id.yellowskullvalue).text = str1 + "G needed"
+        val str2 = if((150*4*double).toString().substringAfter(".").length==1){
+            (150*4*double).toString().substringBefore(".")
+        }else {
+            (150*4*double).toString()
+        }
+        binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = str2 + "G needed"
+        val str3 = if((150*13*double).toString().substringAfter(".").length==1){
+            (150*13*double).toString().substringBefore(".")
+        }else {
+            (150*13*double).toString()
+        }
+        binding.root.findViewById<TextView>(R.id.redskullvalue).text = str3 + "G needed"
+        val str4 = if((double*50).toString().substringAfter(".").length==1){
+            (150*40*double).toString().substringBefore(".")
+        }else {
+            (150*40*double).toString()
+        }
+        binding.root.findViewById<TextView>(R.id.blackskullvalue).text = str4 + "G needed"
+
     }
 }
