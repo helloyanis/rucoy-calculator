@@ -9,16 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.TrainBinding
 import com.helloyanis.rucoycalculator.ui.train.Formulas.accuracy_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.average_damage_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.findStatLevel_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_crit_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_raw_crit_damage_Calc
@@ -29,10 +31,11 @@ import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_max_raw_da
 import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_min_raw_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.special_meldist_max_raw_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.special_meldist_min_raw_damage_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.stat0to54_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.stat55to99_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.total_accuracy_Calc
-import java.lang.Error
 
 
 class TrainFragment : Fragment() {
@@ -52,47 +55,28 @@ class TrainFragment : Fragment() {
             ViewModelProvider(this).get(TrainViewModel::class.java)
 
         _binding = TrainBinding.inflate(inflater, container, false)
-        binding.root.findViewById<TextView>(R.id.str0).text = ""
-        binding.root.findViewById<TextView>(R.id.str1).text = ""
-        binding.root.findViewById<TextView>(R.id.str2).text = ""
-        binding.root.findViewById<TextView>(R.id.str3).text = ""
-        binding.root.findViewById<TextView>(R.id.str4).text = ""
-        binding.root.findViewById<TextView>(R.id.str5).text = ""
+        updateoutput()
         val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
         GitHubReleaseChecker(requireContext(), repositoryUrl).execute()
 
-        val ptrainswitch = binding.root.findViewById<Switch>(R.id.ptrainswitch)
-        ptrainswitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            // Check the switch state
-            if (isChecked) {
-                // Switch is turned on, show the Spinner
-                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
-            } else {
-                // Switch is turned off, hide the Spinner
-                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-            }
-            if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                if(binding.root.findViewById<Switch>(R.id.ptrainswitch).isChecked){
-                    ptrain()
-                }else {
-                    train()
-                }
-            }
+        binding.tickratehelp.setOnClickListener{
+            Toast.makeText(context,"It's how many mobs you can hit with 1 power attack", Toast.LENGTH_LONG).show()
         }
+        val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
+        trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
+                updateoutput()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        })
 
         val classspinner = binding.root.findViewById<Spinner>(R.id.classspinner)
         classspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
-                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" &&
-                    binding.root.findViewById<EditText>(R.id.stat).text.toString() != "" &&
-                    binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
-                ) {
-                    if (binding.root.findViewById<Switch>(R.id.ptrainswitch).isChecked) {
-                        ptrain()
-                    } else {
-                        train()
-                    }
-                }
+                updateoutput()
             }
 
             override fun onNothingSelected(adapterView: AdapterView<*>?) {
@@ -115,13 +99,7 @@ class TrainFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val userInput = s.toString()
-                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                    if(binding.root.findViewById<Switch>(R.id.ptrainswitch).isChecked){
-                        ptrain()
-                    }else {
-                        train()
-                    }
-                }
+                updateoutput()
             }
         })
 
@@ -139,13 +117,7 @@ class TrainFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val userInput = s.toString()
-                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                    if(binding.root.findViewById<Switch>(R.id.ptrainswitch).isChecked){
-                        ptrain()
-                    }else {
-                        train()
-                    }
-                }
+                updateoutput()
             }
         })
 
@@ -163,13 +135,59 @@ class TrainFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val userInput = s.toString()
-                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                    if(binding.root.findViewById<Switch>(R.id.ptrainswitch).isChecked){
-                        ptrain()
-                    }else {
-                        train()
-                    }
-                }
+                updateoutput()
+            }
+        })
+        val editTextTickrate = binding.root.findViewById<EditText>(R.id.tickrate)
+
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextTickrate.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val editTextHours = binding.root.findViewById<EditText>(R.id.hours)
+
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextHours.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+        val editTextStatGoal = binding.root.findViewById<EditText>(R.id.statgoal)
+
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextStatGoal.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
             }
         })
 
@@ -182,7 +200,55 @@ class TrainFragment : Fragment() {
         _binding = null
     }
 
-
+    private fun updateoutput(){
+        binding.root.findViewById<TextView>(R.id.str0).text = ""
+        binding.root.findViewById<TextView>(R.id.str1).text = ""
+        binding.root.findViewById<TextView>(R.id.str2).text = ""
+        binding.root.findViewById<TextView>(R.id.str3).text = ""
+        binding.root.findViewById<TextView>(R.id.str4).text = ""
+        binding.root.findViewById<TextView>(R.id.str5).text = ""
+        when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition){
+                0->{
+                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
+                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.GONE
+                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
+                    if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
+                        train()
+                    }
+                }
+                1->{
+                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.VISIBLE
+                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
+                    if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
+                        ptrain()
+                    }
+                }
+                2->{
+                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
+                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.GONE
+                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.VISIBLE
+                    if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!="") {
+                        offline()
+                    }
+                }
+            }
+        }
     private fun train(){
         val stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
         val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
@@ -516,5 +582,75 @@ class TrainFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.str5).text = ""
     }
 
+    @SuppressLint("SetTextI18n")
+    private fun offline(){
+        var stat1 = 0
+        if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!=""){
+            stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toInt()
+        }
+        var stat2 = 0
+        if(binding.root.findViewById<EditText>(R.id.statgoal).text.toString()!=""){
+            stat2 = binding.root.findViewById<EditText>(R.id.statgoal).text.toString().toInt()
+        }
+        var hours = 0
+        if(binding.root.findViewById<EditText>(R.id.hours).text.toString()!=""){
+            hours = binding.root.findViewById<EditText>(R.id.hours).text.toString().toInt()
+        }
+        if (stat2 > 0 && hours <= 0) {
+            if (stat1 > stat2) {
+                binding.root.findViewById<TextView>(R.id.str0).text="Stat goal must be greater than your current stat"
+            }else {
+                val ticks1: Double
+                val ticks2: Double
+                if (stat1 <= 54) {
+                    ticks1 = stat0to54_Calc(stat1.toDouble())
+                } else {
+                    ticks1 = stat55to99_Calc(stat1.toDouble())
+                }
+                if (stat2 <= 54) {
+                    ticks2 = stat0to54_Calc(stat2.toDouble())
+                } else {
+                    ticks2 = stat55to99_Calc(stat2.toDouble())
+                }
+                val totalticks = ticks2 - ticks1
+                binding.root.findViewById<TextView>(R.id.str0).text =
+                    "💫 You need approximately " + String.format(
+                        "%,.0f",
+                        totalticks
+                    ) + "ticks until you reach stat level " + java.lang.String.format(
+                        "%,d",
+                        stat2
+                    ) + "!\n" +
+                            "⏱️ This is around " + String.format(
+                        "%,.1f",
+                        totalticks * 60 / 600
+                    ) + " minutes, or " + String.format(
+                        "%,.1f",
+                        totalticks / 600
+                    ) + " hours of offline training at 600 exp/hr"
+            }
+        } else if (hours > 0 && stat2 <= 0) {
+            val tickstrained: Int = 600 * hours
+            val ticks1: Double
+            val ticks2: Double
+            if (stat1 <= 54) {
+                ticks1 = stat0to54_Calc(stat1.toDouble())
+            } else {
+                ticks1 = stat55to99_Calc(stat1.toDouble())
+            }
+            ticks2 = tickstrained + ticks1
+            val newStat = Math.round(100.0 * findStatLevel_Calc(ticks2)) / 100.0
+            if (newStat < 5) {
+                binding.root.findViewById<TextView>(R.id.str0).text="❌ Something went wrong: Could not find new stat!"
+            }
 
+            binding.root.findViewById<TextView>(R.id.str0).text=
+                "⏱️ Your new stat will be approximately: $newStat with $hours hours of offline training"
+
+        } else {
+            binding.root.findViewById<TextView>(R.id.str0).text="❗Please enter either hours OR stat goal"
+        }
+
+    }
 }
+

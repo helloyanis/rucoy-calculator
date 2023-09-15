@@ -33,8 +33,6 @@ class SkullFragment : Fragment() {
         _binding = SkullBinding.inflate(inflater, container, false)
         setalldisplays("No data")
         val editTextNumber = binding.root.findViewById<EditText>(R.id.editTextNumber)
-        Toast.makeText(context, "Skull formula is incorrect.", Toast.LENGTH_SHORT).show()
-        Toast.makeText(context, "Please wait for an update where I will fix it.", Toast.LENGTH_LONG).show()
         // Ajoutez un écouteur de texte à votre EditText
         editTextNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -93,7 +91,7 @@ class SkullFragment : Fragment() {
         }
         binding.root.findViewById<TextView>(R.id.redskullvalue).text = str3 + "G needed"
         val str4 = if((double*50).toString().substringAfter(".").length==1){
-            (150*40*double).toString().substringBefore(".")
+            (((4-3)*(4-3))*double*4050).toString().substringBefore(".")
         }else {
             (150*40*double).toString()
         }

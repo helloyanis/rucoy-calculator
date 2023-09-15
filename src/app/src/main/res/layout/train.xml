@@ -5,111 +5,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.train.TrainFragment">
 
-    <TextView
-        android:id="@+id/str0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptrainswitch" />
-
-    <TextView
-        android:id="@+id/str1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/str0" />
-
-    <TextView
-        android:id="@+id/str4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/str3" />
-
-    <TextView
-        android:id="@+id/str5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/str4" />
-
-    <TextView
-        android:id="@+id/str2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/str5" />
-
-    <TextView
-        android:id="@+id/str3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/str1" />
-
-    <EditText
-        android:id="@+id/baselevel"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/base_level"
-        android:inputType="number" />
+        android:layout_height="match_parent"
+        tools:context=".ui.train.TrainFragment">
 
-    <EditText
-        android:id="@+id/stat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:width="200dp"
-        android:ems="10"
-        android:hint="@string/stat_level"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baselevel" />
+        <TextView
+            android:id="@+id/str0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trainstylespinner" />
 
-    <EditText
-        android:id="@+id/weaponatk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:width="200dp"
-        android:ems="10"
-        android:hint="@string/weapon_atk"
-        android:imeActionLabel="Test"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat" />
+        <TextView
+            android:id="@+id/str1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/str0" />
 
-    <Spinner
-        android:id="@+id/classspinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:entries="@array/classes_array"
-        android:spinnerMode="dialog"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/ptrainswitch"
-        app:layout_constraintStart_toEndOf="@+id/ptrainswitch"
-        app:layout_constraintTop_toBottomOf="@+id/weaponatk" />
+        <TextView
+            android:id="@+id/str4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/str3" />
 
-    <Switch
-        android:id="@+id/ptrainswitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/prtain_switch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weaponatk" />
+        <TextView
+            android:id="@+id/str5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/str4" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/str2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/str5" />
+
+        <TextView
+            android:id="@+id/str3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/str1" />
+
+        <EditText
+            android:id="@+id/baselevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/base_level"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/stat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/stat_level"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hours" />
+
+        <EditText
+            android:id="@+id/hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/hours"
+            android:inputType="number"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baselevel" />
+
+        <EditText
+            android:id="@+id/weaponatk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/weapon_atk"
+            android:imeActionLabel="Test"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statgoal" />
+
+        <EditText
+            android:id="@+id/tickrate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/tickrate"
+            android:imeActionLabel="Test"
+            android:inputType="number"
+            android:text="4"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weaponatk" />
+
+        <EditText
+            android:id="@+id/statgoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/stat_goal"
+            android:imeActionLabel="Test"
+            android:inputType="number"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stat" />
+
+        <Spinner
+            android:id="@+id/classspinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/classes_array"
+            android:spinnerMode="dialog"
+            app:layout_constraintStart_toEndOf="@+id/trainstylespinner"
+            app:layout_constraintTop_toTopOf="@+id/trainstylespinner" />
+
+        <Spinner
+            android:id="@+id/trainstylespinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/train_methods_array"
+            android:spinnerMode="dialog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tickrate" />
+
+        <Button
+            android:id="@+id/tickratehelp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tickrate_help"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tickrate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tickrate"
+            app:layout_constraintTop_toTopOf="@+id/tickrate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
