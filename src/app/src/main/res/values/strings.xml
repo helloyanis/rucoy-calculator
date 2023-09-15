@@ -9,8 +9,8 @@
     <string name="weapon_atk">Weapon attack</string>
     <string name="stat_goal">Stat goal</string>
     <string name="hours">Hours</string>
-    <string name="tickrate">Tickrate</string>
-    <string name="tickrate_help">What is tickrate?</string>
+    <string name="tickrate">Tick (default is 4)</string>
+    <string name="tickrate_help">What is tick?</string>
     <string name="prtain_switch">Power training</string>
     <string-array name="classes_array">
         <item>Melee</item>

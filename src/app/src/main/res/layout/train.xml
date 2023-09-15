@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/statgoal" />
 
         <EditText
-            android:id="@+id/tickrate"
+            android:id="@+id/tick"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -144,18 +144,18 @@
             android:entries="@array/train_methods_array"
             android:spinnerMode="dialog"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tickrate" />
+            app:layout_constraintTop_toBottomOf="@+id/tick" />
 
         <Button
-            android:id="@+id/tickratehelp"
+            android:id="@+id/tickhelp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/tickrate_help"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/tickrate"
+            app:layout_constraintBottom_toBottomOf="@+id/tick"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tickrate"
-            app:layout_constraintTop_toTopOf="@+id/tickrate" />
+            app:layout_constraintStart_toEndOf="@+id/tick"
+            app:layout_constraintTop_toTopOf="@+id/tick" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

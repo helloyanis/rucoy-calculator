@@ -59,8 +59,8 @@ class TrainFragment : Fragment() {
         val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
         GitHubReleaseChecker(requireContext(), repositoryUrl).execute()
 
-        binding.tickratehelp.setOnClickListener{
-            Toast.makeText(context,"It's how many mobs you can hit with 1 power attack", Toast.LENGTH_LONG).show()
+        binding.tickhelp.setOnClickListener{
+            Toast.makeText(context,"It's how many mobs you can hit with 1 power attack!", Toast.LENGTH_LONG).show()
         }
         val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
         trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
@@ -138,7 +138,7 @@ class TrainFragment : Fragment() {
                 updateoutput()
             }
         })
-        val editTextTickrate = binding.root.findViewById<EditText>(R.id.tickrate)
+        val editTextTickrate = binding.root.findViewById<EditText>(R.id.tick)
 
         // Ajoutez un écouteur de texte à votre EditText
         editTextTickrate.addTextChangedListener(object : TextWatcher {
@@ -214,8 +214,8 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.GONE
-                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
+                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         train()
@@ -227,8 +227,8 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.VISIBLE
-                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.VISIBLE
+                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.VISIBLE
+                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         ptrain()
@@ -240,8 +240,8 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.tickrate).visibility=View.GONE
-                    binding.root.findViewById<Button>(R.id.tickratehelp).visibility=View.GONE
+                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
+                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.VISIBLE
                     if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!="") {
                         offline()
@@ -433,7 +433,11 @@ class TrainFragment : Fragment() {
         val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
         val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
         val classtype = binding.root.findViewById<Spinner>(R.id.classspinner).selectedItemPosition
-        val tick = 4.toDouble() //Change this later
+        var tick = 4.toDouble()
+        if(binding.root.findViewById<EditText>(R.id.tick).text.toString()!=""){
+            tick = binding.root.findViewById<EditText>(R.id.tick).text.toString().toDouble() //Change this later
+        }
+
         val max_raw_damage: Double
         val min_raw_damage: Double
 
