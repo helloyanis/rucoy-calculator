@@ -5,15 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.skull.SkullFragment">
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/baselevelskull"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,39 +22,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/whiteskullvalue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/whiteskullimage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-    <ImageView
-        android:id="@+id/whiteskullimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/skull_white"
-        app:layout_constraintEnd_toStartOf="@+id/whiteskullvalue"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-    <TextView
         android:id="@+id/yellowskullvalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/whiteskullvalue" />
+        app:layout_constraintTop_toBottomOf="@+id/baselevelskull" />
 
     <ImageView
         android:id="@+id/redskullimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/skull_red"
+        app:layout_constraintBottom_toBottomOf="@+id/redskullvalue"
         app:layout_constraintEnd_toStartOf="@+id/redskullvalue"
-        app:layout_constraintTop_toBottomOf="@+id/orangeskullvalue" />
+        app:layout_constraintTop_toTopOf="@+id/redskullvalue" />
 
     <TextView
         android:id="@+id/redskullvalue"
@@ -72,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/skull_black"
+        app:layout_constraintBottom_toBottomOf="@+id/blackskullvalue"
         app:layout_constraintEnd_toStartOf="@+id/blackskullvalue"
         app:layout_constraintTop_toBottomOf="@+id/redskullvalue" />
 
@@ -98,14 +80,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/skull_yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/yellowskullvalue"
         app:layout_constraintEnd_toStartOf="@+id/yellowskullvalue"
-        app:layout_constraintTop_toBottomOf="@+id/whiteskullvalue" />
+        app:layout_constraintTop_toTopOf="@+id/yellowskullvalue" />
 
     <ImageView
         android:id="@+id/orangeskullimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/skull_orange"
+        app:layout_constraintBottom_toTopOf="@+id/redskullvalue"
         app:layout_constraintEnd_toStartOf="@+id/orangeskullvalue"
         app:layout_constraintTop_toBottomOf="@+id/yellowskullvalue" />
 

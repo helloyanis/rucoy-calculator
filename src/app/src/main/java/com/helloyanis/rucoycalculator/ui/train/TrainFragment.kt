@@ -2,6 +2,7 @@ package com.helloyanis.rucoycalculator.ui.train
 
 import GitHubReleaseChecker
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,8 +15,15 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.TrainBinding
 import com.helloyanis.rucoycalculator.ui.train.Formulas.accuracy_Calc
@@ -36,15 +44,27 @@ import com.helloyanis.rucoycalculator.ui.train.Formulas.stat55to99_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.total_accuracy_Calc
+import kotlinx.coroutines.launch
+import java.util.concurrent.Flow
+
 
 
 class TrainFragment : Fragment() {
     private var _binding: TrainBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    private val dataStore: DataStore<Preferences>
+        get() = (requireActivity() as MainActivity).dataStore
+    private val STAT_KEY = stringPreferencesKey("stat_key")
+    private val WEAPON_ATK_KEY = stringPreferencesKey("weapon_atk_key")
+    private val BASE_LEVEL_KEY = stringPreferencesKey("base_level_key")
+    private val TICK_KEY = stringPreferencesKey("tick_key")
+    private val PTRAIN_CLASS_KEY = stringPreferencesKey("ptrain_class_key")
+    private val HOURS_KEY = stringPreferencesKey("hours_key")
+    private val STAT_GOAL_KEY = stringPreferencesKey("stat_goal_key")
+    // Define keys for other preferences as needed
+    private var isInit = true
     @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,11 +73,35 @@ class TrainFragment : Fragment() {
     ): View {
         val trainViewModel =
             ViewModelProvider(this).get(TrainViewModel::class.java)
+        lifecycleScope.launch {
+            dataStore?.data?.collect { preferences ->
+                if(isInit) {
+
+                    binding.root.findViewById<EditText>(R.id.baselevel).text =
+                        Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.stat).text =
+                        Editable.Factory.getInstance().newEditable(preferences[STAT_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.weaponatk).text =
+                        Editable.Factory.getInstance().newEditable(preferences[WEAPON_ATK_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.tick).text =
+                        Editable.Factory.getInstance().newEditable(preferences[TICK_KEY] ?: "4")
+                    binding.root.findViewById<Spinner>(R.id.classspinner).setSelection(
+                        preferences[PTRAIN_CLASS_KEY]?.toInt() ?: 0)
+                    binding.root.findViewById<EditText>(R.id.hours).text =
+                        Editable.Factory.getInstance().newEditable(preferences[HOURS_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.statgoal).text =
+                        Editable.Factory.getInstance().newEditable(preferences[STAT_GOAL_KEY] ?: "")
+
+                    isInit = false
+                }
+            }
+            updateoutput() // Call updateoutput() only once after restoring saved values
+        }
+
+
 
         _binding = TrainBinding.inflate(inflater, container, false)
-        updateoutput()
-        val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
-        GitHubReleaseChecker(requireContext(), repositoryUrl).execute()
+
 
         binding.tickhelp.setOnClickListener{
             Toast.makeText(context,"It's how many mobs you can hit with 1 power attack!", Toast.LENGTH_LONG).show()
@@ -207,6 +251,27 @@ class TrainFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.str3).text = ""
         binding.root.findViewById<TextView>(R.id.str4).text = ""
         binding.root.findViewById<TextView>(R.id.str5).text = ""
+        val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevel).text.toString()
+        val statValue = binding.root.findViewById<EditText>(R.id.stat).text.toString()
+        val weaponAtkValue = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()
+        val tickValue = binding.root.findViewById<EditText>(R.id.tick).text.toString()
+        val ptrainClassValue = binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition.toString()
+        val hoursValue = binding.root.findViewById<EditText>(R.id.hours).text.toString()
+        val statGoalValue = binding.root.findViewById<EditText>(R.id.statgoal).text.toString()
+        lifecycleScope.launch {
+            // Save values to DataStore
+            dataStore?.edit { preferences ->
+                preferences[BASE_LEVEL_KEY] = baseLevelValue
+                preferences[STAT_KEY] = statValue
+                preferences[WEAPON_ATK_KEY] = weaponAtkValue
+                preferences[TICK_KEY] = tickValue
+                preferences[PTRAIN_CLASS_KEY] = ptrainClassValue
+                preferences[HOURS_KEY] = hoursValue
+                preferences[STAT_GOAL_KEY] = statGoalValue
+            }
+        }
+
+
         when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition){
                 0->{
                     binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
@@ -255,7 +320,7 @@ class TrainFragment : Fragment() {
         val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
         val min_raw_damage: Double = Formulas.auto_min_raw_damage_Calc(stat1, weaponatk, base)
         val max_raw_damage: Double = Formulas.auto_max_raw_damage_Calc(stat1, weaponatk, base)
-        val max_raw_crit_damage: Double = Formulas.max_raw_crit_damage_Calc(max_raw_damage)
+        val max_raw_crit_damage: Double = max_raw_crit_damage_Calc(max_raw_damage)
         var accuracy = 0.0
         var str0=""
         var str1=""
@@ -277,7 +342,7 @@ class TrainFragment : Fragment() {
                 continue
             }
             accuracy =
-                Formulas.accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x)
+                accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x)
             if (accuracy >= 0.1749) {
                 pos = x
                 break
@@ -287,11 +352,11 @@ class TrainFragment : Fragment() {
         //Calculate average damage which you need for average time to kill
 
         //Calculate average damage which you need for average time to kill
-        val min_damage: Double = Formulas.min_damage_Calc(min_raw_damage, pos)
-        val max_damage: Double = Formulas.max_damage_Calc(max_raw_damage, pos)
-        val max_crit_damage: Double = Formulas.max_crit_damage_Calc(max_raw_crit_damage, pos)
+        val min_damage: Double = min_damage_Calc(min_raw_damage, pos)
+        val max_damage: Double = max_damage_Calc(max_raw_damage, pos)
+        val max_crit_damage: Double = max_crit_damage_Calc(max_raw_crit_damage, pos)
         val avgdmg: Double =
-            Formulas.average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage)
+            average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage)
         val tickrate: Double = Formulas.tickrate_Calc(accuracy, 3600.toDouble())
 
         //In certain cases you can effective train on two mobs
@@ -311,7 +376,7 @@ class TrainFragment : Fragment() {
             newpos++
         }
 
-        val time: Double = Formulas.time_to_kill_Calc(avgdmg, pos)
+        val time: Double = time_to_kill_Calc(avgdmg, pos)
         str0 = """
             ${
             "👾 You can train effectively on " + mobs.get(pos).mob_name /*+ mobs.get(pos)
@@ -320,7 +385,7 @@ class TrainFragment : Fragment() {
             
             """.trimIndent()
         if (!onemob) {
-            val time2: Double = Formulas.time_to_kill_Calc(avgdmg, pos + 1)
+            val time2: Double = time_to_kill_Calc(avgdmg, pos + 1)
             str0 = """
                 ${
                 "👾 You can train effectively on " + mobs.get(pos).mob_name /*+ mobs.get(pos)
@@ -354,9 +419,9 @@ class TrainFragment : Fragment() {
             val new_max_raw_damage: Double =
                 Formulas.auto_max_raw_damage_Calc(statneeded, weaponatk, base)
             val new_max_raw_critdamage: Double =
-                Formulas.max_raw_crit_damage_Calc(new_max_raw_damage)
-            new_max_damage = Formulas.max_damage_Calc(new_max_raw_damage, newpos)
-            newaccuracy = Formulas.accuracy_Calc(
+                max_raw_crit_damage_Calc(new_max_raw_damage)
+            new_max_damage = max_damage_Calc(new_max_raw_damage, newpos)
+            newaccuracy = accuracy_Calc(
                 new_max_raw_critdamage,
                 new_max_raw_damage,
                 new_min_raw_damage,

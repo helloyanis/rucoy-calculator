@@ -8,31 +8,60 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.SkullBinding
+import kotlinx.coroutines.launch
 
 
 class SkullFragment : Fragment() {
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "data")
-    private var _binding: SkullBinding? = null
+     var _binding: SkullBinding? = null
     private val binding get() = _binding!!
-
+    private val dataStore: DataStore<Preferences>
+        get() = (requireActivity() as MainActivity).dataStore
+    private val STAT_KEY = stringPreferencesKey("stat_key")
+    private val WEAPON_ATK_KEY = stringPreferencesKey("weapon_atk_key")
+    private val BASE_LEVEL_KEY = stringPreferencesKey("base_level_key")
+    private val TICK_KEY = stringPreferencesKey("tick_key")
+    private val PTRAIN_CLASS_KEY = stringPreferencesKey("ptrain_class_key")
+    private val HOURS_KEY = stringPreferencesKey("hours_key")
+    private val STAT_GOAL_KEY = stringPreferencesKey("stat_goal_key")
+    // Define keys for other preferences as needed
+    private var isInit = true
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = SkullBinding.inflate(inflater, container, false)
-        setalldisplays("No data")
-        val editTextNumber = binding.root.findViewById<EditText>(R.id.editTextNumber)
+        lifecycleScope.launch {
+            dataStore?.data?.collect { preferences ->
+                if(isInit) {
+
+                    binding.root.findViewById<EditText>(R.id.baselevelskull).text =
+                        Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
+
+                    isInit = false
+                    if (binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()!="") {
+                        calcskull(binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString().toDouble())
+                    }else{
+                        setalldisplays("No data")
+                    }
+
+                }
+            }
+        }
+
+        val editTextNumber = binding.root.findViewById<EditText>(R.id.baselevelskull)
         // Ajoutez un écouteur de texte à votre EditText
         editTextNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -59,19 +88,19 @@ class SkullFragment : Fragment() {
         _binding = null
     }
     private fun setalldisplays(string: String){
-        binding.root.findViewById<TextView>(R.id.whiteskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.yellowskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.redskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.blackskullvalue).text = string
     }
     private fun calcskull(double: Double) {
-        val str0 = if((double*50).toString().substringAfter(".").length==1){
-            (double*50).toString().substringBefore(".")
-        }else {
-            (double * 50).toString()
+        val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()
+        lifecycleScope.launch {
+            // Save values to DataStore
+            dataStore?.edit { preferences ->
+                preferences[BASE_LEVEL_KEY] = baseLevelValue
+            }
         }
-        binding.root.findViewById<TextView>(R.id.whiteskullvalue).text = str0 + "G needed"
         val str1 = if((double*150).toString().substringAfter(".").length==1){
             (double*150).toString().substringBefore(".")
         }else {

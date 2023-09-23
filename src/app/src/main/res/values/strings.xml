@@ -22,7 +22,7 @@
         <item>Power training</item>
         <item>Offline training</item>
     </string-array>
-    <string name="credits_content">Application made by helloyanis\nTraining formulas by Mims\nCode (sometimes) by ChatGPT!\nThis app is free and open-source! Check out the GitHub!\nSupport me to help me keep maintaining this application and add new features!\nA feature idea? A bug report? Go on GitHub and open an issue!</string>
+    <string name="credits_content">Application made by helloyanis\nTraining formulas by Mims\nCode (sometimes) by ChatGPT!\nThis app is free and open-source! Check out the GitHub!\nSupport me to help me keep maintaining this application and add new features!\nA feature idea? A bug report? Go on GitHub and open an issue!\n\nFAQ!!\n❓It says there is an update but it does not show on Google play store!\n❗You need to wait a few days to get the update from Google play store while they verify the app! You can get it earlier via GitHub.</string>
     <string name="github">GitHub</string>
     <string name="support_me">❤️ Support me!</string>
 
