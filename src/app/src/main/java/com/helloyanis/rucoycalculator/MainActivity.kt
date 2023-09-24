@@ -15,12 +15,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.helloyanis.rucoycalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    val dataStore: DataStore<Preferences> by preferencesDataStore(name = "savedvalues")
     private lateinit var binding: ActivityMainBinding
+
+    companion object {
+        val Context.dataStore: DataStore<Preferences> by preferencesDataStore("savedvalues")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
-        GitHubReleaseChecker(this, repositoryUrl).execute()
+        //GitHubReleaseChecker(this, repositoryUrl).execute()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -36,6 +40,5 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
     }
 }

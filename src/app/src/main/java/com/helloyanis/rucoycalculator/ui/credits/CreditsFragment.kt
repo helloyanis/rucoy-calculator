@@ -46,6 +46,12 @@ class CreditsFragment : Fragment() {
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/helloyanis"))
             startActivity(i)
         }
+        val privacybutton = binding.privacy
+
+        privacybutton.setOnClickListener{
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://gist.github.com/helloyanis/25ae600a5d2d162a2912ec0a24ed2084"))
+            startActivity(i)
+        }
 
         val githubbutton = binding.github
 

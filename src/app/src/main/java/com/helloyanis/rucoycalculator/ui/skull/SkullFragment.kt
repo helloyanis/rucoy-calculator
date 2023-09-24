@@ -18,6 +18,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.helloyanis.rucoycalculator.MainActivity
+import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.SkullBinding
 import kotlinx.coroutines.launch

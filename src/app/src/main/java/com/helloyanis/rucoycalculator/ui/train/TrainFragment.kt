@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.helloyanis.rucoycalculator.MainActivity
+import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.TrainBinding
 import com.helloyanis.rucoycalculator.ui.train.Formulas.accuracy_Calc
@@ -50,7 +51,7 @@ import java.util.concurrent.Flow
 
 
 class TrainFragment : Fragment() {
-    private var _binding: TrainBinding? = null
+    var _binding: TrainBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -71,8 +72,8 @@ class TrainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val trainViewModel =
-            ViewModelProvider(this).get(TrainViewModel::class.java)
+        _binding = TrainBinding.inflate(inflater, container, false)
+        val trainViewModel = ViewModelProvider(this).get(TrainViewModel::class.java)
         lifecycleScope.launch {
             dataStore?.data?.collect { preferences ->
                 if(isInit) {
@@ -97,10 +98,6 @@ class TrainFragment : Fragment() {
             }
             updateoutput() // Call updateoutput() only once after restoring saved values
         }
-
-
-
-        _binding = TrainBinding.inflate(inflater, container, false)
 
 
         binding.tickhelp.setOnClickListener{
