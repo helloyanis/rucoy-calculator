@@ -62,7 +62,7 @@ class GitHubReleaseChecker(private val context: Context, private val repositoryU
 
     private fun isUpdateAvailable(latestVersion: String): Boolean {
         // Replace this with the current installed version of your app.
-        val currentVersion = "4.0"
+        val currentVersion = "4.1"
 
         // Split the version strings into individual parts.
         val currentVersionParts = currentVersion.split(".")
