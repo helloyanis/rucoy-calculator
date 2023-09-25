@@ -49,7 +49,7 @@ class CreditsFragment : Fragment() {
         val privacybutton = binding.privacy
 
         privacybutton.setOnClickListener{
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://gist.github.com/helloyanis/25ae600a5d2d162a2912ec0a24ed2084"))
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://gist.githubusercontent.com/helloyanis/25ae600a5d2d162a2912ec0a24ed2084/raw/74708abcb5688e54ebb59ac91830a3d4a2d26ba3/privacy.md"))
             startActivity(i)
         }
 
