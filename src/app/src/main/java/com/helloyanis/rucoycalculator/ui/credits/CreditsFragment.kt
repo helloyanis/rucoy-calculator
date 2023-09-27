@@ -9,8 +9,12 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.CreditsBinding
 
 class CreditsFragment : Fragment() {
@@ -19,7 +23,7 @@ class CreditsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val colors = listOf(
-        Color.RED, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.MAGENTA
+        Color.RED, Color.GREEN, Color.CYAN, Color.BLUE, Color.MAGENTA
     )
     private var currentIndex = 0
     private val handler = Handler(Looper.getMainLooper())
@@ -35,6 +39,7 @@ class CreditsFragment : Fragment() {
 
         _binding = CreditsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         // Get the button view
         val supportMeButton = binding.supportMe
@@ -58,6 +63,33 @@ class CreditsFragment : Fragment() {
         githubbutton.setOnClickListener{
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/helloyanis/rucoy-calculator"))
             startActivity(i)
+        }
+
+        val ratebutton = binding.rate
+
+        ratebutton.setOnClickListener{
+                val manager = ReviewManagerFactory.create(requireContext())
+                val request = manager.requestReviewFlow()
+                request.addOnCompleteListener { request ->
+                    if (request.isSuccessful) {
+                        // We got the ReviewInfo object
+                        val reviewInfo = request.result
+                        val flow = manager.launchReviewFlow(requireActivity(), reviewInfo)
+                        flow.addOnCompleteListener { _ ->
+                            binding.root.findViewById<TextView>(R.id.rate).visibility=View.GONE
+                            binding.root.findViewById<TextView>(R.id.ratebackup).visibility=View.VISIBLE
+
+                        }
+                    } else {
+                        Toast.makeText(context, "Could not find the Play Store installed on your device!", Toast.LENGTH_LONG).show()
+                    }
+                }
+        }
+
+        val ratebackupbutton = binding.ratebackup
+
+        ratebackupbutton.setOnClickListener{
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.helloyanis.rucoycalculator")))
         }
 
         return root

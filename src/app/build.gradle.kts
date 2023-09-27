@@ -12,8 +12,8 @@ android {
         applicationId = "com.helloyanis.rucoycalculator"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "4.2"
+        versionCode = 7
+        versionName = "4.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -57,5 +57,6 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
+    implementation("com.google.android.play:core-ktx:1.8.1")
 
 }

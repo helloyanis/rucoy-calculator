@@ -61,50 +61,57 @@
 
         <EditText
             android:id="@+id/baselevel"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/base_level"
-            android:inputType="number" />
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/baselevellabel"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/stat"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:width="200dp"
             android:ems="10"
             android:hint="@string/stat_level"
             android:inputType="number"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/statlabel"
             app:layout_constraintTop_toBottomOf="@+id/hours" />
 
         <EditText
             android:id="@+id/hours"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:width="200dp"
             android:ems="10"
             android:hint="@string/hours"
             android:inputType="number"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/baselevel" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hourslabel"
+            app:layout_constraintTop_toBottomOf="@+id/baselevel"
+            tools:visibility="visible" />
 
         <EditText
             android:id="@+id/weaponatk"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:width="200dp"
             android:ems="10"
             android:hint="@string/weapon_atk"
-            android:imeActionLabel="Test"
+            android:imeOptions="actionDone"
             android:inputType="number"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weaponatklabel"
             app:layout_constraintTop_toBottomOf="@+id/statgoal" />
 
         <EditText
             android:id="@+id/tick"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/tickrate"
@@ -112,12 +119,13 @@
             android:inputType="number"
             android:text="4"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/weaponatk" />
+            app:layout_constraintStart_toEndOf="@+id/ticklabel"
+            app:layout_constraintTop_toBottomOf="@+id/weaponatk"
+            tools:visibility="visible" />
 
         <EditText
             android:id="@+id/statgoal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:width="200dp"
             android:ems="10"
@@ -125,8 +133,10 @@
             android:imeActionLabel="Test"
             android:inputType="number"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stat" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/statgoallabel"
+            app:layout_constraintTop_toBottomOf="@+id/stat"
+            tools:visibility="visible" />
 
         <Spinner
             android:id="@+id/classspinner"
@@ -155,7 +165,70 @@
             app:layout_constraintBottom_toBottomOf="@+id/tick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tick"
-            app:layout_constraintTop_toTopOf="@+id/tick" />
+            app:layout_constraintTop_toTopOf="@+id/tick"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/baselevellabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/base_level"
+            app:layout_constraintBottom_toBottomOf="@+id/baselevel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/baselevel" />
+
+        <TextView
+            android:id="@+id/statlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stat_level"
+            app:layout_constraintBottom_toBottomOf="@+id/stat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/stat" />
+
+        <TextView
+            android:id="@+id/hourslabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hours"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/hours"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hours"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/statgoallabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stat_goal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/statgoal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/statgoal"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/weaponatklabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weapon_atk"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/weaponatk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weaponatk"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/ticklabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tickrate"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tick"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

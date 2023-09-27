@@ -26,5 +26,7 @@
     <string name="github">GitHub</string>
     <string name="privacy">Privacy policy</string>
     <string name="support_me">❤️ Support me!</string>
+    <string name="rate">🌟 Rate app!</string>
+    <string name="ratebackup">🌟 Window did not show? Click again to open Play Store.</string>
 
 </resources>

@@ -273,12 +273,18 @@ class TrainFragment : Fragment() {
                 0->{
                     binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
                     binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         train()
                     }
@@ -286,12 +292,18 @@ class TrainFragment : Fragment() {
                 1->{
                     binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.tick).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.VISIBLE
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         ptrain()
                     }
@@ -299,12 +311,18 @@ class TrainFragment : Fragment() {
                 2->{
                     binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
                     binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
+                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.VISIBLE
+                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.VISIBLE
                     if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!="") {
                         offline()
                     }
@@ -650,17 +668,17 @@ class TrainFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun offline(){
-        var stat1 = 0
+        var stat1 = 0.toDouble()
         if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!=""){
-            stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toInt()
+            stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
         }
-        var stat2 = 0
+        var stat2 = 0.toDouble()
         if(binding.root.findViewById<EditText>(R.id.statgoal).text.toString()!=""){
-            stat2 = binding.root.findViewById<EditText>(R.id.statgoal).text.toString().toInt()
+            stat2 = binding.root.findViewById<EditText>(R.id.statgoal).text.toString().toDouble()
         }
-        var hours = 0
+        var hours = 0.toDouble()
         if(binding.root.findViewById<EditText>(R.id.hours).text.toString()!=""){
-            hours = binding.root.findViewById<EditText>(R.id.hours).text.toString().toInt()
+            hours = binding.root.findViewById<EditText>(R.id.hours).text.toString().toDouble()
         }
         if (stat2 > 0 && hours <= 0) {
             if (stat1 > stat2) {
@@ -696,7 +714,7 @@ class TrainFragment : Fragment() {
                     ) + " hours of offline training at 600 exp/hr"
             }
         } else if (hours > 0 && stat2 <= 0) {
-            val tickstrained: Int = 600 * hours
+            val tickstrained: Double = 600 * hours
             val ticks1: Double
             val ticks2: Double
             if (stat1 <= 54) {
@@ -711,7 +729,7 @@ class TrainFragment : Fragment() {
             }
 
             binding.root.findViewById<TextView>(R.id.str0).text=
-                "⏱️ Your new stat will be approximately: $newStat with $hours hours of offline training"
+                "⏱️ Your new stat will be approximately: ${newStat.toInt()} with ${hours.toInt()} hours of offline training"
 
         } else {
             binding.root.findViewById<TextView>(R.id.str0).text="❗Please enter either hours OR stat goal"

@@ -16,7 +16,6 @@ import com.helloyanis.rucoycalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     companion object {
         val Context.dataStore: DataStore<Preferences> by preferencesDataStore("savedvalues")
     }
