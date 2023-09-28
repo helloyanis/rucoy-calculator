@@ -701,8 +701,8 @@ class TrainFragment : Fragment() {
                     "💫 You need approximately " + String.format(
                         "%,.0f",
                         totalticks
-                    ) + "ticks until you reach stat level " + java.lang.String.format(
-                        "%,d",
+                    ) + " ticks until you reach stat level " + java.lang.String.format(
+                        "%,.1f",
                         stat2
                     ) + "!\n" +
                             "⏱️ This is around " + String.format(

@@ -22,11 +22,10 @@
         <item>Power training</item>
         <item>Offline training</item>
     </string-array>
-    <string name="credits_content">Application made by helloyanis\nTraining formulas by Mims\nCode (sometimes) by ChatGPT!\nThis app is free and open-source! Check out the GitHub!\nSupport me to help me keep maintaining this application and add new features!\nA feature idea? A bug report? Go on GitHub and open an issue!</string>
+    <string name="credits_content">This is an unofficial application made by helloyanis\nTraining formulas by Mims\nCode (sometimes) by ChatGPT!\nThis app is free and open-source! Check out the GitHub!\nSupport me to help me keep maintaining this application and add new features!\nA feature idea? A bug report? Go on GitHub and open an issue!</string>
     <string name="github">GitHub</string>
     <string name="privacy">Privacy policy</string>
     <string name="support_me">❤️ Support me!</string>
     <string name="rate">🌟 Rate app!</string>
     <string name="ratebackup">🌟 Window did not show? Click again to open Play Store.</string>
-
 </resources>
