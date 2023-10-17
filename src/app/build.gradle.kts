@@ -13,7 +13,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 8
-        versionName = "4.4"
+        versionName = "5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,7 +36,12 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.0"
+    }
+
 }
 
 dependencies {
@@ -58,5 +63,7 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
     implementation("com.google.android.play:core-ktx:1.8.1")
+    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
 
 }

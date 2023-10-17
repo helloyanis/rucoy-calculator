@@ -21,6 +21,7 @@ import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.SkullBinding
+import com.helloyanis.rucoycalculator.ui.train.Formulas
 import kotlinx.coroutines.launch
 
 
@@ -102,30 +103,50 @@ class SkullFragment : Fragment() {
                 preferences[BASE_LEVEL_KEY] = baseLevelValue
             }
         }
-        val str1 = if((double*150).toString().substringAfter(".").length==1){
-            (double*150).toString().substringBefore(".")
-        }else {
-            (double*150).toString()
-        }
-        binding.root.findViewById<TextView>(R.id.yellowskullvalue).text = str1 + "G needed"
-        val str2 = if((150*4*double).toString().substringAfter(".").length==1){
-            (150*4*double).toString().substringBefore(".")
-        }else {
-            (150*4*double).toString()
-        }
-        binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = str2 + "G needed"
-        val str3 = if((150*13*double).toString().substringAfter(".").length==1){
-            (150*13*double).toString().substringBefore(".")
-        }else {
-            (150*13*double).toString()
-        }
-        binding.root.findViewById<TextView>(R.id.redskullvalue).text = str3 + "G needed"
-        val str4 = if((double*50).toString().substringAfter(".").length==1){
-            (((4-3)*(4-3))*double*4050).toString().substringBefore(".")
-        }else {
-            (150*40*double).toString()
-        }
-        binding.root.findViewById<TextView>(R.id.blackskullvalue).text = str4 + "G needed"
+        binding.root.findViewById<TextView>(R.id.mainstat).text =  "❤️ "+String.format(
+            "%,.0f",
+            100+double*15
+        ) + " HP\n🪄" +  String.format(
+            "%,.0f",
+            100+double*20
+        )+ " MP\n💪 Level " + String.format("%,.0f", double) + " is at " + String.format("%,.0f", Formulas.exp_Calc(double)) + " exp!\n" +
+                "✨ You need " + String.format("%,.0f", (Formulas.exp_Calc(double + 1) - Formulas.exp_Calc(double))) + " experience to reach level " + String.format("%,.0f", double + 1) + "!"
+
+        binding.root.findViewById<TextView>(R.id.whiteskullvalue).text =  String.format(
+            "%,.0f",
+            double*150
+        ) + "G needed\n" +  String.format(
+            "%,.0f",
+            double*50
+        )+ "G lost from death by player."
+        binding.root.findViewById<TextView>(R.id.yellowskullvalue).text =  String.format(
+            "%,.0f",
+            double*150
+        ) + "G needed\n" +  String.format(
+            "%,.0f",
+            double*150
+        )+ "G lost from death by player."
+        binding.root.findViewById<TextView>(R.id.orangeskullvalue).text =  String.format(
+            "%,.0f",
+            double*600
+        ) + "G needed\n" +  String.format(
+            "%,.0f",
+            double*450
+        )+ "G lost from death by player."
+        binding.root.findViewById<TextView>(R.id.redskullvalue).text =  String.format(
+            "%,.0f",
+            double*1950
+        ) + "G needed\n" +  String.format(
+            "%,.0f",
+            double*1350
+        )+ "G lost from death by player."
+        binding.root.findViewById<TextView>(R.id.blackskullvalue).text =  String.format(
+            "%,.0f",
+            double*6000
+        ) + "G needed\n" +  String.format(
+            "%,.0f",
+            double*4050
+        )+ "G lost from death by player."
 
     }
 }

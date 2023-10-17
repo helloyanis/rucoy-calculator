@@ -1,6 +1,7 @@
 package com.helloyanis.rucoycalculator.ui.train
 
 import androidx.lifecycle.ViewModel
+import kotlin.math.pow
 
 class TrainViewModel : ViewModel() {
 
@@ -115,7 +116,7 @@ object Formulas {
     }
 
     fun exp_Calc(base: Double): Double {
-        return Math.pow(base, base / 1000 + 3)
+        return base.pow(base / 1000 + 3)
     }
 
     fun stat0to54_Calc(stat: Double): Double {

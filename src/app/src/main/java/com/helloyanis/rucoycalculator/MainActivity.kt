@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.color.DynamicColors
 import com.helloyanis.rucoycalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DynamicColors.applyToActivitiesIfAvailable(this.application)
         val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
         //GitHubReleaseChecker(this, repositoryUrl).execute()
         binding = ActivityMainBinding.inflate(layoutInflater)

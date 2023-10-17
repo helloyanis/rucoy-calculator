@@ -243,11 +243,11 @@ class TrainFragment : Fragment() {
 
     private fun updateoutput(){
         binding.root.findViewById<TextView>(R.id.str0).text = ""
-        binding.root.findViewById<TextView>(R.id.str1).text = ""
-        binding.root.findViewById<TextView>(R.id.str2).text = ""
-        binding.root.findViewById<TextView>(R.id.str3).text = ""
-        binding.root.findViewById<TextView>(R.id.str4).text = ""
-        binding.root.findViewById<TextView>(R.id.str5).text = ""
+        //binding.root.findViewById<TextView>(R.id.str1).text = ""
+        //binding.root.findViewById<TextView>(R.id.str2).text = ""
+        //binding.root.findViewById<TextView>(R.id.str3).text = ""
+        //binding.root.findViewById<TextView>(R.id.str4).text = ""
+        //binding.root.findViewById<TextView>(R.id.str5).text = ""
         val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevel).text.toString()
         val statValue = binding.root.findViewById<EditText>(R.id.stat).text.toString()
         val weaponAtkValue = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()
@@ -338,11 +338,6 @@ class TrainFragment : Fragment() {
         val max_raw_crit_damage: Double = max_raw_crit_damage_Calc(max_raw_damage)
         var accuracy = 0.0
         var str0=""
-        var str1=""
-        var str2=""
-        var str3=""
-        var str4=""
-        var str5=""
 
         //An index variable for mobs[]
 
@@ -409,7 +404,7 @@ class TrainFragment : Fragment() {
             }!
                 
                 """.trimIndent()
-            str3 = """
+            str0+= """
                 ${
                 "⏱️ Average time to kill " + mobs.get(pos + 1).mob_name /*+ mobs.get(pos + 1)
                     .getEmoji_code()*/
@@ -443,34 +438,34 @@ class TrainFragment : Fragment() {
                 newpos
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
-                str5 =
+                str0+=
                     "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs.get(
                         newpos
-                    ).mob_name /*+ mobs.get(newpos).getEmoji_code()*/ + "!" //part of output
+                    ).mob_name /*+ mobs.get(newpos).getEmoji_code()*/ + "!\n" //part of output
                 alrdealdamage = true
             } else if (new_max_damage > 1 && !alrdealdamage && !dealdamage) { //if you cant deal damage to the next mob yet, you can deal damage in a certain amount of stats!
-                str5 =
+                str0 +=
                     "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs.get(
                         newpos
                     ).mob_name /*+ mobs.get(newpos)
-                        .getEmoji_code()*/ + " in " + statadd + " stats!" //part of output
+                        .getEmoji_code()*/ + " in " + statadd + " stats!\n" //part of output
                 dealdamage = true
             }
             checked = true
             statadd++
         }
         if (checknextmob) {
-            str1 =
+            str0+=
                 """${"🔥 Max. Damage: " + max_damage.toInt() + " " /*+ */} Tickrate: ${tickrate.toInt()} / 3600
 """
-            str2 = """
+            str0 += """
                 ${
                 "⏱️ Average time to kill " + mobs.get(pos).mob_name /*+ mobs.get(pos)
                     .getEmoji_code()*/
             }: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
                 
                 """.trimIndent()
-            str4 = """
+            str0 += """
                 ${
                 "💪 You need $statadd stats to train effectively on " + mobs.get(newpos)
                     .mob_name /*+ mobs.get(newpos).getEmoji_code()*/
@@ -478,10 +473,10 @@ class TrainFragment : Fragment() {
                 
                 """.trimIndent()
         } else {
-            str1 =
+            str0 +=
                 """${"⏬ Min. Damage (Auto): " + min_damage.toInt() + " " /*+ slime_lord_emoji*/} ⏫ Max. Damage (Auto): ${max_damage.toInt()}
 """
-            str2 = """
+            str0 += """
                 ${
                 "⏱️ Average time to kill " + mobs.get(pos).mob_name /*+ mobs.get(pos)
                     .getEmoji_code()*/
@@ -490,23 +485,9 @@ class TrainFragment : Fragment() {
                 """.trimIndent()
         }
         binding.root.findViewById<TextView>(R.id.str0).text = str0
-        binding.root.findViewById<TextView>(R.id.str1).text = str1
-        binding.root.findViewById<TextView>(R.id.str2).text = str2
-        binding.root.findViewById<TextView>(R.id.str3).text = str3
-        binding.root.findViewById<TextView>(R.id.str4).text = str4
-        binding.root.findViewById<TextView>(R.id.str5).text = str5
     }
     private fun ptrain(){
-        val str0: String // You can power train effectively on...
-
-        val str1: String // Max Damage... Tickrate...
-
-        val str2: String // Average time to kill...
-
-        var str3 = "" // You need... stats to train effectively on...
-
-        var str4 = "" // You can deal... max damage to...
-
+        var str0: String // You can power train effectively on...
         var classEmoji = ""
 
         val stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
@@ -619,11 +600,11 @@ class TrainFragment : Fragment() {
                 newpos
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
-                str4 =
+                str0 +=
                     "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + "!" //part of output
                 alrdealdamage = true
             } else if (new_max_damage > 1 && !alrdealdamage && !dealdamage) { //if you cant deal damage to the next mob yet, you can deal damage in a certain amount of stats!
-                str4 =
+                str0 +=
                     "🔥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + " in " + statadd + " stats!" //part of output
                 dealdamage = true
             }
@@ -635,35 +616,30 @@ class TrainFragment : Fragment() {
 
         //Building remaining Strings
         if (checknextmob) {
-            str1 =
+            str0 +=
                 """${"⏫Max. Damage: " + max_damage.toInt() + " • "} 💫 Tickrate: ${powertickrate.toInt()} / ${maxtickrate.toInt()}
 """
-            str2 =
+            str0 +=
                 """
         ${"⏱️ Average time to kill " + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
         
         """.trimIndent()
-            str3 =
+            str0 +=
                 """
         ${"⏏️ You need " + statadd + " stats to power train effectively on " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/}!
         
         """.trimIndent()
         } else {
-            str1 =
+            str0 +=
                 """${"⏬ Min. Damage (Auto): " + min_damage.toInt() + " • "} ⏫ Max. Damage (Auto): ${max_damage.toInt()}
 """
-            str2 =
+            str0 +=
                 """
         ${"⏱️ Average time to kill " + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
         
         """.trimIndent()
         }
         binding.root.findViewById<TextView>(R.id.str0).text = str0
-        binding.root.findViewById<TextView>(R.id.str1).text = str1
-        binding.root.findViewById<TextView>(R.id.str2).text = str2
-        binding.root.findViewById<TextView>(R.id.str3).text = str3
-        binding.root.findViewById<TextView>(R.id.str4).text = str4
-        binding.root.findViewById<TextView>(R.id.str5).text = ""
     }
 
     @SuppressLint("SetTextI18n")
