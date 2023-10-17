@@ -90,6 +90,7 @@ class SkullFragment : Fragment() {
         _binding = null
     }
     private fun setalldisplays(string: String){
+        binding.root.findViewById<TextView>(R.id.whiteskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.yellowskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.redskullvalue).text = string

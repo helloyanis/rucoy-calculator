@@ -605,7 +605,7 @@ class TrainFragment : Fragment() {
                 alrdealdamage = true
             } else if (new_max_damage > 1 && !alrdealdamage && !dealdamage) { //if you cant deal damage to the next mob yet, you can deal damage in a certain amount of stats!
                 str0 +=
-                    "🔥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + " in " + statadd + " stats!" //part of output
+                    "🔥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + " in " + statadd + " stats!\n" //part of output
                 dealdamage = true
             }
             checked = true
