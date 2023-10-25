@@ -107,47 +107,47 @@ class SkullFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.mainstat).text =  "❤️ "+String.format(
             "%,.0f",
             100+double*15
-        ) + " HP\n🪄" +  String.format(
+        ) + " ${getString(R.string.hp)}\n🪄" +  String.format(
             "%,.0f",
             100+double*20
-        )+ " MP\n💪 Level " + String.format("%,.0f", double) + " is at " + String.format("%,.0f", Formulas.exp_Calc(double)) + " exp!\n" +
-                "✨ You need " + String.format("%,.0f", (Formulas.exp_Calc(double + 1) - Formulas.exp_Calc(double))) + " experience to reach level " + String.format("%,.0f", double + 1) + "!"
+        )+ " ${getString(R.string.hp)}\n${getString(R.string.levelexp1)}" + String.format("%,.0f", double) + getString(R.string.levelexp2) + String.format("%,.0f", Formulas.exp_Calc(double)) + getString(R.string.levelexp3) +
+                getString(R.string.nextlevel1) + String.format("%,.0f", (Formulas.exp_Calc(double + 1) - Formulas.exp_Calc(double))) + getString(R.string.nextlevel2) + String.format("%,.0f", double + 1) + "!"
 
         binding.root.findViewById<TextView>(R.id.whiteskullvalue).text =  String.format(
             "%,.0f",
             double*150
-        ) + "G needed\n" +  String.format(
+        ) + "${getString(R.string.skullGneeded)}\n" +  String.format(
             "%,.0f",
             double*50
-        )+ "G lost from death by player."
+        )+ "${getString(R.string.skullGlost)}."
         binding.root.findViewById<TextView>(R.id.yellowskullvalue).text =  String.format(
             "%,.0f",
             double*150
-        ) + "G needed\n" +  String.format(
+        ) + "${getString(R.string.skullGneeded)}\n" +  String.format(
             "%,.0f",
             double*150
-        )+ "G lost from death by player."
+        )+ "${getString(R.string.skullGlost)}."
         binding.root.findViewById<TextView>(R.id.orangeskullvalue).text =  String.format(
             "%,.0f",
             double*600
-        ) + "G needed\n" +  String.format(
+        ) + "${getString(R.string.skullGneeded)}\n" +  String.format(
             "%,.0f",
             double*450
-        )+ "G lost from death by player."
+        )+ "${getString(R.string.skullGlost)}."
         binding.root.findViewById<TextView>(R.id.redskullvalue).text =  String.format(
             "%,.0f",
             double*1950
-        ) + "G needed\n" +  String.format(
+        ) + "${getString(R.string.skullGneeded)}\n" +  String.format(
             "%,.0f",
             double*1350
-        )+ "G lost from death by player."
+        )+ "${getString(R.string.skullGlost)}."
         binding.root.findViewById<TextView>(R.id.blackskullvalue).text =  String.format(
             "%,.0f",
             double*6000
-        ) + "G needed\n" +  String.format(
+        ) + "${getString(R.string.skullGneeded)}\n" +  String.format(
             "%,.0f",
             double*4050
-        )+ "G lost from death by player."
+        )+ "${getString(R.string.skullGlost)}."
 
     }
 }

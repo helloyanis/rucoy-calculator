@@ -74,7 +74,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/tickrate"
+            android:hint="@string/tick"
             android:imeActionLabel="Test"
             android:inputType="number"
             android:text="4"
@@ -183,28 +183,20 @@
             android:id="@+id/ticklabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tickrate"
+            android:text="@string/tick"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weaponatk"
             tools:visibility="visible" />
 
         <View
-            android:id="@+id/divider"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/baselevellabel"
-            app:layout_constraintTop_toBottomOf="@+id/trainstylespinner"
-            tools:layout_editor_absoluteX="1dp" />
-
-        <View
             android:id="@+id/divider2"
             android:layout_width="409dp"
             android:layout_height="1dp"
+            android:layout_marginBottom="12dp"
             android:background="?android:attr/listDivider"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="58dp" />
+            app:layout_constraintBottom_toTopOf="@+id/baselevellabel"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

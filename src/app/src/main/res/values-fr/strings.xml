@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculatrice Rucoy</string>
+    <string name="title_train">Train &amp; dégâts</string>
+    <string name="title_ptrain">Super entrainement (Power train)</string>
+    <string name="title_credits">Crédits</string>
+    <string name="title_skull">Infos stats</string>
+    <string name="base_level">Niveau de base</string>
+    <string name="stat_level">Niveau de stat (avec bonus)</string>
+    <string name="weapon_atk">Attaque de l\'arme</string>
+    <string name="stat_goal">Objectif de stat</string>
+    <string name="hours">Heures</string>
+    <string name="tick">Tick (4 par défaut)</string>
+    <string name="tickrate_help">Qu\'est-ce que le tick?</string>
+    <string name="prtain_switch">Super entrainement (Power training)</string>
+    <string-array name="classes_array">
+        <item>Mêlée</item>
+        <item>Distance</item>
+        <item>Magie</item>
+    </string-array>
+    <string-array name="train_methods_array">
+        <item>⚔️ Entrainement en ligne</item>
+        <item>🔥 Super entrainement (Power Training)</item>
+        <item>💤 Entrainement hors-ligne</item>
+        <item>💪 Dégâts</item>
+    </string-array>
+    <string name="credits_content">Cette application non officielle a été créée par helloyanis\nFormules d\'entrainement par Mims\nCode (parfois) par ChatGPT!\nCette application est gratuite et open-source! Jetez un oeil sur le GitHub!\nSoutenez-moi pour m\'aider à maintenir l\'application et à ajouter de nouvelles fonctions!\nUne idée de fonctionnalité? Un bug? Créez une issue sur GitHub (en anglais de préférence)!</string>
+    <string name="github">GitHub</string>
+    <string name="privacy">Confidentialité</string>
+    <string name="support_me">❤️ Soutenez-moi!</string>
+    <string name="rate">🌟 Noter l\'application!</string>
+    <string name="ratebackup">🌟 La fenêtre n\'apparaît pas? Cliquez encore pour ouvrir le Play Store.</string>
+    <string name="melee">"Mêlée "</string>
+    <string name="distance">Distance 🏹</string>
+    <string name="magic">Magie 🪄</string>
+    <string name="traineffec">"👾 Vous pouvez vous entraîner efficacement sur "</string>
+    <string name="ptraineffec1">"👾 Vous pouvez power train votre "</string>
+    <string name="ptraineffec2">" sur "</string>
+    <string name="averagetime">"⏱️ Temps moyen pour tuer "</string>
+    <string name="youcandeal">"💥 Vous pouvez infliger "</string>
+    <string name="youneednext1">"💪 Vous avez besoin de "</string>
+    <string name="youneednext2train">" stats pour pouvoir vous entraîner efficacement sur "</string>
+    <string name="youneednext2ptrain">" stats pour pouvoir power train efficacement sur "</string>
+    <string name="maxdmg1">"🔥 Dégâts max: "</string>
+    <string name="maxdmg2">" dégâts max sur "</string>
+    <string name="tickrate">" 💫 Tickrate: "</string>
+    <string name="inXstats1">" dans "</string>
+    <string name="inXstats2">" stats!\n"</string>
+    <string name="mindmgauto">"⏬ Dégâts min. (Auto): "</string>
+    <string name="maxdmgauto">"⏫ Dégâts max. (Auto): "</string>
+    <string name="statgoaltoolow">❗ L\'objectif de stat doit être supérieur à la stat actuelle</string>
+    <string name="offlineoutput1">"💫 Vous avez besoin d'environ "</string>
+    <string name="offlineoutput2">" ticks jusqu'au niveau de stat "</string>
+    <string name="offlineoutput3">"⏱️ C'est environ "</string>
+    <string name="offlineoutput4">" minutes, ou "</string>
+    <string name="offlineoutput5">" heures d'entrainement hors-ligne à 600 exp/heure"</string>
+    <string name="offlinenewstat1">"⏱️ Votre nouvelle stat sera environ: "</string>
+    <string name="offlinenewstat2">" avec "</string>
+    <string name="offlineinvalidinput">❗ Entrez SOIT des heures  SOIT un objectif</string>
+    <string name="offlineerror">❌ Quelque chose n\'a pas bien fonctionné: Impossible de récupérer la nouvelle stat!</string>
+    <string name="skullGneeded">" pièces nécéssaires"</string>
+    <string name="skullGlost">" pièces perdues pour une mort à cause d'un joueur"</string>
+    <string name="hp">PV</string>
+    <string name="mp">MP</string>
+    <string name="levelexp1">"💪 Le niveau "</string>
+    <string name="levelexp2">" est à "</string>
+    <string name="levelexp3">" exp!\n"</string>
+    <string name="nextlevel1">"✨ Vous avez besoin de "</string>
+    <string name="nextlevel2">" éxperience pour atteindre le niveau "</string>
+    <string name="tickrate_tooltip">C\'est combien de monstres vous attaquez avec 1 attaque spéciale!</string>
+</resources>

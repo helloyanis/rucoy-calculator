@@ -39,7 +39,7 @@
     <string name="averagetime">⏱️ Average time to kill </string>
     <string name="youcandeal">💥 You can deal </string>
     <string name="youneednext1">💪 You need </string>
-    <string name="youneednext2train"> stats to train effectively on </string>
+    <string name="youneednext2train">" stats to train effectively on "</string>
     <string name="youneednext2ptrain">" stats to power train effectively on "</string>
     <string name="maxdmg1">🔥 Max. Damage: </string>
     <string name="maxdmg2"> max damage to </string>

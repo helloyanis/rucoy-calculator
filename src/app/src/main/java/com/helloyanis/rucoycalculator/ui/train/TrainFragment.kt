@@ -101,7 +101,7 @@ class TrainFragment : Fragment() {
 
 
         binding.tickhelp.setOnClickListener{
-            Toast.makeText(context,"It's how many mobs you can hit with 1 power attack!", Toast.LENGTH_LONG).show()
+            Toast.makeText(context,getString(R.string.tickrate_tooltip), Toast.LENGTH_LONG).show()
         }
         val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
         trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
@@ -389,7 +389,7 @@ class TrainFragment : Fragment() {
         val time: Double = time_to_kill_Calc(avgdmg, pos)
         str0 = """
             ${
-            "👾 You can train effectively on " + mobs.get(pos).mob_name /*+ mobs.get(pos)
+            getString(R.string.traineffec) + mobs.get(pos).mob_name /*+ mobs.get(pos)
                 .getEmoji_code()*/
         }!
             
@@ -398,7 +398,7 @@ class TrainFragment : Fragment() {
             val time2: Double = time_to_kill_Calc(avgdmg, pos + 1)
             str0 = """
                 ${
-                "👾 You can train effectively on " + mobs.get(pos).mob_name /*+ mobs.get(pos)
+                getString(R.string.traineffec) + mobs.get(pos).mob_name /*+ mobs.get(pos)
                     .getEmoji_code()*/ + " & " + mobs.get(pos + 1).mob_name /*+ mobs.get(pos + 1)
                     .getEmoji_code()*/
             }!
@@ -406,7 +406,7 @@ class TrainFragment : Fragment() {
                 """.trimIndent()
             str0+= """
                 ${
-                "⏱️ Average time to kill " + mobs.get(pos + 1).mob_name /*+ mobs.get(pos + 1)
+                getString(R.string.averagetime) + mobs.get(pos + 1).mob_name /*+ mobs.get(pos + 1)
                     .getEmoji_code()*/
             }: ${time2.toInt() / 60} min. ${time2.toInt() % 60} sec.
                 
@@ -439,16 +439,16 @@ class TrainFragment : Fragment() {
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
                 str0+=
-                    "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs.get(
+                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg1) + mobs.get(
                         newpos
                     ).mob_name /*+ mobs.get(newpos).getEmoji_code()*/ + "!\n" //part of output
                 alrdealdamage = true
             } else if (new_max_damage > 1 && !alrdealdamage && !dealdamage) { //if you cant deal damage to the next mob yet, you can deal damage in a certain amount of stats!
                 str0 +=
-                    "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs.get(
+                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg2) + mobs.get(
                         newpos
                     ).mob_name /*+ mobs.get(newpos)
-                        .getEmoji_code()*/ + " in " + statadd + " stats!\n" //part of output
+                        .getEmoji_code()*/ + getString(R.string.inXstats1) + statadd + getString(R.string.inXstats2) //part of output
                 dealdamage = true
             }
             checked = true
@@ -456,29 +456,29 @@ class TrainFragment : Fragment() {
         }
         if (checknextmob) {
             str0+=
-                """${"🔥 Max. Damage: " + max_damage.toInt() + " " /*+ */} Tickrate: ${tickrate.toInt()} / 3600
+                """${getString(R.string.maxdmg1) + max_damage.toInt() + " " /*+ */} Tickrate: ${tickrate.toInt()} / 3600
 """
             str0 += """
                 ${
-                "⏱️ Average time to kill " + mobs.get(pos).mob_name /*+ mobs.get(pos)
+                getString(R.string.averagetime) + mobs.get(pos).mob_name /*+ mobs.get(pos)
                     .getEmoji_code()*/
             }: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
                 
                 """.trimIndent()
             str0 += """
                 ${
-                "💪 You need $statadd stats to train effectively on " + mobs.get(newpos)
+                getString(R.string.youneednext1) + statadd +getString(R.string.youneednext2train) + mobs.get(newpos)
                     .mob_name /*+ mobs.get(newpos).getEmoji_code()*/
             }!
                 
                 """.trimIndent()
         } else {
             str0 +=
-                """${"⏬ Min. Damage (Auto): " + min_damage.toInt() + " " /*+ slime_lord_emoji*/} ⏫ Max. Damage (Auto): ${max_damage.toInt()}
+                """${getString(R.string.mindmgauto) + min_damage.toInt() + " • " /*+ slime_lord_emoji*/}${getString(R.string.maxdmgauto)}${max_damage.toInt()}
 """
             str0 += """
                 ${
-                "⏱️ Average time to kill " + mobs.get(pos).mob_name /*+ mobs.get(pos)
+                getString(R.string.averagetime) + mobs.get(pos).mob_name /*+ mobs.get(pos)
                     .getEmoji_code()*/
             }: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
                 
@@ -505,14 +505,14 @@ class TrainFragment : Fragment() {
         if (classtype === 2) {
             min_raw_damage = special_magic_min_raw_damage_Calc(stat1.toDouble(), weaponatk, base)
             max_raw_damage = special_magic_max_raw_damage_Calc(stat1.toDouble(), weaponatk, base)
-            classEmoji = "Magic 🔥"
+            classEmoji = getString(R.string.magic)
         } else {
             min_raw_damage = special_meldist_min_raw_damage_Calc(stat1.toDouble(), weaponatk, base)
             max_raw_damage = special_meldist_max_raw_damage_Calc(stat1.toDouble(), weaponatk, base)
             classEmoji = if (classtype === 0) {
-                "Melee ⚔️"
+                getString(R.string.melee)
             } else {
-                "Distance 🏹"
+                getString(R.string.distance)
             }
         }
 
@@ -549,7 +549,7 @@ class TrainFragment : Fragment() {
 
         str0 =
             """
-            ${"💪 You can power train  " + classEmoji + " on  " + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}!
+            ${getString(R.string.ptraineffec1) + classEmoji + getString(R.string.ptraineffec2) + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}!
             
             """.trimIndent()
 
@@ -601,11 +601,11 @@ class TrainFragment : Fragment() {
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
                 str0 +=
-                    "💥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + "!" //part of output
+                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg2) + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + "!" //part of output
                 alrdealdamage = true
             } else if (new_max_damage > 1 && !alrdealdamage && !dealdamage) { //if you cant deal damage to the next mob yet, you can deal damage in a certain amount of stats!
                 str0 +=
-                    "🔥 You can deal " + new_max_damage.toInt() + " max damage to " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + " in " + statadd + " stats!\n" //part of output
+                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg2) + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/ + getString(R.string.inXstats1) + statadd + getString(R.string.inXstats2) //part of output
                 dealdamage = true
             }
             checked = true
@@ -617,25 +617,25 @@ class TrainFragment : Fragment() {
         //Building remaining Strings
         if (checknextmob) {
             str0 +=
-                """${"⏫Max. Damage: " + max_damage.toInt() + " • "} 💫 Tickrate: ${powertickrate.toInt()} / ${maxtickrate.toInt()}
+                """${getString(R.string.maxdmg1) + max_damage.toInt() + " • "}${getString(R.string.tickrate)}${powertickrate.toInt()} / ${maxtickrate.toInt()}
 """
             str0 +=
                 """
-        ${"⏱️ Average time to kill " + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
+        ${getString(R.string.averagetime) + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
         
         """.trimIndent()
             str0 +=
                 """
-        ${"⏏️ You need " + statadd + " stats to power train effectively on " + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/}!
+        ${getString(R.string.youneednext1) + statadd + getString(R.string.youneednext2ptrain) + mobs[newpos].mob_name /*+ mobs[newpos].getEmoji_code()*/}!
         
         """.trimIndent()
         } else {
             str0 +=
-                """${"⏬ Min. Damage (Auto): " + min_damage.toInt() + " • "} ⏫ Max. Damage (Auto): ${max_damage.toInt()}
+                """${getString(R.string.maxdmgauto) + max_damage.toInt() + " • "} ${getString(R.string.mindmgauto)} ${min_damage.toInt()}
 """
             str0 +=
                 """
-        ${"⏱️ Average time to kill " + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
+        ${getString(R.string.averagetime) + mobs[pos].mob_name /*+ mobs[pos].getEmoji_code()*/}: ${time.toInt() / 60} min. ${time.toInt() % 60} sec.
         
         """.trimIndent()
         }
@@ -658,7 +658,7 @@ class TrainFragment : Fragment() {
         }
         if (stat2 > 0 && hours <= 0) {
             if (stat1 > stat2) {
-                binding.root.findViewById<TextView>(R.id.str0).text="Stat goal must be greater than your current stat"
+                binding.root.findViewById<TextView>(R.id.str0).text=getString(R.string.statgoaltoolow)
             }else {
                 val ticks1: Double
                 val ticks2: Double
@@ -674,20 +674,20 @@ class TrainFragment : Fragment() {
                 }
                 val totalticks = ticks2 - ticks1
                 binding.root.findViewById<TextView>(R.id.str0).text =
-                    "💫 You need approximately " + String.format(
+                    getString(R.string.offlineoutput1) + String.format(
                         "%,.0f",
                         totalticks
-                    ) + " ticks until you reach stat level " + java.lang.String.format(
+                    ) + getString(R.string.offlineoutput2) + java.lang.String.format(
                         "%,.1f",
                         stat2
                     ) + "!\n" +
-                            "⏱️ This is around " + String.format(
+                            getString(R.string.offlineoutput3) + String.format(
                         "%,.1f",
                         totalticks * 60 / 600
-                    ) + " minutes, or " + String.format(
+                    ) + getString(R.string.offlineoutput4) + String.format(
                         "%,.1f",
                         totalticks / 600
-                    ) + " hours of offline training at 600 exp/hr"
+                    ) + getString(R.string.offlineoutput5)
             }
         } else if (hours > 0 && stat2 <= 0) {
             val tickstrained: Double = 600 * hours
@@ -701,14 +701,14 @@ class TrainFragment : Fragment() {
             ticks2 = tickstrained + ticks1
             val newStat = Math.round(100.0 * findStatLevel_Calc(ticks2)) / 100.0
             if (newStat < 5) {
-                binding.root.findViewById<TextView>(R.id.str0).text="❌ Something went wrong: Could not find new stat!"
+                binding.root.findViewById<TextView>(R.id.str0).text=getString(R.string.offlineerror)
             }
 
             binding.root.findViewById<TextView>(R.id.str0).text=
-                "⏱️ Your new stat will be approximately: ${newStat.toInt()} with ${hours.toInt()} hours of offline training"
+                "${getString(R.string.offlinenewstat1)}${newStat.toInt()}${getString(R.string.offlinenewstat2)}${hours.toInt()} ${getString(R.string.offlineoutput5)}"
 
         } else {
-            binding.root.findViewById<TextView>(R.id.str0).text="❗Please enter either hours OR stat goal"
+            binding.root.findViewById<TextView>(R.id.str0).text=getString(R.string.offlineinvalidinput)
         }
 
     }
