@@ -5,11 +5,11 @@
     <string name="title_credits">Creditos</string>
     <string name="title_skull">Skill</string>
     <string name="base_level">Nível</string>
-    <string name="stat_level">Skill (with buffs)</string>
+    <string name="stat_level">Skill (Com buffs)</string>
     <string name="weapon_atk">Arma ataque</string>
     <string name="stat_goal">Objetivo de skill </string>
     <string name="hours">Horas</string>
-    <string name="tick">Tick (default is 4)</string>
+    <string name="tick">Tick (Padrão é 4)</string>
     <string name="tickrate_help">O que é tick?</string>
     <string name="tickrate_tooltip">"É quantos mob você pode acertar com uma skill!"</string>
     <string name="prtain_switch">Skillar/Power train </string>
