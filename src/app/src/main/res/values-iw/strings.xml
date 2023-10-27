@@ -1,70 +1,70 @@
 <resources>
-    <string name="app_name">"מחשבון רוקוי"</string>
-    <string name="title_train">"אימון &amp; נזק"</string>
-    <string name="title_ptrain">"אימון כוח"</string>
-    <string name="title_credits">"קרדיטים"</string>
-    <string name="title_skull">"מידע על ערך"</string>
-    <string name="base_level">"רמה בסיסית"</string>
-    <string name="stat_level">"רמת ערך (עם בונוסים)"</string>
-    <string name="weapon_atk">"כמות התקפת הנשק"</string>
-    <string name="stat_goal">"מטרת רמת ערך"</string>
-    <string name="hours">"שעות"</string>
-    <string name="tick">"טיק (ברירת מחדל היא 4)"</string>
-    <string name="tickrate_help">"מה זה טיק?"</string>
-    <string name="tickrate_tooltip">"זה כמות המובים, שאתה יכול להכות עם לפחות מתקפת כוח 1!"</string>
-    <string name="prtain_switch">"אימון כוח"</string>
+    <string name="app_name">מחשבון Rucoy</string>
+    <string name="title_train">אימון &amp; נזק</string>
+    <string name="title_ptrain">אימון כוח</string>
+    <string name="title_credits">קרדיטים</string>
+    <string name="title_skull">מידע על ערך</string>
+    <string name="base_level">רמה בסיסית</string>
+    <string name="stat_level">רמת ערך (עם בונוסים)</string>
+    <string name="weapon_atk">כמות התקפת הנשק</string>
+    <string name="stat_goal">מטרת רמת ערך</string>
+    <string name="hours">שעות</string>
+    <string name="tick">טיק (ברירת מחדל היא 4)</string>
+    <string name="tickrate_help">מה זה טיק?</string>
+    <string name="tickrate_tooltip">"טיק זה כמות המובים, שאתה יכול להכות לפחות עם נקודת התקפה אחת! (1)"</string>
+    <string name="prtain_switch">אימון כוח</string>
     <string-array name="classes_array">
-        <item>"חרב ⚔️"</item>
-        <item>"חץ וקשת 🏹"</item>
-        <item>"קסם 🪄"</item>
+        <item>חרב ⚔️</item>
+        <item>חץ וקשת 🏹</item>
+        <item>קסם 🪄</item>
     </string-array>
-    <string name="melee">"חרב ⚔️"</string>
-    <string name="distance">"חץ וקשת 🏹"</string>
-    <string name="magic">"קסם 🪄"</string>
+    <string name="melee">חרב ⚔️</string>
+    <string name="distance">חץ וקשת 🏹</string>
+    <string name="magic">קסם 🪄</string>
     <string-array name="train_methods_array">
-        <item>"⚔️ אימון מקוון (מחובר)"</item>
-        <item>"🔥 אימון כוח"</item>
-        <item>"💤 אימון לא מקוון (לא מחובר)"</item>
-        <item>"💪 נזק"</item>
+        <item>⚔️ אימון מקוון (מחובר)</item>
+        <item>🔥 אימון כוח</item>
+        <item>💤 אימון לא מקוון (לא מחובר)</item>
+        <item>💪 נזק</item>
     </string-array>
-    <string name="credits_content">"זהו אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת  בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם!"</string>
-    <string name="github">"גיטהאב"</string>
-    <string name="privacy">"מדיניות הפרטיות"</string>
-    <string name="support_me">"❤️ תמכו בי!"</string>
-    <string name="rate">"🌟 דרגו את האפליקציה!"</string>
-    <string name="ratebackup">"🌟 החלון לא נפתח? לחצו שוב כדי לפתוח את חנות האפליקציות"</string>
-    <string name="traineffec">"👾 אתה יכול להתאמן ביעילות על"</string>
-    <string name="ptraineffec1">"👾 אתה יכול לעשות אימון כוח עם "</string>
-    <string name="ptraineffec2">" על "</string>
-    <string name="averagetime">"⏱️ זמן ממוצע כדי להרוג "</string>
-    <string name="youcandeal">"💥 אתה יכול להתמודד "</string>
-    <string name="youneednext1">"💪 אתה צריך "</string>
+    <string name="credits_content">"זהו אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם! קרדיט נוסף ותודה מיוחדת מוענקת לתרגום מאנגלית לעברית! אם יש לכם רעיונות לשפר לגבי התרגום או פשוט רוצים לומר תודה, צרו קשר בדיסקורד או חפשו אותי בגיטהאב - thegamerking777"</string>
+    <string name="github">גיטהאב</string>
+    <string name="privacy">מדיניות הפרטיות</string>
+    <string name="support_me">❤️ תמכו בי!</string>
+    <string name="rate">🌟 דרגו את האפליקציה!</string>
+    <string name="ratebackup">🌟 החלון לא נפתח? לחצו שוב כדי לפתוח את חנות האפליקציות</string>
+    <string name="traineffec">👾 אתה יכול להתאמן ביעילות על</string>
+    <string name="ptraineffec1">👾 אתה יכול לעשות אימון כוח עם </string>
+    <string name="ptraineffec2"> על </string>
+    <string name="averagetime">⏱️ זמן ממוצע כדי להרוג </string>
+    <string name="youcandeal">💥 אתה יכול לעשות </string>
+    <string name="youneednext1">💪 אתה צריך </string>
     <string name="youneednext2train">" רמות ערך כדי להתאמן ביעילות על "</string>
     <string name="youneednext2ptrain">" רמות ערך כדי להתאמן כוחנית ביעילות על "</string>
-    <string name="maxdmg1">"🔥 נזק מירבי: "</string>
-    <string name="maxdmg2">" נזק מירבי ל "</string>
-    <string name="tickrate">" 💫 קצב רמת הטיק: "</string>
-    <string name="inXstats1">" בתוך "</string>
-    <string name="inXstats2">" רמות ערך!\n"</string>
+    <string name="maxdmg1">🔥 נזק מירבי: </string>
+    <string name="maxdmg2"> נזק מירבי ל </string>
+    <string name="tickrate"> 💫 קצב רמת הטיק: </string>
+    <string name="inXstats1"> בתוך </string>
+    <string name="inXstats2"> רמות ערך!\n</string>
     <string name="mindmgauto">"⏬ נזק מינימלי (אוטומטי): "</string>
     <string name="maxdmgauto">"⏫ נזק מירבי (אוטומטי): "</string>
-    <string name="statgoaltoolow">"❗ מטרת רמת הערך צריכה להיות גדולה יותר מרמת הערך הנוכחית שלך"</string>
-    <string name="offlineoutput1">"💫 אתה צריך בסביבות "</string>
-    <string name="offlineoutput2">" טיקים לפני שאתה מגיע לרמת ערך "</string>
-    <string name="offlineoutput3">"⏱️ זה בסביבות "</string>
-    <string name="offlineoutput4">" דקות, או "</string>
-    <string name="offlineoutput5">" שעות של אימון לא מקוון ב-600 נקודות ניסיון לשעה"</string>
-    <string name="offlinenewstat1">"⏱️ רמת הערך החדשה שלך תהיה בסביבות: "</string>
-    <string name="offlinenewstat2">" עם "</string>
-    <string name="offlineinvalidinput">"❗בבקשה רשום כמות שעות או את מטרת רמת הערך"</string>
-    <string name="offlineerror">"❌ משהו לא הסתדר: אינו מוצא את רמת הערך החדשה!"</string>
-    <string name="skullGneeded">"כמות זהב נדרשת"</string>
-    <string name="skullGlost">"הפסד כמות זהב עקב מוות משחקן"</string>
-    <string name="hp">"חיים"</string>
-    <string name="mp">"מאנה"</string>
-    <string name="levelexp1">"💪 רמה "</string>
-    <string name="levelexp2">" הוא ב-</string>
-    <string name="levelexp3">"נקודות ניסיון!\n"</string>
-    <string name="nextlevel1">"✨ אתה צריך "</string>
-    <string name="nextlevel2">" נקודות ניסיון כדי להגיע לרמה "</string>
+    <string name="statgoaltoolow">❗ מטרת רמת הערך צריכה להיות גדולה יותר מרמת הערך הנוכחית שלך</string>
+    <string name="offlineoutput1">💫 אתה צריך בסביבות </string>
+    <string name="offlineoutput2"> טיקים לפני שאתה מגיע לרמת ערך </string>
+    <string name="offlineoutput3">⏱️ זה בסביבות </string>
+    <string name="offlineoutput4"> דקות, או </string>
+    <string name="offlineoutput5"> שעות של אימון לא מקוון ב-600 נקודות ניסיון לשעה</string>
+    <string name="offlinenewstat1">⏱️ רמת הערך החדשה שלך תהיה בסביבות: </string>
+    <string name="offlinenewstat2"> עם </string>
+    <string name="offlineinvalidinput">❗בבקשה רשום כמות שעות, או(!), את מטרת רמת הערך</string>
+    <string name="offlineerror">❌ משהו לא הסתדר: לא מוצא את רמת הערך החדשה!</string>
+    <string name="skullGneeded">זהב נדרש</string>
+    <string name="skullGlost">זהב אבוד עקב מוות משחקן</string>
+    <string name="hp">חיים</string>
+    <string name="mp">מאנה</string>
+    <string name="levelexp1">💪 רמה </string>
+    <string name="levelexp2"> הוא ב-</string>
+    <string name="levelexp3">נקודות ניסיון!\n</string>
+    <string name="nextlevel1">✨ אתה צריך </string>
+    <string name="nextlevel2"> נקודות ניסיון כדי להגיע לרמה </string>
 </resources>
