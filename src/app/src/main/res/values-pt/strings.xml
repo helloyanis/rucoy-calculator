@@ -11,7 +11,7 @@
     <string name="hours">Horas</string>
     <string name="tick">Tick (default is 4)</string>
     <string name="tickrate_help">O que é tick?</string>
-    <string name="tickrate_tooltip">"It's how many mobs you can hit with 1 power attack!"É quantos mob você pode acertar com uma skill!"</string>
+    <string name="tickrate_tooltip">"É quantos mob você pode acertar com uma skill!"</string>
     <string name="prtain_switch">Skillar/Power train </string>
     <string-array name="classes_array">
         <item>Melee ⚔️</item>
