@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name">Rucoy calculator</string>
-    <string name="title_train">Train &amp; Dmg</string>
-    <string name="title_ptrain">Power train</string>
-    <string name="title_credits">Credits</string>
-    <string name="title_skull">Stat info</string>
-    <string name="base_level">Base level</string>
-    <string name="stat_level">Stat level (with buffs)</string>
-    <string name="weapon_atk">Weapon attack</string>
-    <string name="stat_goal">Stat goal</string>
-    <string name="hours">Hours</string>
+    <string name="app_name">Rucoy calculadora</string>
+    <string name="title_train">Treino &amp; Dmg</string>
+    <string name="title_ptrain">Skillar/Power train</string>
+    <string name="title_credits">Creditos</string>
+    <string name="title_skull">Skill</string>
+    <string name="base_level">Nível</string>
+    <string name="stat_level">Skill (with buffs)</string>
+    <string name="weapon_atk">Arma ataque</string>
+    <string name="stat_goal">Objetivo de skill </string>
+    <string name="hours">Horas</string>
     <string name="tick">Tick (default is 4)</string>
-    <string name="tickrate_help">What is tick?</string>
-    <string name="tickrate_tooltip">"It's how many mobs you can hit with 1 power attack!"</string>
-    <string name="prtain_switch">Power training</string>
+    <string name="tickrate_help">O que é tick?</string>
+    <string name="tickrate_tooltip">"It's how many mobs you can hit with 1 power attack!"É quantos mob você pode acertar com uma skill!"</string>
+    <string name="prtain_switch">Skillar/Power train </string>
     <string-array name="classes_array">
         <item>Melee ⚔️</item>
         <item>Distance 🏹</item>
@@ -22,49 +22,49 @@
     <string name="distance">Distance 🏹</string>
     <string name="magic">Magic 🪄</string>
     <string-array name="train_methods_array">
-        <item>⚔️ Online Training</item>
-        <item>🔥 Power training</item>
-        <item>💤 Offline training</item>
-        <item>💪 Damage</item>
+        <item>⚔️ Treino parado/afk</item>
+        <item>🔥 Skillar/Power train</item>
+        <item>💤 Treino offline</item>
+        <item>💪 Dano</item>
     </string-array>
-    <string name="credits_content">This is an unofficial application made by helloyanis Training formulas by Mims Code (sometimes) by ChatGPT! This app is free and open-source! Check out the GitHub! Support me to help me keep maintaining this application and add new features! A feature idea? A bug report? Go on GitHub and open an issue!</string>
+    <string name="credits_content">Um aplicativo não oficial feito por helloyanis Formulas de treino do Código do mims (As vezes) pelo ChatGPT! Esse app é grátis e (Código aberto) open-source! De uma olhada no GitHub! Me ajude a manter o app e colocar novas coisas! Uma ideia de atulização? Reportar um bug? Vá para o GitHub e abra um Issue report!</string>
     <string name="github">GitHub</string>
-    <string name="privacy">Privacy policy</string>
-    <string name="support_me">❤️ Support me!</string>
-    <string name="rate">🌟 Rate app!</string>
-    <string name="ratebackup">🌟 Window did not show? Click again to open Play Store.</string>
-    <string name="traineffec">👾 You can train effectively on </string>
-    <string name="ptraineffec1">👾 You can power train your </string>
-    <string name="ptraineffec2"> on </string>
-    <string name="averagetime">⏱️ Average time to kill </string>
-    <string name="youcandeal">💥 You can deal </string>
-    <string name="youneednext1">💪 You need </string>
-    <string name="youneednext2train"> stats to train effectively on </string>
-    <string name="youneednext2ptrain">" stats to power train effectively on "</string>
-    <string name="maxdmg1">🔥 Max. Damage: </string>
-    <string name="maxdmg2"> max damage to </string>
+    <string name="privacy">Política de Privacidade</string>
+    <string name="support_me">❤️ Apoie-me!</string>
+    <string name="rate">🌟 Avalie o app!</string>
+    <string name="ratebackup">🌟 A janela não apareceu? Clique novamente para abrir a Play Store.</string>
+    <string name="traineffec">👾 Você pode treinar eficientemente no </string>
+    <string name="ptraineffec1">👾 Você pode skillar </string>
+    <string name="ptraineffec2"> em </string>
+    <string name="averagetime">⏱️ Expectativa de tempo para matar </string>
+    <string name="youcandeal">💥 Você pode tirar </string>
+    <string name="youneednext1">💪 Você precisa de </string>
+    <string name="youneednext2train"> skills pra treinar eficientemente em </string>
+    <string name="youneednext2ptrain">" skill para treinar eficientemente em "</string>
+    <string name="maxdmg1">🔥 Max. Dano: </string>
+    <string name="maxdmg2"> max. dano para </string>
     <string name="tickrate"> 💫 Tickrate: </string>
-    <string name="inXstats1"> in </string>
-    <string name="inXstats2"> stats!\n</string>
-    <string name="mindmgauto">"⏬ Min. Damage (Auto): "</string>
-    <string name="maxdmgauto">"⏫ Max. Damage (Auto): "</string>
-    <string name="statgoaltoolow">❗ Stat goal must be greater than your current stat</string>
-    <string name="offlineoutput1">💫 You need approximately </string>
-    <string name="offlineoutput2"> ticks until you reach stat level </string>
-    <string name="offlineoutput3">⏱️ This is around </string>
-    <string name="offlineoutput4"> minutes, or </string>
-    <string name="offlineoutput5"> hours of offline training at 600 exp/hr</string>
-    <string name="offlinenewstat1">⏱️ Your new stat will be approximately: </string>
-    <string name="offlinenewstat2"> with </string>
-    <string name="offlineinvalidinput">❗Please enter either hours OR stat goal</string>
-    <string name="offlineerror">❌ Something went wrong: Could not find new stat!</string>
-    <string name="skullGneeded">G needed</string>
-    <string name="skullGlost">G lost from death by player</string>
+    <string name="inXstats1"> em </string>
+    <string name="inXstats2"> skills!\n</string>
+    <string name="mindmgauto">"⏬ Min. Dano (Auto): "</string>
+    <string name="maxdmgauto">"⏫ Max. Dano (Auto): "</string>
+    <string name="statgoaltoolow">❗ Seu objetivo de skill precisa ser maior que a skill atual</string>
+    <string name="offlineoutput1">💫 Você precisa de aproximadamente </string>
+    <string name="offlineoutput2"> ticks até você alcançar a skill </string>
+    <string name="offlineoutput3">⏱️ Isso é aproximadamente </string>
+    <string name="offlineoutput4"> minutos, ou </string>
+    <string name="offlineoutput5"> horas de offline training com 600 exp/hr</string>
+    <string name="offlinenewstat1">⏱️ Sua skill sera aproximadamente: </string>
+    <string name="offlinenewstat2"> com </string>
+    <string name="offlineinvalidinput">❗Por favor coloque horas OU a skill que você quer</string>
+    <string name="offlineerror">❌ Algo deu errado: Não pode encontrar a nova skill!</string>
+    <string name="skullGneeded">G preciso</string>
+    <string name="skullGlost">G dropado por morte de player</string>
     <string name="hp">HP</string>
     <string name="mp">MP</string>
     <string name="levelexp1">💪 Level </string>
-    <string name="levelexp2"> is at</string>
+    <string name="levelexp2"> está</string>
     <string name="levelexp3">exp!\n</string>
-    <string name="nextlevel1">✨ You need </string>
-    <string name="nextlevel2"> experience to reach level </string>
+    <string name="nextlevel1">✨ Você precisa de </string>
+    <string name="nextlevel2"> para alcançar o level </string>
 </resources>
