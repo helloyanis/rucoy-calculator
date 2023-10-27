@@ -27,11 +27,11 @@
         <item>💤 אימון לא מקוון (לא מחובר)</item>
         <item>💪 נזק</item>
     </string-array>
-    <string name="credits_content">זהו ישומון לא רשמי שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! ישומון זה ניתן בחינם ועם גישה לקוד פתוח! מוזמנים לראות זאת  בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את הישומון ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם!</string>
+    <string name="credits_content">זהו אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת  בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם!</string>
     <string name="github">גיטהאב</string>
     <string name="privacy">מדיניות הפרטיות</string>
     <string name="support_me">❤️ תמכו בי!</string>
-    <string name="rate">🌟 דרגו את היישומון!</string>
+    <string name="rate">🌟 דרגו את האפליקציה!</string>
     <string name="ratebackup">🌟 החלון לא נפתח? לחצו שוב כדי לפתוח את חנות האפליקציות</string>
     <string name="traineffec">👾 אתה יכול להתאמן ביעילות על</string>
     <string name="ptraineffec1">👾 אתה יכול לעשות אימון כוח עם </string>
