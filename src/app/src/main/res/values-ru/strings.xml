@@ -45,7 +45,7 @@
     <string name="maxdmg2"> максимальный урон по </string>
     <string name="tickrate"> 💫 Тикрейт: </string>
     <string name="inXstats1"> через </string>
-    <string name="inXstats2"> Статов!\n</string>
+    <string name="inXstats2"> Статов(-а)!\n</string>
     <string name="mindmgauto">"⏬ Минимальный урон (Обычная атака): "</string>
     <string name="maxdmgauto">"⏫ Максимальный урон (Обычная атака): "</string>
     <string name="statgoaltoolow">❗ Цель стата должна быть больше текущего уровня стата</string>
@@ -59,7 +59,7 @@
     <string name="offlineinvalidinput">❗Пожалуйста введите или количество часов или цель стата</string>
     <string name="offlineerror">❌ Что-то пошло не так: Не получается расчитать новый стат!</string>
     <string name="skullGneeded">G необходимо</string>
-    <string name="skullGlost">G потеряно при смерти от игрока</string>
+    <string name="skullGlost">G будет потеряно при убийстве игроком</string>
     <string name="hp">HP</string>
     <string name="mp">MP</string>
     <string name="levelexp1">💪 Уровень </string>
