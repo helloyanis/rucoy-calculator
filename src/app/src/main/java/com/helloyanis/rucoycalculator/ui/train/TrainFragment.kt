@@ -327,6 +327,9 @@ class TrainFragment : Fragment() {
                         offline()
                     }
                 }
+            3->{
+                Toast.makeText(context,"Not yet implemented, wait for the next update!", Toast.LENGTH_LONG).show()
+            }
             }
         }
     private fun train(){
