@@ -1,70 +1,70 @@
 <resources>
-    <string name="app_name">Máy tính Rucoy</string>
-    <string name="title_train">Train &amp; Sát thương</string>
-    <string name="title_ptrain">Power train(PT)</string>
-    <string name="title_credits">Công lao</string>
-    <string name="title_skull">Thông tin chỉ số</string>
-    <string name="base_level">Cấp độ nhân vật</string>
-    <string name="stat_level">Cấp độ chỉ số(cộng dồn với buff)</string>
-    <string name="weapon_atk">Sát thương vũ khí</string>
-    <string name="stat_goal">Chỉ số mong muốn</string>
-    <string name="hours">Giờ</string>
-    <string name="tick">Tick (mặc định là 4)</string>
-    <string name="tickrate_help">Tick là gì?</string>
+    <string name="app_name">"Máy tính Rucoy"</string>
+    <string name="title_train">"Train &amp; Sát thương"</string>
+    <string name="title_ptrain">"Power train(PT)"</string>
+    <string name="title_credits">"Công lao"</string>
+    <string name="title_skull">"Thông tin chỉ số"</string>
+    <string name="base_level">"Cấp độ nhân vật"</string>
+    <string name="stat_level">"Cấp độ chỉ số(cộng dồn với buff)"</string>
+    <string name="weapon_atk">"Sát thương vũ khí"</string>
+    <string name="stat_goal">"Chỉ số mong muốn"</string>
+    <string name="hours">"Giờ"</string>
+    <string name="tick">"Tick (mặc định là 4)"</string>
+    <string name="tickrate_help">"Tick là gì?"</string>
     <string name="tickrate_tooltip">"Là số quái bạn đánh được trong một lần bấm skill!"</string>
-    <string name="prtain_switch">Power training</string>
+    <string name="prtain_switch">"Power training"</string>
     <string-array name="classes_array">
-        <item>Melee ⚔️</item>
-        <item>Distance 🏹</item>
-        <item>Magic 🪄</item>
+        <item>"Melee ⚔️"</item>
+        <item>"Distance 🏹"</item>
+        <item>"Magic 🪄"</item>
     </string-array>
-    <string name="melee">Melee ⚔️</string>
-    <string name="distance">Distance 🏹</string>
-    <string name="magic">Magic 🪄</string>
+    <string name="melee">"Melee ⚔️"</string>
+    <string name="distance">"Distance 🏹"</string>
+    <string name="magic">"Magic 🪄"</string>
     <string-array name="train_methods_array">
-        <item>⚔️ Train thường</item>
-        <item>🔥 Power training(PT)</item>
-        <item>💤 Offline training</item>
-        <item>💪 Sát thương</item>
+        <item>"⚔️ Train thường"</item>
+        <item>"🔥 Power training(PT)"</item>
+        <item>"💤 Offline training"</item>
+        <item>"💪 Sát thương"</item>
     </string-array>
-    <string name="credits_content">Đây là một ứng dụng không chính thức bởi GM Rucoy mà được làm bởi helloyanis,công thức train bởi Mims Code và (đôi khi) bởi Chat GPT,Việt hoá bởi LinhVitVN! Ứng dụng này hoàn toàn miễn phí và mã nguồn mở! Xem ngay trên GitHub! Ủng hộ tôi để giúp tôi duy trì ứng dụng này và thêm nhiều tính năng mới! Có ý tưởng mới về tính năng? muốn báo cáo lỗi? Hãy lên GitHub và mở mục issue!</string>
-    <string name="github">GitHub</string>
-    <string name="privacy">Chính sách quyền riêng tư</string>
-    <string name="support_me">❤️ Ủng hộ tuiii!</string>
-    <string name="rate">🌟 Đánh giá ứng dụng!</string>
-    <string name="ratebackup">🌟 Không có gì hiện ra ư?bấm lại lần nữa để mở Ch Play</string>
-    <string name="traineffec">👾 Bạn có thể train hiệu quả con  </string>
-    <string name="ptraineffec1">👾 Bạn có thể PT kĩ năng </string>
-    <string name="ptraineffec2"> vào con </string>
-    <string name="averagetime">⏱️ Trung bình thời gian để tiêu diệt  </string>
-    <string name="youcandeal">💥 Bạn có thể gây ra  </string>
-    <string name="youneednext1">💪 Bạn cần </string>
-    <string name="youneednext2train"> Cấp độ kĩ năng để train hiệu quả con </string>
-    <string name="youneednext2ptrain">" Cấp độ kĩ năng để PT hiệu quả con "</string>
-    <string name="maxdmg1">🔥 Sát thương tốt đa: </string>
-    <string name="maxdmg2"> Sát thương tốt đa cho </string>
-    <string name="tickrate"> 💫 Tickrate: </string>
-    <string name="inXstats1"> trong </string>
-    <string name="inXstats2"> cấp độ kĩ năng nữa!\n</string>
+    <string name="credits_content">"Đây là một ứng dụng không chính thức bởi GM Rucoy mà được làm bởi helloyanis,công thức train bởi Mims Code và (đôi khi) bởi Chat GPT,Việt hoá bởi LinhVitVN! Ứng dụng này hoàn toàn miễn phí và mã nguồn mở! Xem ngay trên GitHub! Ủng hộ tôi để giúp tôi duy trì ứng dụng này và thêm nhiều tính năng mới! Có ý tưởng mới về tính năng? muốn báo cáo lỗi? Hãy lên GitHub và mở mục issue!"</string>
+    <string name="github">"GitHub</string>
+    <string name="privacy">"Chính sách quyền riêng tư"</string>
+    <string name="support_me">"❤️ Ủng hộ tuiii!"</string>
+    <string name="rate">"🌟 Đánh giá ứng dụng!"</string>
+    <string name="ratebackup">"🌟 Không có gì hiện ra ư?bấm lại lần nữa để mở Ch Play"</string>
+    <string name="traineffec">"👾 Bạn có thể train hiệu quả con "</string>
+    <string name="ptraineffec1">"👾 Bạn có thể PT kĩ năng "</string>
+    <string name="ptraineffec2">" vào con "</string>
+    <string name="averagetime">"⏱️ Trung bình thời gian để tiêu diệt "</string>
+    <string name="youcandeal">"💥 Bạn có thể gây ra "</string>
+    <string name="youneednext1">"💪 Bạn cần "</string>
+    <string name="youneednext2train">" cấp độ kĩ năng để train hiệu quả con "</string>
+    <string name="youneednext2ptrain">" cấp độ kĩ năng để PT hiệu quả con "</string>
+    <string name="maxdmg1">"🔥 Sát thương tốt đa: "</string>
+    <string name="maxdmg2">" sát thương tốt đa cho "</string>
+    <string name="tickrate">"💫 Tickrate: "</string>
+    <string name="inXstats1">" trong "</string>
+    <string name="inXstats2">" cấp độ kĩ năng nữa!\n"</string>
     <string name="mindmgauto">"⏬ Sát thương nhỏ nhất (Tự động đánh): "</string>
     <string name="maxdmgauto">"⏫ Sát thương lớn nhất (Tự động đánh): "</string>
-    <string name="statgoaltoolow">❗ Cấp độ kĩ năng mong muốn phải cao hơn cấp độ kĩ năng hiện tại</string>
-    <string name="offlineoutput1">💫 Bạn cần khoảng </string>
-    <string name="offlineoutput2"> ticks cho đến khi đạt được cấp kĩ năng </string>
-    <string name="offlineoutput3">⏱️ Nó rơi vào khoảng </string>
-    <string name="offlineoutput4"> phút, hay </string>
-    <string name="offlineoutput5"> giờ với mức exp của offline training là 600exp/h</string>
-    <string name="offlinenewstat1">⏱️ Chỉ số mới của bạn sẽ vào khoảng: </string>
-    <string name="offlinenewstat2"> với </string>
-    <string name="offlineinvalidinput">❗Xin hãy nhập khoảng giời gian khác hoặc cấp độ kĩ năng mong muốn khác</string>
-    <string name="offlineerror">❌ Có thứ gì đó đã sai: Không thể tìm ra cấp độ kĩ năng mới!</string>
-    <string name="skullGneeded">Gold cần có</string>
-    <string name="skullGlost">Gold sẽ bay màu khi bị giết bởi người chơi khác</string>
-    <string name="hp">HP</string>
-    <string name="mp">Mana</string>
-    <string name="levelexp1">💪 Cấp độ </string>
-    <string name="levelexp2"> rơi vào</string>
-    <string name="levelexp3">exp!\n</string>
-    <string name="nextlevel1">✨ Bạn cần thêm </string>
-    <string name="nextlevel2"> exp để đạt tới cấp độ </string>
+    <string name="statgoaltoolow">"❗ Cấp độ kĩ năng mong muốn phải cao hơn cấp độ kĩ năng hiện tại</string>
+    <string name="offlineoutput1">"💫 Bạn cần khoảng "</string>
+    <string name="offlineoutput2">" ticks cho đến khi đạt được cấp kĩ năng "</string>
+    <string name="offlineoutput3">"⏱️ Nó rơi vào khoảng "</string>
+    <string name="offlineoutput4">" phút, hay "</string>
+    <string name="offlineoutput5">" giờ với mức exp của offline training là 600exp/h"</string>
+    <string name="offlinenewstat1">"⏱️ Chỉ số mới của bạn sẽ vào khoảng: "</string>
+    <string name="offlinenewstat2">" với "</string>
+    <string name="offlineinvalidinput">"❗Xin hãy nhập khoảng giời gian khác hoặc cấp độ kĩ năng mong muốn khác"</string>
+    <string name="offlineerror">"❌ Có thứ gì đó đã sai: Không thể tìm ra cấp độ kĩ năng mới!"</string>
+    <string name="skullGneeded">"Gold cần có"</string>
+    <string name="skullGlost">"Gold sẽ bay màu khi bị giết bởi người chơi khác"</string>
+    <string name="hp">"HP"</string>
+    <string name="mp">"Mana"</string>
+    <string name="levelexp1">"💪 Cấp độ "</string>
+    <string name="levelexp2">" rơi vào "</string>
+    <string name="levelexp3">"exp!\n"</string>
+    <string name="nextlevel1">"✨ Bạn cần thêm "</string>
+    <string name="nextlevel2">" exp để đạt tới cấp độ "</string>
 </resources>

@@ -1,70 +1,70 @@
 <resources>
-    <string name="app_name">Rucoy rekenmachine</string>
-    <string name="title_train">Train &amp; Schade</string>
-    <string name="title_ptrain">Krachttrain</string>
-    <string name="title_credits">Credits</string>
-    <string name="title_skull">Stat info</string>
-    <string name="base_level">Basis level</string>
-    <string name="stat_level">Stat level (met buffs)</string>
-    <string name="weapon_atk">Wapen schade</string>
-    <string name="stat_goal">Stat goal</string>
-    <string name="hours">Uren</string>
-    <string name="tick">Tick (standaard is 4)</string>
-    <string name="tickrate_help">Wat is een tick?</string>
+    <string name="app_name">"Rucoy rekenmachine"</string>
+    <string name="title_train">"Train &amp; Schade"</string>
+    <string name="title_ptrain">"Krachttrain"</string>
+    <string name="title_credits">"Credits"</string>
+    <string name="title_skull">"Stat info"</string>
+    <string name="base_level">"Basis level"</string>
+    <string name="stat_level">"Stat level (met buffs)"</string>
+    <string name="weapon_atk">"Wapen schade"</string>
+    <string name="stat_goal">"Stat goal"</string>
+    <string name="hours">"Uren"</string>
+    <string name="tick">"Tick (standaard is 4)"</string>
+    <string name="tickrate_help">"Wat is een tick?"</string>
     <string name="tickrate_tooltip">"Het is de hoeveelheid mobs dat je kan raken met 1 krachtige aanval!"</string>
-    <string name="prtain_switch">Krachttraining</string>
+    <string name="prtain_switch">"Krachttraining"</string>
     <string-array name="classes_array">
-        <item>Melee ⚔️</item>
-        <item>Distance 🏹</item>
-        <item>Magic 🪄</item>
+        <item>"Melee ⚔️"</item>
+        <item>"Distance 🏹"</item>
+        <item>"Magic 🪄"</item>
     </string-array>
-    <string name="melee">Melee ⚔️</string>
-    <string name="distance">Distance 🏹</string>
-    <string name="magic">Magic 🪄</string>
+    <string name="melee">"Melee ⚔️"</string>
+    <string name="distance">"Distance 🏹"</string>
+    <string name="magic">"Magic 🪄"</string>
     <string-array name="train_methods_array">
-        <item>⚔️ Online Training</item>
-        <item>🔥 Krachttraining</item>
-        <item>💤 Offline training</item>
-        <item>💪 Schade</item>
+        <item>"⚔️ Online Training"</item>
+        <item>"🔥 Krachttraining"</item>
+        <item>"💤 Offline training"</item>
+        <item>"💪 Schade"</item>
     </string-array>
-    <string name="credits_content">Dit is een onofficiële applicatie gemaakt door Helloyanis, tranining formules door Mims (soms door ChatGPT)! Deze applicatie is gratis en is open-source! Check uit de GitHub! Steun mij om mij te helpen met het instandhouden van deze applicatie en het toevoegen van nieuwe functies! Een idee voor een functie? Een bug rapporteren? Ga naar GitHub en maak een issue aan!</string>
-    <string name="github">GitHub</string>
-    <string name="privacy">Privacybeleid</string>
-    <string name="support_me">❤️ Steun me!</string>
-    <string name="rate">🌟 Beoordeel app!</string>
-    <string name="ratebackup">🌟 Venster werdt niet getoond? Klik dan opnieuw om de Play Store te openen.</string>
-    <string name="traineffec">👾 Je kan effectief trainen op </string>
-    <string name="ptraineffec1">👾 Je kan jouw </string>
-    <string name="ptraineffec2"> krachttrainen op </string>
-    <string name="averagetime">⏱️ Gemiddelde tijd om te doden van </string>
-    <string name="youcandeal">💥 Je deelt uit </string>
-    <string name="youneednext1">💪 Je hebt </string>
-    <string name="youneednext2train"> stats nodig om effectief te trainen op </string>
-    <string name="youneednext2ptrain"> stats nodig om effectief te trainen op </string>
-    <string name="maxdmg1">🔥 Max. Schade: </string>
-    <string name="maxdmg2"> max schade aan </string>
-    <string name="tickrate"> 💫 Ticktempo: </string>
-    <string name="inXstats1"> in </string>
-    <string name="inXstats2"> stats!\n</string>
+    <string name="credits_content">"Dit is een onofficiële applicatie gemaakt door Helloyanis, tranining formules door Mims (soms door ChatGPT)! Deze applicatie is gratis en is open-source! Check uit de GitHub! Steun mij om mij te helpen met het instandhouden van deze applicatie en het toevoegen van nieuwe functies! Een idee voor een functie? Een bug rapporteren? Ga naar GitHub en maak een issue aan!"</string>
+    <string name="github">"GitHub"</string>
+    <string name="privacy">"Privacybeleid"</string>
+    <string name="support_me">"❤️ Steun me!"</string>
+    <string name="rate">"🌟 Beoordeel app!"</string>
+    <string name="ratebackup">"🌟 Venster werd niet getoond? Klik dan opnieuw om de Play Store te openen."</string>
+    <string name="traineffec">"👾 Je kan effectief trainen op "</string>
+    <string name="ptraineffec1">"👾 Je kan jouw "</string>
+    <string name="ptraineffec2">" krachttrainen op "</string>
+    <string name="averagetime">"⏱️ Gemiddelde tijd om te doden van "</string>
+    <string name="youcandeal">"💥 Je deelt uit "</string>
+    <string name="youneednext1">"💪 Je hebt "</string>
+    <string name="youneednext2train">" stats nodig om effectief te trainen op "</string>
+    <string name="youneednext2ptrain">" stats nodig om effectief te trainen op "</string>
+    <string name="maxdmg1">"🔥 Max. Schade: "</string>
+    <string name="maxdmg2">" max schade aan "</string>
+    <string name="tickrate">" 💫 Ticktempo: "</string>
+    <string name="inXstats1">" in "</string>
+    <string name="inXstats2">" stats!\n"</string>
     <string name="mindmgauto">"⏬ Min. Schade (Aanval): "</string>
     <string name="maxdmgauto">"⏫ Max. Schade (Aanval): "</string>
-    <string name="statgoaltoolow">❗ Stat doel moet groter zijn dan jouw huidige stat</string>
-    <string name="offlineoutput1">💫 Je hebt ongeveer </string>
-    <string name="offlineoutput2"> ticks nodig tot stat level </string>
-    <string name="offlineoutput3">⏱️ Dit is ongeveer </string>
-    <string name="offlineoutput4"> minuten, of </string>
-    <string name="offlineoutput5"> uur offline training op 600 exp/u</string>
-    <string name="offlinenewstat1">⏱️ Jouw nieuwe stat is dan ongeveer: </string>
-    <string name="offlinenewstat2"> met </string>
-    <string name="offlineinvalidinput">❗Voeg alstublieft uren OF stat doel toe</string>
-    <string name="offlineerror">❌ Er ging iets mis: Kon nieuwe stat niet vinden!</string>
-    <string name="skullGneeded">G nodig</string>
-    <string name="skullGlost">G verloren door dood van speler</string>
-    <string name="hp">HP</string>
-    <string name="mp">MP</string>
-    <string name="levelexp1">💪 Level </string>
-    <string name="levelexp2"> is op </string>
-    <string name="levelexp3">exp!\n</string>
-    <string name="nextlevel1">✨ Je hebt </string>
-    <string name="nextlevel2"> experience nodig tot level </string>
+    <string name="statgoaltoolow">"❗ Stat doel moet groter zijn dan jouw huidige stat"</string>
+    <string name="offlineoutput1">"💫 Je hebt ongeveer "</string>
+    <string name="offlineoutput2">" ticks nodig tot stat level "</string>
+    <string name="offlineoutput3">"⏱️ Dit is ongeveer "</string>
+    <string name="offlineoutput4">" minuten, of "</string>
+    <string name="offlineoutput5">" uur offline training op 600 exp/u"</string>
+    <string name="offlinenewstat1">"⏱️ Jouw nieuwe stat is dan ongeveer: "</string>
+    <string name="offlinenewstat2">" met "</string>
+    <string name="offlineinvalidinput">"❗Voeg alstublieft uren OF stat doel toe"</string>
+    <string name="offlineerror">"❌ Er ging iets mis: Kon nieuwe stat niet vinden!"</string>
+    <string name="skullGneeded">"G nodig"</string>
+    <string name="skullGlost">"G verloren door dood van speler"</string>
+    <string name="hp">"HP"</string>
+    <string name="mp">"MP"</string>
+    <string name="levelexp1">"💪 Level "</string>
+    <string name="levelexp2">" is op "</string>
+    <string name="levelexp3">"exp!\n"</string>
+    <string name="nextlevel1">"✨ Je hebt "</string>
+    <string name="nextlevel2">" experience nodig tot level "</string>
 </resources>

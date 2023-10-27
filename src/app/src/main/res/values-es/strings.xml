@@ -1,70 +1,70 @@
 <resources>
-    <string name="app_name">Calculadora de Rucoy</string>
-    <string name="title_train">Entrenar &amp; Daño</string>
-    <string name="title_ptrain">Super Ataque</string>
-    <string name="title_credits">Creditos</string>
-    <string name="title_skull">Información de estadística</string>
-    <string name="base_level">Nivel Actual</string>
-    <string name="stat_level">Nivel de estadística (con anillos o collares)</string>
-    <string name="weapon_atk">Ataque de arma</string>
-    <string name="stat_goal">Meta de estadística</string>
-    <string name="hours">Horas</string>
-    <string name="tick">Super Ataque (por defecto 4 maximo)</string>
-    <string name="tickrate_help">Que es el super ataque?</string>
+    <string name="app_name">"Calculadora de Rucoy"</string>
+    <string name="title_train">"Entrenar &amp; Daño"</string>
+    <string name="title_ptrain">"Super Ataque"</string>
+    <string name="title_credits">"Creditos"</string>
+    <string name="title_skull">"Información de estadística"</string>
+    <string name="base_level">"Nivel Actual"</string>
+    <string name="stat_level">"Nivel de estadística (con anillos o collares)"</string>
+    <string name="weapon_atk">"Ataque de arma"</string>
+    <string name="stat_goal">"Meta de estadística"</string>
+    <string name="hours">"Horas"</string>
+    <string name="tick">"Super Ataque (por defecto 4 maximo)"</string>
+    <string name="tickrate_help">"Que es el super ataque?"</string>
     <string name="tickrate_tooltip">"Es cuantos monstruos puedes matar con tan solo 1 hit de super ataque!"</string>
-    <string name="prtain_switch">Super Ataque en entrenamiento</string>
+    <string name="prtain_switch">"Super Ataque en entrenamiento"</string>
     <string-array name="classes_array">
-        <item>Caballero ⚔️</item>
-        <item>Arquero 🏹</item>
-        <item>Mago 🪄</item>
+        <item>"Caballero ⚔️"</item>
+        <item>"Arquero 🏹"</item>
+        <item>"Mago 🪄"</item>
     </string-array>
-    <string name="melee">Caballero ⚔️</string>
-    <string name="distance">Arquero 🏹</string>
-    <string name="magic">Mago 🪄</string>
+    <string name="melee">"Caballero ⚔️"</string>
+    <string name="distance">"Arquero 🏹"</string>
+    <string name="magic">"Mago 🪄"</string>
     <string-array name="train_methods_array">
-        <item>⚔️ Entrenamiento con online bonus</item>
-        <item>🔥 Entrenamiento con super ataque</item>
-        <item>💤 Entrenamiento Desconectado</item>
-        <item>💪 Daño</item>
+        <item>"⚔️ Entrenamiento con online bonus"</item>
+        <item>"🔥 Entrenamiento con super ataque"</item>
+        <item>"💤 Entrenamiento Desconectado"</item>
+        <item>"💪 Daño"</item>
     </string-array>
-    <string name="credits_content">Esto es una aplicación no oficial creada por Helloyanis, las formulas estan cogidas del código de Mims y algunas veces con la ayuda de Chatgpt, esta app es gratis, ve a verla en GitHub, Ayudame a mantener la aplicación dandome ideas para añadir o reportando los bugs de la app, ve a GitHub para hacerlo!</string>
-    <string name="github">GitHub</string>
-    <string name="privacy">Politica de privacidad</string>
-    <string name="support_me">❤️ Apoyame!</string>
-    <string name="rate">🌟 Califica la app!</string>
-    <string name="ratebackup">🌟 La ventana no se abre? ve a Play Store y intentalo alli!</string>
-    <string name="traineffec">👾 Usted puede entrenar efectivamente en </string>
-    <string name="ptraineffec1">👾 Usted puede entrenar con super ataque en  </string>
-    <string name="ptraineffec2"> conectado </string>
-    <string name="averagetime">⏱️ Tiempo promedio para matar</string>
-    <string name="youcandeal">💥 Puedes hacer</string>
-    <string name="youneednext1">💪 Usted necesita</string>
+    <string name="credits_content">"Esto es una aplicación no oficial creada por Helloyanis, las formulas estan cogidas del código de Mims y algunas veces con la ayuda de Chatgpt, esta app es gratis, ve a verla en GitHub, Ayudame a mantener la aplicación dandome ideas para añadir o reportando los bugs de la app, ve a GitHub para hacerlo!"</string>
+    <string name="github">"GitHub"</string>
+    <string name="privacy">"Politica de privacidad"</string>
+    <string name="support_me">"❤️ Apoyame!"</string>
+    <string name="rate">"🌟 Califica la app!"</string>
+    <string name="ratebackup">"🌟 La ventana no se abre? ve a Play Store y intentalo alli!"</string>
+    <string name="traineffec">"👾 Usted puede entrenar efectivamente en "</string>
+    <string name="ptraineffec1">"👾 Usted puede entrenar con super ataque en  "</string>
+    <string name="ptraineffec2">" conectado"</string>
+    <string name="averagetime">"⏱️ Tiempo promedio para matar"</string>
+    <string name="youcandeal">"💥 Puedes hacer"</string>
+    <string name="youneednext1">"💪 Usted necesita"</string>
     <string name="youneednext2train">" estadísticas para entrenar efectivamente en "</string>
     <string name="youneednext2ptrain">" estadística para poder entrenar con super ataque efectivamente en  "</string>
-    <string name="maxdmg1">🔥 Maximo Daño:</string>
-    <string name="maxdmg2"> maximo daño a</string>
-    <string name="tickrate"> 💫 Tasa de ticks: </string>
-    <string name="inXstats1"> en </string>
-    <string name="inXstats2"> Estadísticas!\n</string>
+    <string name="maxdmg1">"🔥 Maximo Daño:"</string>
+    <string name="maxdmg2">" maximo daño a"</string>
+    <string name="tickrate">" 💫 Tasa de ticks: "</string>
+    <string name="inXstats1">" en "</string>
+    <string name="inXstats2">" Estadísticas!\n"</string>
     <string name="mindmgauto">"⏬ Daño minimo (Auto): "</string>
     <string name="maxdmgauto">"⏫ Daño Maximo (Auto): "</string>
-    <string name="statgoaltoolow">❗ El objetivo de estadísticas debe ser mayor que tu estadística actual</string>
-    <string name="offlineoutput1">💫 Necesitas aproximadamente  </string>
-    <string name="offlineoutput2"> ticks necesarios para alcanzar el nivel de stat </string>
-    <string name="offlineoutput3">⏱️ Esto es alrededor </string>
-    <string name="offlineoutput4"> minutos o</string>
-    <string name="offlineoutput5"> horas de entrenamiento fuera de línea a 600 exp/hr</string>
-    <string name="offlinenewstat1">⏱️ Su nuevo nivel de stat talvez sea: </string>
-    <string name="offlinenewstat2"> con </string>
-    <string name="offlineinvalidinput">❗Ingrese las horas o el objetivo estadístico que quiera</string>
-    <string name="offlineerror">❌ Error: ¡No se pudo encontrar una nueva estadística!</string>
-    <string name="skullGneeded">Dinero necesario</string>
-    <string name="skullGlost">Dinero perdido al morir en pvp</string>
-    <string name="hp">Vida</string>
-    <string name="mp">Mana</string>
-    <string name="levelexp1">💪 Nivel </string>
-    <string name="levelexp2"> es al/cuando</string>
-    <string name="levelexp3">exp!\n</string>
-    <string name="nextlevel1">✨ Tu necesitas </string>
-    <string name="nextlevel2"> esta experiencia para alcanzar el nivel </string>
+    <string name="statgoaltoolow">"❗ El objetivo de estadísticas debe ser mayor que tu estadística actual"</string>
+    <string name="offlineoutput1">"💫 Necesitas aproximadamente  "</string>
+    <string name="offlineoutput2">" ticks necesarios para alcanzar el nivel de stat "</string>
+    <string name="offlineoutput3">"⏱️ Esto es alrededor "</string>
+    <string name="offlineoutput4">" minutos o"</string>
+    <string name="offlineoutput5">" horas de entrenamiento fuera de línea a 600 exp/hr"</string>
+    <string name="offlinenewstat1">"⏱️ Su nuevo nivel de stat talvez sea: "</string>
+    <string name="offlinenewstat2">" con "</string>
+    <string name="offlineinvalidinput">"❗Ingrese las horas o el objetivo estadístico que quiera"</string>
+    <string name="offlineerror">"❌ Error: ¡No se pudo encontrar una nueva estadística!"</string>
+    <string name="skullGneeded">"Dinero necesario"</string>
+    <string name="skullGlost">"Dinero perdido al morir en pvp"</string>
+    <string name="hp">"Vida"</string>
+    <string name="mp">"Mana"</string>
+    <string name="levelexp1">"💪 Nivel "</string>
+    <string name="levelexp2">" es al/cuando"</string>
+    <string name="levelexp3">"exp!\n"</string>
+    <string name="nextlevel1">"✨ Tu necesitas "</string>
+    <string name="nextlevel2">" esta experiencia para alcanzar el nivel "</string>
 </resources>

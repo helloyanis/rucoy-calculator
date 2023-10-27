@@ -1,70 +1,70 @@
 <resources>
-    <string name="app_name">Rucoy Калькулятор</string>
-    <string name="title_train">Тренировка &amp; Урон</string>
-    <string name="title_ptrain">Усиленная тренировка</string>
-    <string name="title_credits">Титры</string>
-    <string name="title_skull">Показатели</string>
-    <string name="base_level">Уровень персонажа</string>
-    <string name="stat_level">Уровень стата (с баффами)</string>
-    <string name="weapon_atk">Урон оружия</string>
-    <string name="stat_goal">Цель стата</string>
-    <string name="hours">Часы</string>
-    <string name="tick">Тик (Стандартно 4)</string>
-    <string name="tickrate_help">Что такое Тик?</string>
+    <string name="app_name">"Rucoy Калькулятор"</string>
+    <string name="title_train">"Тренировка &amp; Урон"</string>
+    <string name="title_ptrain">"Усиленная тренировка"</string>
+    <string name="title_credits">"Титры"</string>
+    <string name="title_skull">"Показатели"</string>
+    <string name="base_level">"Уровень персонажа"</string>
+    <string name="stat_level">"Уровень стата (с баффами)"</string>
+    <string name="weapon_atk">"Урон оружия"</string>
+    <string name="stat_goal">"Цель стата"</string>
+    <string name="hours">"Часы"</string>
+    <string name="tick">"Тик (Стандартно 4)"</string>
+    <string name="tickrate_help">"Что такое Тик?"</string>
     <string name="tickrate_tooltip">"Это количество мобов которое Вы можете ударить за 1 удар способностью"</string>
-    <string name="prtain_switch">Усиленная тренировка</string>
+    <string name="prtain_switch">"Усиленная тренировка"</string>
     <string-array name="classes_array">
-        <item>Воин ⚔️</item>
-        <item>Лучник 🏹</item>
-        <item>Маг 🪄</item>
+        <item>"Воин ⚔️"</item>
+        <item>"Лучник 🏹"</item>
+        <item>"Маг 🪄"</item>
     </string-array>
-    <string name="melee">Воин ⚔️</string>
-    <string name="distance">Лучник 🏹</string>
-    <string name="magic">Маг 🪄</string>
+    <string name="melee">"Воин ⚔️"</string>
+    <string name="distance">"Лучник 🏹"</string>
+    <string name="magic">"Маг 🪄"</string>
     <string-array name="train_methods_array">
-        <item>⚔️ Онлайн тренировка</item>
-        <item>🔥 Усиленная тренировка</item>
-        <item>💤 Оффлайн тренировка</item>
-        <item>💪 Урон</item>
+        <item>"⚔️ Онлайн тренировка"</item>
+        <item>"🔥 Усиленная тренировка"</item>
+        <item>"💤 Оффлайн тренировка"</item>
+        <item>"💪 Урон"</item>
     </string-array>
-    <string name="credits_content">Это неофициальное приложение созданное helloyanis. Формулы тренировки созданы Mims Code, (Иногда) с помощью ChatGPT! Это бесплатное приложение с открытым исходным кодом! Проверь на GitHub! Поддержи меня чтобы помочь продолжить поддержку этого приложения,а также добавить новые возможности! Есть идея? Отчёт по ошибке? Открой GitHub и открой issue!</string>
-    <string name="github">GitHub</string>
-    <string name="privacy">политика конфиденциальности</string>
-    <string name="support_me">❤️ Поддержи меня!</string>
-    <string name="rate">🌟 Оцени приложение!</string>
-    <string name="ratebackup">🌟 Окно не открывается? Нажми ещё раз чтобы открыть Play Store.</string>
-    <string name="traineffec">👾 Вы можете эффективно тренироваться на </string>
-    <string name="ptraineffec1">👾 Вы можете эффективно усиленно тренировться на </string>
-    <string name="ptraineffec2"> На </string>
-    <string name="averagetime">⏱️ Среднее время для убийства </string>
-    <string name="youcandeal">💥 Вы можете нанести  </string>
-    <string name="youneednext1">💪 Вам требуется </string>
+    <string name="credits_content">"Это неофициальное приложение созданное helloyanis. Формулы тренировки созданы Mims Code, (Иногда) с помощью ChatGPT! Это бесплатное приложение с открытым исходным кодом! Проверь на GitHub! Поддержи меня чтобы помочь продолжить поддержку этого приложения,а также добавить новые возможности! Есть идея? Отчёт по ошибке? Открой GitHub и открой issue!"</string>
+    <string name="github">"GitHub"</string>
+    <string name="privacy">"политика конфиденциальности"</string>
+    <string name="support_me">"❤️ Поддержи меня!"</string>
+    <string name="rate">"🌟 Оцени приложение!"</string>
+    <string name="ratebackup">"🌟 Окно не открывается? Нажми ещё раз чтобы открыть Play Store."</string>
+    <string name="traineffec">"👾 Вы можете эффективно тренироваться на "</string>
+    <string name="ptraineffec1">"👾 Вы можете эффективно усиленно тренировться на "</string>
+    <string name="ptraineffec2">" На "</string>
+    <string name="averagetime">"⏱️ Среднее время для убийства "</string>
+    <string name="youcandeal">"💥 Вы можете нанести  "</string>
+    <string name="youneednext1">"💪 Вам требуется "</string>
     <string name="youneednext2train">" Статов(-a) для эффективной тренировки на "</string>
     <string name="youneednext2ptrain">" Статов(-а) для эффективной усиленной тренировки на "</string>
-    <string name="maxdmg1">🔥 максимального урона: </string>
-    <string name="maxdmg2"> максимальный урон по </string>
-    <string name="tickrate"> 💫 Тикрейт: </string>
-    <string name="inXstats1"> через </string>
-    <string name="inXstats2"> Статов(-а)!\n</string>
+    <string name="maxdmg1">"🔥 максимального урона: "</string>
+    <string name="maxdmg2">" максимальный урон по "</string>
+    <string name="tickrate">" 💫 Тикрейт: "</string>
+    <string name="inXstats1">" через "</string>
+    <string name="inXstats2">" Статов(-а)!\n"</string>
     <string name="mindmgauto">"⏬ Минимальный урон (Обычная атака): "</string>
     <string name="maxdmgauto">"⏫ Максимальный урон (Обычная атака): "</string>
-    <string name="statgoaltoolow">❗ Цель стата должна быть больше текущего уровня стата</string>
-    <string name="offlineoutput1">💫 Вам понадобится примерно </string>
-    <string name="offlineoutput2"> тиков до достижения нового уровня стата </string>
-    <string name="offlineoutput3">⏱️ Это примерно </string>
-    <string name="offlineoutput4"> минут, или </string>
-    <string name="offlineoutput5"> часов оффлайн тренировки при 600 опыта в час</string>
-    <string name="offlinenewstat1">⏱️ Ваш новый стат будет примерно: </string>
-    <string name="offlinenewstat2"> через </string>
-    <string name="offlineinvalidinput">❗Пожалуйста введите или количество часов или цель стата</string>
-    <string name="offlineerror">❌ Что-то пошло не так: Не получается расчитать новый стат!</string>
-    <string name="skullGneeded">G необходимо</string>
-    <string name="skullGlost">G будет потеряно при убийстве игроком</string>
-    <string name="hp">HP</string>
-    <string name="mp">MP</string>
-    <string name="levelexp1">💪 Уровень </string>
-    <string name="levelexp2"> через </string>
-    <string name="levelexp3"> опыта!\n</string>
-    <string name="nextlevel1">✨ Вам нужно </string>
-    <string name="nextlevel2"> опыта чтобы достичь уровня </string>
+    <string name="statgoaltoolow">"❗ Цель стата должна быть больше текущего уровня стата"</string>
+    <string name="offlineoutput1">"💫 Вам понадобится примерно "</string>
+    <string name="offlineoutput2">" тиков до достижения нового уровня стата "</string>
+    <string name="offlineoutput3">"⏱️ Это примерно "</string>
+    <string name="offlineoutput4">" минут, или "</string>
+    <string name="offlineoutput5">" часов оффлайн тренировки при 600 опыта в час"</string>
+    <string name="offlinenewstat1">"⏱️ Ваш новый стат будет примерно: "</string>
+    <string name="offlinenewstat2">" через "</string>
+    <string name="offlineinvalidinput">"❗Пожалуйста введите или количество часов или цель стата"</string>
+    <string name="offlineerror">"❌ Что-то пошло не так: Не получается расчитать новый стат!"</string>
+    <string name="skullGneeded">"G необходимо"</string>
+    <string name="skullGlost">"G будет потеряно при убийстве игроком"</string>
+    <string name="hp">"HP"</string>
+    <string name="mp">"MP"</string>
+    <string name="levelexp1">"💪 Уровень "</string>
+    <string name="levelexp2">" через "</string>
+    <string name="levelexp3">" опыта!\n"</string>
+    <string name="nextlevel1">"✨ Вам нужно "</string>
+    <string name="nextlevel2">" опыта чтобы достичь уровня "</string>
 </resources>
