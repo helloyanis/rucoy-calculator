@@ -56,7 +56,7 @@ class SkullFragment : Fragment() {
                     if (binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()!="") {
                         calcskull(binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString().toDouble())
                     }else{
-                        setalldisplays("No data")
+                        setalldisplays("-")
                     }
 
                 }
@@ -95,6 +95,7 @@ class SkullFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.orangeskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.redskullvalue).text = string
         binding.root.findViewById<TextView>(R.id.blackskullvalue).text = string
+        binding.root.findViewById<TextView>(R.id.mainstat).text = string
     }
     private fun calcskull(double: Double) {
         val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()
@@ -107,10 +108,10 @@ class SkullFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.mainstat).text =  "❤️ "+String.format(
             "%,.0f",
             100+double*15
-        ) + " ${getString(R.string.hp)}\n🪄" +  String.format(
+        ) + " ${getString(R.string.hp)}\n🪄 " +  String.format(
             "%,.0f",
-            100+double*20
-        )+ " ${getString(R.string.hp)}\n${getString(R.string.levelexp1)}" + String.format("%,.0f", double) + getString(R.string.levelexp2) + String.format("%,.0f", Formulas.exp_Calc(double)) + getString(R.string.levelexp3) +
+            100+double*10
+        )+ " ${getString(R.string.mp)}\n${getString(R.string.levelexp1)}" + String.format("%,.0f", double) + getString(R.string.levelexp2) + String.format("%,.0f", Formulas.exp_Calc(double)) + getString(R.string.levelexp3) +
                 getString(R.string.nextlevel1) + String.format("%,.0f", (Formulas.exp_Calc(double + 1) - Formulas.exp_Calc(double))) + getString(R.string.nextlevel2) + String.format("%,.0f", double + 1) + "!"
 
         binding.root.findViewById<TextView>(R.id.whiteskullvalue).text =  String.format(
