@@ -27,7 +27,7 @@
         <item>"💤 Çevrimdışı eğitim"</item>
         <item>"💪 Hasar"</item>
     </string-array>
-    <string name="credits_content">"This is an unofficial application made by helloyanis Training formulas by Mims Code (sometimes) by ChatGPT! This app is free and open-source! Check out the GitHub! Support me to help me keep maintaining this application and add new features! A feature idea? A bug report? Go on GitHub and open an issue!"</string>
+    <string name="credits_content">"Bu helloyanis tarafından yapılan resmi olmayan bir uygulamadır. Uygulamada kullanılan formüller Mims Code ve bazen ChatGPT ile yapılmıştır! Bu uygulama ücretsiz ve açık kaynaklıdır! Daha fazla bilgi için GitHub'a göz atın! Bu uygulamayı sürdürmesi ve yeni özellikler eklemesine yardımcı olmak için helloyanisi destekleyin! Bir özellik fikri mi veya bir hata raporu mu? GitHub'a gidin ve bir sorun açın! (Çeviriyi yapan: Sunyear55)"</string>
     <string name="github">"GitHub"</string>
     <string name="privacy">"Gizlilik Politikası"</string>
     <string name="support_me">"❤️ Beni destekleyin!"</string>
@@ -55,7 +55,7 @@
     <string name="offlineoutput4">" dakika, yada "</string>
     <string name="offlineoutput5">" saate tekabül ediyor "</string>
     <string name="offlinenewstat1">"⏱️ Yeni istatistik seviyen yaklaşık olarak şu olacak : "</string>
-    <string name="offlinenewstat2">" şu kadar "</string>
+    <string name="offlinenewstat2">" şu kadar çalışırsan "</string>
     <string name="offlineinvalidinput">"❗Lütfen çalışmak istediğiniz süreyi yada istatistik hedefinizi girin"</string>
     <string name="offlineerror">"❌ Birşeyler yanlış gitti: Yeni istatistiği bulamadık!"</string>
     <string name="skullGneeded">"Gold ihtiyacın"</string>
