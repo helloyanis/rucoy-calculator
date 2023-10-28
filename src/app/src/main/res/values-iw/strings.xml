@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">"מחשבון רוקוי"</string>
+    <string name="app_name">"מחשבון Rucoy"</string>
     <string name="title_train">"אימון &amp; נזק"</string>
     <string name="title_ptrain">"אימון כוח"</string>
     <string name="title_credits">"קרדיטים"</string>
@@ -11,7 +11,7 @@
     <string name="hours">"שעות"</string>
     <string name="tick">"טיק (ברירת מחדל היא 4)"</string>
     <string name="tickrate_help">"מה זה טיק?"</string>
-    <string name="tickrate_tooltip">"זה כמות המובים, שאתה יכול להכות עם לפחות מתקפת כוח 1!"</string>
+    <string name="tickrate_tooltip">"טיק זה כמות המובים, שאתה יכול להכות לפחות עם נקודת התקפה אחת! (1)"</string>
     <string name="prtain_switch">"אימון כוח"</string>
     <string-array name="classes_array">
         <item>"חרב ⚔️"</item>
@@ -27,7 +27,7 @@
         <item>"💤 אימון לא מקוון (לא מחובר)"</item>
         <item>"💪 נזק"</item>
     </string-array>
-    <string name="credits_content">"זהו אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת  בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם!"</string>
+    <string name="credits_content">"זהו אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם! קרדיט נוסף ותודה מיוחדת מוענקת לתרגום מאנגלית לעברית! אם יש לכם רעיונות לשפר לגבי התרגום או פשוט רוצים לומר תודה, צרו קשר בדיסקורד או חפשו אותי בגיטהאב - thegamerking777"</string>
     <string name="github">"גיטהאב"</string>
     <string name="privacy">"מדיניות הפרטיות"</string>
     <string name="support_me">"❤️ תמכו בי!"</string>
@@ -37,7 +37,7 @@
     <string name="ptraineffec1">"👾 אתה יכול לעשות אימון כוח עם "</string>
     <string name="ptraineffec2">" על "</string>
     <string name="averagetime">"⏱️ זמן ממוצע כדי להרוג "</string>
-    <string name="youcandeal">"💥 אתה יכול להתמודד "</string>
+    <string name="youcandeal">"💥 אתה יכול לעשות "</string>
     <string name="youneednext1">"💪 אתה צריך "</string>
     <string name="youneednext2train">" רמות ערך כדי להתאמן ביעילות על "</string>
     <string name="youneednext2ptrain">" רמות ערך כדי להתאמן כוחנית ביעילות על "</string>
@@ -53,17 +53,17 @@
     <string name="offlineoutput2">" טיקים לפני שאתה מגיע לרמת ערך "</string>
     <string name="offlineoutput3">"⏱️ זה בסביבות "</string>
     <string name="offlineoutput4">" דקות, או "</string>
-    <string name="offlineoutput5">" שעות של אימון לא מקוון ב-600 נקודות ניסיון לשעה"</string>
+    <string name="offlineoutput5">" שעות של אימון לא מקוון ב-600 נקודות ניסיון לשעה "</string>
     <string name="offlinenewstat1">"⏱️ רמת הערך החדשה שלך תהיה בסביבות: "</string>
     <string name="offlinenewstat2">" עם "</string>
-    <string name="offlineinvalidinput">"❗בבקשה רשום כמות שעות או את מטרת רמת הערך"</string>
-    <string name="offlineerror">"❌ משהו לא הסתדר: אינו מוצא את רמת הערך החדשה!"</string>
-    <string name="skullGneeded">"כמות זהב נדרשת"</string>
-    <string name="skullGlost">"הפסד כמות זהב עקב מוות משחקן"</string>
+    <string name="offlineinvalidinput">"❗בבקשה רשום כמות שעות, או(!), את מטרת רמת הערך"</string>
+    <string name="offlineerror">"❌ משהו לא הסתדר: לא מוצא את רמת הערך החדשה!"</string>
+    <string name="skullGneeded">"זהב נדרש"</string>
+    <string name="skullGlost">"זהב אבוד עקב מוות משחקן"</string>
     <string name="hp">"חיים"</string>
     <string name="mp">"מאנה"</string>
     <string name="levelexp1">"💪 רמה "</string>
-    <string name="levelexp2">" הוא ב-</string>
+    <string name="levelexp2">" הוא ב "</string>
     <string name="levelexp3">"נקודות ניסיון!\n"</string>
     <string name="nextlevel1">"✨ אתה צריך "</string>
     <string name="nextlevel2">" נקודות ניסיון כדי להגיע לרמה "</string>
