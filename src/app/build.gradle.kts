@@ -12,8 +12,8 @@ android {
         applicationId = "com.helloyanis.rucoycalculator"
         minSdk = 24
         targetSdk = 34
-        versionCode = 13
-        versionName = "6.2"
+        versionCode = 14
+        versionName = "6.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
