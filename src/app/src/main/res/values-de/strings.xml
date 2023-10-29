@@ -50,7 +50,7 @@
     <string name="maxdmgauto">"⏫ Max. Damage (Auto): "</string>
     <string name="statgoaltoolow">"❗ Stat goal must be greater than your current stat"</string>
     <string name="offlineoutput1">💫 You need approximately "</string>
-    <string name="offlineoutput2">" ticks until you reach stat level </string>
+    <string name="offlineoutput2">" ticks until you reach stat level "</string>
     <string name="offlineoutput3">"⏱️ This is around "</string>
     <string name="offlineoutput4">" minutes, or </string>
     <string name="offlineoutput5">" hours of offline training at 600 exp/hr"</string>

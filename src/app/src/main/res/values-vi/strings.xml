@@ -48,7 +48,7 @@
     <string name="inXstats2">" cấp độ kĩ năng nữa!\n"</string>
     <string name="mindmgauto">"⏬ Sát thương nhỏ nhất (Tự động đánh): "</string>
     <string name="maxdmgauto">"⏫ Sát thương lớn nhất (Tự động đánh): "</string>
-    <string name="statgoaltoolow">"❗ Cấp độ kĩ năng mong muốn phải cao hơn cấp độ kĩ năng hiện tại</string>
+    <string name="statgoaltoolow">"❗ Cấp độ kĩ năng mong muốn phải cao hơn cấp độ kĩ năng hiện tại"</string>
     <string name="offlineoutput1">"💫 Bạn cần khoảng "</string>
     <string name="offlineoutput2">" ticks cho đến khi đạt được cấp kĩ năng "</string>
     <string name="offlineoutput3">"⏱️ Nó rơi vào khoảng "</string>
