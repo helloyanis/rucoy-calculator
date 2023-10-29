@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name">"Rucoy calculator"</string>
-    <string name="title_train">"Train &amp; Dmg"</string>
-    <string name="title_ptrain">"Power train"</string>
-    <string name="title_credits">"Credits"</string>
-    <string name="title_skull">"Stat info"</string>
-    <string name="base_level">"Base level"</string>
-    <string name="stat_level">"Stat level (with buffs)"</string>
-    <string name="weapon_atk">"Weapon attack"</string>
-    <string name="stat_goal">"Stat goal"</string>
-    <string name="hours">"Hours"</string>
-    <string name="tick">"Tick (default is 4)"</string>
-    <string name="tickrate_help">"What is tick?"</string>
-    <string name="tickrate_tooltip">"It's how many mobs you can hit with 1 power attack!"</string>
-    <string name="prtain_switch">"Power training"</string>
+    <string name="app_name">"Kalkulator Rucoya"</string>
+    <string name="title_train">"Trenuj &amp; Obrażenia"</string>
+    <string name="title_ptrain">"Power Trenowanie "</string>
+    <string name="title_credits">"Podziękowania"</string>
+    <string name="title_skull">"Informacja Statystyk"</string>
+    <string name="base_level">"Level"</string>
+    <string name="stat_level">"Level Statystyki (z zmocnieniami)"</string>
+    <string name="weapon_atk">"Obrażenia Broni"</string>
+    <string name="stat_goal">"Celowa Statystyka"</string>
+    <string name="hours">"Godzin"</string>
+    <string name="tick">"Ilość Mobów (podstawowa to 4)"</string>
+    <string name="tickrate_help">"Co to znaczy ilość mobOw?"</string>
+    <string name="tickrate_tooltip">"To liczba mobów, które możesz trafić jednym atakiem mocy!"</string>
+    <string name="prtain_switch">"Trenowanie x Mocą"</string>
     <string-array name="classes_array">
         <item>"Melee ⚔️"</item>
         <item>"Distance 🏹"</item>
@@ -22,49 +22,49 @@
     <string name="distance">"Distance 🏹"</string>
     <string name="magic">"Magic 🪄"</string>
     <string-array name="train_methods_array">
-        <item>"⚔️ Online Training"</item>
-        <item>"🔥 Power training"</item>
-        <item>"💤 Offline training"</item>
-        <item>"💪 Damage"</item>
+        <item>"⚔️ Trenowanie Online"</item>
+        <item>"🔥 Power Trenowanie"</item>
+        <item>"💤 Trenowania Offline"</item>
+        <item>"💪 Obrażenia"</item>
     </string-array>
-    <string name="credits_content">"This is an unofficial application made by helloyanis Training formulas by Mims Code (sometimes) by ChatGPT! This app is free and open-source! Check out the GitHub! Support me to help me keep maintaining this application and add new features! A feature idea? A bug report? Go on GitHub and open an issue!"</string>
-    <string name="github">"GitHub"</string>
+    <string name="credits_content">"Jest to nieoficjalna aplikacja stworzona przez helloyanis. Formuły szkoleniowe opracowane przez Mims Code (czasami) przez ChatGPT! Ta aplikacja jest bezpłatna i ma otwarte oprogramowanie! Sprawdź GitHuba! Wesprzyj mnie, aby pomóc mi w utrzymaniu tej aplikacji i dodawaniu nowych funkcji! Pomysł na funkcję? Raport o błędzie? Wejdź na GitHub i otwórz problem! Przetlumaczone przez Matatabi Yuki (Il Yuki. Translated by Matatabi Yuki (Il Yuki)"</string>
+    <string name="github">"GitHub"</string>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     <string name="privacy">"Privacy policy"</string>
-    <string name="support_me">"❤️ Support me!"</string>
-    <string name="rate">"🌟 Rate app!"</string>
-    <string name="ratebackup">"🌟 Window did not show? Click again to open Play Store."</string>
-    <string name="traineffec">"👾 You can train effectively on "</string>
-    <string name="ptraineffec1">"👾 You can power train your "</string>
-    <string name="ptraineffec2">" on "</string>
-    <string name="averagetime">"⏱️ Average time to kill "</string>
-    <string name="youcandeal">"💥 You can deal "</string>
-    <string name="youneednext1">"💪 You need "</string>
-    <string name="youneednext2train">" stats to train effectively on "</string>
-    <string name="youneednext2ptrain">" stats to power train effectively on "</string>
-    <string name="maxdmg1">"🔥 Max. Damage: "</string>
-    <string name="maxdmg2">" max damage to "</string>
+    <string name="support_me">"❤️ Wesprzyj mnie!"</string>
+    <string name="rate">"🌟 Oceń aplikacje!"</string>
+    <string name="ratebackup">"🌟 Okno się nie pokazało? Kliknij ponownie, aby otworzyć Sklep Play."</string>
+    <string name="traineffec">"👾 Możesz efektywnie trenować na "</string>
+    <string name="ptraineffec1">"👾 Mozesz trenowac z mocą twoje  "</string>
+    <string name="ptraineffec2">" na "</string>
+    <string name="averagetime">"⏱️ Średni czas zabicia "</string>
+    <string name="youcandeal">"💥 Możesz obrażać "</string>
+    <string name="youneednext1">"💪 Potrzebujesz "</string>
+    <string name="youneednext2train">" statystyk żeby trenować efektywnie nan "</string>
+    <string name="youneednext2ptrain">" statystyk żeby efektywnie trenować z mocą na "</string>
+    <string name="maxdmg1">"🔥 Max. Obrażenia: "</string>
+    <string name="maxdmg2">" max obrażenia na  "</string>
     <string name="tickrate">" 💫 Tickrate: </string>
-    <string name="inXstats1">" in "</string>
-    <string name="inXstats2">" stats!\n"</string>
-    <string name="mindmgauto">"⏬ Min. Damage (Auto): "</string>
-    <string name="maxdmgauto">"⏫ Max. Damage (Auto): "</string>
-    <string name="statgoaltoolow">"❗ Stat goal must be greater than your current stat"</string>
-    <string name="offlineoutput1">💫 You need approximately "</string>
-    <string name="offlineoutput2">" ticks until you reach stat level "</string>
-    <string name="offlineoutput3">"⏱️ This is around "</string>
-    <string name="offlineoutput4">" minutes, or </string>
-    <string name="offlineoutput5">" hours of offline training at 600 exp/hr"</string>
-    <string name="offlinenewstat1">⏱️ Your new stat will be approximately: "</string>
-    <string name="offlinenewstat2">" with "</string>
-    <string name="offlineinvalidinput">"❗Please enter either hours OR stat goal"</string>
-    <string name="offlineerror">"❌ Something went wrong: Could not find new stat!"</string>
-    <string name="skullGneeded">"G needed"</string>
-    <string name="skullGlost">"G lost from death by player"</string>
+    <string name="inXstats1">" w "</string>
+    <string name="inXstats2">" statystyk!\n"</string>
+    <string name="mindmgauto">"⏬ Min. Obrażeń (Auto): "</string>
+    <string name="maxdmgauto">"⏫ Max. Obrażeń (Auto): "</string>
+    <string name="statgoaltoolow">"❗Celowa statystyka muszi być większa niż obecna"</string>
+    <string name="offlineoutput1">💫 Potrzebujesz około "</string>
+    <string name="offlineoutput2">" uderzeń zanim utrzymasz level statystyk "</string>
+    <string name="offlineoutput3">"⏱️ To jest okolo "</string>
+    <string name="offlineoutput4">"minut, albo </string>
+    <string name="offlineoutput5">" Godzin trenowania offline przy 600 exp na godzinę"</string>
+    <string name="offlinenewstat1">⏱️Twoja nowa statystyka będzie okolo: "</string>
+    <string name="offlinenewstat2">" z "</string>
+    <string name="offlineinvalidinput">"❗Proszeę wprowadzić godziny lub cel statystyki."</string>
+    <string name="offlineerror">"❌ Coś poszło nie tak: nie udało się znaleźć nowych statystyk!"</string>
+    <string name="skullGneeded">"G jest potrzebne"</string>
+    <string name="skullGlost">"G jest stracone po śmierci"</string>
     <string name="hp">"HP"</string>
     <string name="mp">"MP"</string>
     <string name="levelexp1">"💪 Level "</string>
-    <string name="levelexp2">" is at"</string>
+    <string name="levelexp2">" jest "</string>
     <string name="levelexp3">"exp!\n"</string>
-    <string name="nextlevel1">"✨ You need "</string>
-    <string name="nextlevel2">" experience to reach level "</string>
+    <string name="nextlevel1">"✨ Potrzebujesz "</string>
+    <string name="nextlevel2">" exp żeby utrzymać level "</string>
 </resources>
