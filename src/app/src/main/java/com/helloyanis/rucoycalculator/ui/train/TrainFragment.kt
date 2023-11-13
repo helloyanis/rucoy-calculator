@@ -1,8 +1,6 @@
 package com.helloyanis.rucoycalculator.ui.train
 
-import GitHubReleaseChecker
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -19,7 +18,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -28,13 +26,17 @@ import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.TrainBinding
 import com.helloyanis.rucoycalculator.ui.train.Formulas.accuracy_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.auto_max_raw_damage_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.auto_min_raw_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.average_damage_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.crit_accuracy_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.findStatLevel_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_crit_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_raw_crit_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.max_tickrate_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.min_damage_Calc
+import com.helloyanis.rucoycalculator.ui.train.Formulas.normal_accuracy_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.powertickrate_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_max_raw_damage_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_min_raw_damage_Calc
@@ -46,8 +48,6 @@ import com.helloyanis.rucoycalculator.ui.train.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.ui.train.Formulas.total_accuracy_Calc
 import kotlinx.coroutines.launch
-import java.util.concurrent.Flow
-
 
 
 class TrainFragment : Fragment() {
@@ -62,6 +62,9 @@ class TrainFragment : Fragment() {
     private val BASE_LEVEL_KEY = stringPreferencesKey("base_level_key")
     private val TICK_KEY = stringPreferencesKey("tick_key")
     private val PTRAIN_CLASS_KEY = stringPreferencesKey("ptrain_class_key")
+    private val TRAIN_STYLE_KEY = stringPreferencesKey("train_style_key")
+    private val ATK_STYLE_KEY = stringPreferencesKey("atk_style_key")
+    private val MOB_KEY = stringPreferencesKey("mob_key")
     private val HOURS_KEY = stringPreferencesKey("hours_key")
     private val STAT_GOAL_KEY = stringPreferencesKey("stat_goal_key")
     // Define keys for other preferences as needed
@@ -77,7 +80,6 @@ class TrainFragment : Fragment() {
         lifecycleScope.launch {
             dataStore?.data?.collect { preferences ->
                 if(isInit) {
-
                     binding.root.findViewById<EditText>(R.id.baselevel).text =
                         Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
                     binding.root.findViewById<EditText>(R.id.stat).text =
@@ -88,6 +90,8 @@ class TrainFragment : Fragment() {
                         Editable.Factory.getInstance().newEditable(preferences[TICK_KEY] ?: "4")
                     binding.root.findViewById<Spinner>(R.id.classspinner).setSelection(
                         preferences[PTRAIN_CLASS_KEY]?.toInt() ?: 0)
+                    binding.root.findViewById<Spinner>(R.id.trainstylespinner).setSelection(
+                        preferences[TRAIN_STYLE_KEY]?.toInt() ?: 0)
                     binding.root.findViewById<EditText>(R.id.hours).text =
                         Editable.Factory.getInstance().newEditable(preferences[HOURS_KEY] ?: "")
                     binding.root.findViewById<EditText>(R.id.statgoal).text =
@@ -98,6 +102,18 @@ class TrainFragment : Fragment() {
             }
             updateoutput() // Call updateoutput() only once after restoring saved values
         }
+        // Sort the array based on mob_level
+        val sortedMobs = mobs.sortedBy { it.mob_level }
+
+        // Setup mob spinner
+        val mobNamesList = sortedMobs.map { it.mob_name }
+        val spinnerArrayAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
+            this.requireContext(),
+            android.R.layout.simple_spinner_item,
+            mobNamesList
+        )
+
+        binding.mobspinner.adapter = spinnerArrayAdapter
 
 
         binding.tickhelp.setOnClickListener{
@@ -116,6 +132,26 @@ class TrainFragment : Fragment() {
 
         val classspinner = binding.root.findViewById<Spinner>(R.id.classspinner)
         classspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
+                updateoutput()
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {
+                // Handle case when nothing is selected
+            }
+        })
+        val mobspinner = binding.root.findViewById<Spinner>(R.id.mobspinner)
+        mobspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
+                updateoutput()
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {
+                // Handle case when nothing is selected
+            }
+        })
+        val atkstylespinner = binding.root.findViewById<Spinner>(R.id.atkstylespinner)
+        atkstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                 updateoutput()
             }
@@ -241,6 +277,7 @@ class TrainFragment : Fragment() {
         _binding = null
     }
 
+
     private fun updateoutput(){
         binding.root.findViewById<TextView>(R.id.str0).text = ""
         //binding.root.findViewById<TextView>(R.id.str1).text = ""
@@ -252,7 +289,10 @@ class TrainFragment : Fragment() {
         val statValue = binding.root.findViewById<EditText>(R.id.stat).text.toString()
         val weaponAtkValue = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()
         val tickValue = binding.root.findViewById<EditText>(R.id.tick).text.toString()
-        val ptrainClassValue = binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition.toString()
+        val ptrainClassValue = binding.root.findViewById<Spinner>(R.id.classspinner).selectedItemPosition.toString()
+        val trainStyleValue = binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition.toString()
+        val atkStyleValue = binding.root.findViewById<Spinner>(R.id.atkstylespinner).selectedItemPosition.toString()
+        val mobValue = binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition.toString()
         val hoursValue = binding.root.findViewById<EditText>(R.id.hours).text.toString()
         val statGoalValue = binding.root.findViewById<EditText>(R.id.statgoal).text.toString()
         lifecycleScope.launch {
@@ -263,6 +303,9 @@ class TrainFragment : Fragment() {
                 preferences[WEAPON_ATK_KEY] = weaponAtkValue
                 preferences[TICK_KEY] = tickValue
                 preferences[PTRAIN_CLASS_KEY] = ptrainClassValue
+                preferences[TRAIN_STYLE_KEY] = trainStyleValue
+                preferences[ATK_STYLE_KEY] = atkStyleValue
+                preferences[MOB_KEY] = mobValue
                 preferences[HOURS_KEY] = hoursValue
                 preferences[STAT_GOAL_KEY] = statGoalValue
             }
@@ -285,6 +328,8 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
                     binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
+                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
+                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         train()
                     }
@@ -304,6 +349,8 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.VISIBLE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
                     binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
+                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
+                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
                     if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
                         ptrain()
                     }
@@ -323,12 +370,32 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
                     binding.root.findViewById<EditText>(R.id.hours).visibility=View.VISIBLE
                     binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.VISIBLE
+                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
+                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
                     if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!="") {
                         offline()
                     }
                 }
             3->{
-                Toast.makeText(context,"Not yet implemented, wait for the next update!", Toast.LENGTH_LONG).show()
+                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
+                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
+                binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
+                binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
+                binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
+                binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
+                binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.VISIBLE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.VISIBLE
+                if(binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!=""){
+                    dmg()
+                }
             }
             }
         }
@@ -442,7 +509,7 @@ class TrainFragment : Fragment() {
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
                 str0+=
-                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg1) + mobs.get(
+                    getString(R.string.youcandeal) + new_max_damage.toInt() + getString(R.string.maxdmg2) + mobs.get(
                         newpos
                     ).mob_name /*+ mobs.get(newpos).getEmoji_code()*/ + "!\n" //part of output
                 alrdealdamage = true
@@ -666,12 +733,12 @@ class TrainFragment : Fragment() {
                 val ticks1: Double
                 val ticks2: Double
                 if (stat1 <= 54) {
-                    ticks1 = stat0to54_Calc(stat1.toDouble())
+                    ticks1 = stat55to99_Calc(stat1.toDouble())
                 } else {
                     ticks1 = stat55to99_Calc(stat1.toDouble())
                 }
                 if (stat2 <= 54) {
-                    ticks2 = stat0to54_Calc(stat2.toDouble())
+                    ticks2 = stat55to99_Calc(stat2.toDouble())
                 } else {
                     ticks2 = stat55to99_Calc(stat2.toDouble())
                 }
@@ -714,6 +781,81 @@ class TrainFragment : Fragment() {
             binding.root.findViewById<TextView>(R.id.str0).text=getString(R.string.offlineinvalidinput)
         }
 
+    }
+    private fun dmg() {
+        val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
+        val stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
+        val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
+        val attacktype = binding.root.findViewById<Spinner>(R.id.atkstylespinner).selectedItemPosition
+        val mob = binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition
+        val str0: String
+        val str1: String
+        val str2: String
+        var attacktypestring = ""
+        val max_raw_damage: Double
+        val min_raw_damage: Double
+        if (attacktype == 0) {
+            min_raw_damage =
+                auto_min_raw_damage_Calc(stat1.toDouble(), weaponatk.toDouble(), base.toDouble())
+            max_raw_damage =
+                auto_max_raw_damage_Calc(stat1.toDouble(), weaponatk.toDouble(), base.toDouble())
+            attacktypestring = getString(R.string.auto_attack)
+        } else if (attacktype == 3) {
+            min_raw_damage = special_magic_min_raw_damage_Calc(
+                stat1.toDouble(),
+                weaponatk.toDouble(),
+                base.toDouble()
+            )
+            max_raw_damage = special_magic_max_raw_damage_Calc(
+                stat1.toDouble(),
+                weaponatk.toDouble(),
+                base.toDouble()
+            )
+            attacktypestring = getString(R.string.special_attack)+ " 🔥"
+        } else {
+            min_raw_damage = special_meldist_min_raw_damage_Calc(
+                stat1.toDouble(),
+                weaponatk.toDouble(),
+                base.toDouble()
+            )
+            max_raw_damage = special_meldist_max_raw_damage_Calc(
+                stat1.toDouble(),
+                weaponatk.toDouble(),
+                base.toDouble()
+            )
+            attacktypestring = if (attacktype == 1) {
+                getString(R.string.special_attack)+ " ⚔️"
+            } else {
+                getString(R.string.special_attack)+ " 🏹"
+            }
+        }
+        val max_raw_crit_damage = max_raw_crit_damage_Calc(max_raw_damage)
+        val min_damage = min_damage_Calc(min_raw_damage, mob)
+        val max_damage = max_damage_Calc(max_raw_damage, mob)
+        val max_crit_damage = max_crit_damage_Calc(max_raw_crit_damage, mob)
+        val normalaccuracy = normal_accuracy_Calc(max_raw_damage, min_raw_damage, mob)
+        val critaccuracy = crit_accuracy_Calc(max_raw_crit_damage, max_raw_damage, mob)
+        str0 = """${getString(R.string.mob)+": " + mobs[mob].mob_name}
+             """.trimIndent()
+        str1 = if (normalaccuracy == 1.00) {
+            """${getString(R.string.mindmg)} ($attacktypestring) ${min_damage.toInt()}
+${getString(R.string.maxdmg1)} ($attacktypestring) ${max_damage.toInt()}
+            """.trimIndent()
+        } else if (normalaccuracy > 0) {
+            """${getString(R.string.maxdmg1)}($attacktypestring) ${max_damage.toInt()}
+            """.trimIndent()
+        } else {
+            getString(R.string.not_strong_enough)
+        }
+        str2 = if (critaccuracy > 0) {
+            """
+     ${getString(R.string.maxcritdmg)} ($attacktypestring) ${max_crit_damage.toInt()}
+     
+     """.trimIndent()
+        } else {
+            getString(R.string.not_strong_enough_crit)
+        }
+        binding.str0.text=/*str0 + "\n" + */str1 + "\n" + str2
     }
 }
 

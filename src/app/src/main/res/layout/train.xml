@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/classspinner" />
+            app:layout_constraintTop_toBottomOf="@+id/atkstylespinner" />
 
         <EditText
             android:id="@+id/baselevel"
@@ -136,10 +136,9 @@
             android:id="@+id/baselevellabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="@string/base_level"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trainstylespinner" />
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
             android:id="@+id/statlabel"
@@ -192,11 +191,33 @@
         <View
             android:id="@+id/divider2"
             android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/baselevellabel"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trainstylespinner" />
+
+        <Spinner
+            android:id="@+id/mobspinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/classspinner" />
+
+        <Spinner
+            android:id="@+id/atkstylespinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:entries="@array/atk_styles_array"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobspinner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

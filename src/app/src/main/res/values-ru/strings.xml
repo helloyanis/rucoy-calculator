@@ -41,7 +41,7 @@
     <string name="youneednext1">"💪 Вам требуется "</string>
     <string name="youneednext2train">" Статов(-a) для эффективной тренировки на "</string>
     <string name="youneednext2ptrain">" Статов(-а) для эффективной усиленной тренировки на "</string>
-    <string name="maxdmg1">"🔥 максимального урона: "</string>
+    <string name="maxdmg1">"⏫ максимального урона: "</string>
     <string name="maxdmg2">" максимальный урон по "</string>
     <string name="tickrate">" 💫 Тикрейт: "</string>
     <string name="inXstats1">" через "</string>
@@ -67,4 +67,18 @@
     <string name="levelexp3">" опыта!\n"</string>
     <string name="nextlevel1">"✨ Вам нужно "</string>
     <string name="nextlevel2">" опыта чтобы достичь уровня "</string>
+    <string-array name="atk_styles_array">
+        <item>"Auto attack"</item>
+        <item>"⚔️ Melee special attack"</item>
+        <item>"🏹 Distance special attack"</item>
+        <item>"🪄 Magic special attack"</item>
+    </string-array>
+    <string name="auto_attack">"Auto"</string>
+    <string name="special_attack">"💥 Special"</string>
+    <string name="mob">"👾 Mob"</string>
+    <string name="mindmg">"⏬ Min. Damage:"</string>
+    <string name="damage">"💪 Damage"</string>
+    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
+    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
+    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
 </resources>

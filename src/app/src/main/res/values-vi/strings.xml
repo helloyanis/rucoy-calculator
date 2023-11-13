@@ -41,7 +41,7 @@
     <string name="youneednext1">"💪 Bạn cần "</string>
     <string name="youneednext2train">" cấp độ kĩ năng để train hiệu quả con "</string>
     <string name="youneednext2ptrain">" cấp độ kĩ năng để PT hiệu quả con "</string>
-    <string name="maxdmg1">"🔥 Sát thương tốt đa: "</string>
+    <string name="maxdmg1">"⏫ Sát thương tốt đa: "</string>
     <string name="maxdmg2">" sát thương tốt đa cho "</string>
     <string name="tickrate">"💫 Tickrate: "</string>
     <string name="inXstats1">" trong "</string>
@@ -67,4 +67,18 @@
     <string name="levelexp3">"exp!\n"</string>
     <string name="nextlevel1">"✨ Bạn cần thêm "</string>
     <string name="nextlevel2">" exp để đạt tới cấp độ "</string>
+    <string-array name="atk_styles_array">
+        <item>"Auto attack"</item>
+        <item>"⚔️ Melee special attack"</item>
+        <item>"🏹 Distance special attack"</item>
+        <item>"🪄 Magic special attack"</item>
+    </string-array>
+    <string name="auto_attack">"Auto"</string>
+    <string name="special_attack">"💥 Special"</string>
+    <string name="mob">"👾 Mob"</string>
+    <string name="mindmg">"⏬ Min. Damage:"</string>
+    <string name="damage">"💪 Damage"</string>
+    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
+    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
+    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
 </resources>

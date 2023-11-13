@@ -3,7 +3,6 @@
     <locale android:name="en"/>
     <locale android:name="es"/>
     <locale android:name="fr"/>
-    <locale android:name="de"/>
     <locale android:name="iw"/>
     <locale android:name="nl"/>
     <locale android:name="pl"/>

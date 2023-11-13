@@ -41,7 +41,7 @@
     <string name="youneednext1">"💪 אתה צריך "</string>
     <string name="youneednext2train">" רמות ערך כדי להתאמן ביעילות על "</string>
     <string name="youneednext2ptrain">" רמות ערך כדי להתאמן כוחנית ביעילות על "</string>
-    <string name="maxdmg1">"🔥 נזק מירבי: "</string>
+    <string name="maxdmg1">"⏫ נזק מירבי: "</string>
     <string name="maxdmg2">" נזק מירבי ל "</string>
     <string name="tickrate">" 💫 קצב רמת הטיק: "</string>
     <string name="inXstats1">" בתוך "</string>
@@ -67,4 +67,18 @@
     <string name="levelexp3">"נקודות ניסיון!\n"</string>
     <string name="nextlevel1">"✨ אתה צריך "</string>
     <string name="nextlevel2">" נקודות ניסיון כדי להגיע לרמה "</string>
+    <string-array name="atk_styles_array">
+        <item>"Auto attack"</item>
+        <item>"⚔️ Melee special attack"</item>
+        <item>"🏹 Distance special attack"</item>
+        <item>"🪄 Magic special attack"</item>
+    </string-array>
+    <string name="auto_attack">"Auto"</string>
+    <string name="special_attack">"💥 Special"</string>
+    <string name="mob">"👾 Mob"</string>
+    <string name="mindmg">"⏬ Min. Damage:"</string>
+    <string name="damage">"💪 Damage"</string>
+    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
+    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
+    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
 </resources>

@@ -41,7 +41,7 @@
     <string name="youneednext1">"💪 Vous avez besoin de "</string>
     <string name="youneednext2train">" stats pour pouvoir vous entraîner efficacement sur "</string>
     <string name="youneednext2ptrain">" stats pour pouvoir power train efficacement sur "</string>
-    <string name="maxdmg1">"🔥 Dégâts max: "</string>
+    <string name="maxdmg1">"⏫ Dégâts max: "</string>
     <string name="maxdmg2">" dégâts max sur "</string>
     <string name="tickrate">" 💫 Tickrate: "</string>
     <string name="inXstats1">" dans "</string>
@@ -68,4 +68,18 @@
     <string name="nextlevel1">"✨ Vous avez besoin de "</string>
     <string name="nextlevel2">" éxperience pour atteindre le niveau "</string>
     <string name="tickrate_tooltip">"C'est combien de monstres vous attaquez avec 1 attaque spéciale!"</string>
+    <string-array name="atk_styles_array">
+        <item>"Auto attack"</item>
+        <item>"⚔️ Melee special attack"</item>
+        <item>"🏹 Distance special attack"</item>
+        <item>"🪄 Magic special attack"</item>
+    </string-array>
+    <string name="auto_attack">"Auto"</string>
+    <string name="special_attack">"💥 Special"</string>
+    <string name="mob">"👾 Mob"</string>
+    <string name="mindmg">"⏬ Min. Damage:"</string>
+    <string name="damage">"💪 Damage"</string>
+    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
+    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
+    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
 </resources>
