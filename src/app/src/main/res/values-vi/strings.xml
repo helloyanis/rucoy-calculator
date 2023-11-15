@@ -68,17 +68,17 @@
     <string name="nextlevel1">"✨ Bạn cần thêm "</string>
     <string name="nextlevel2">" exp để đạt tới cấp độ "</string>
     <string-array name="atk_styles_array">
-        <item>"Auto attack"</item>
-        <item>"⚔️ Melee special attack"</item>
-        <item>"🏹 Distance special attack"</item>
-        <item>"🪄 Magic special attack"</item>
+        <item>"Tự động đánh"</item>
+        <item>"⚔️ Kĩ năng melee"</item>
+        <item>"🏹 Kĩ năng distance"</item>
+        <item>"🪄 Kĩ năng magic"</item>
     </string-array>
-    <string name="auto_attack">"Auto"</string>
-    <string name="special_attack">"💥 Special"</string>
-    <string name="mob">"👾 Mob"</string>
-    <string name="mindmg">"⏬ Min. Damage:"</string>
-    <string name="damage">"💪 Damage"</string>
-    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
-    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
-    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
+    <string name="auto_attack">"Tự động đánh"</string>
+    <string name="special_attack">"💥 Sử dụng kĩ năng"</string>
+    <string name="mob">"👾 Quái"</string>
+    <string name="mindmg">"⏬ Sát thương nhỏ nhất:"</string>
+    <string name="damage">"💪 Sát thương"</string>
+    <string name="not_strong_enough">"🙁 Bạn không đủ mạnh để gây sát thương cho con quái này."</string>
+    <string name="not_strong_enough_crit">"🙁 bạn không đủ mạnh để gây sát thương chí mạng cho quái này."</string>
+    <string name="maxcritdmg">"🔥 Sát thương chí mạng lớn nhất"</string>
 </resources>

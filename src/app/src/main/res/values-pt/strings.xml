@@ -6,7 +6,7 @@
     <string name="title_skull">"Skill"</string>
     <string name="base_level">"Nível"</string>
     <string name="stat_level">"Skill (Com buffs)"</string>
-    <string name="weapon_atk">"Arma ataque"</string>
+    <string name="weapon_atk">"Dano da Arma"</string>
     <string name="stat_goal">"Objetivo de skill "</string>
     <string name="hours">"Horas"</string>
     <string name="tick">"Tick (Padrão é 4)"</string>
@@ -74,11 +74,11 @@
         <item>"🪄 Magic special attack"</item>
     </string-array>
     <string name="auto_attack">"Auto"</string>
-    <string name="special_attack">"💥 Special"</string>
+    <string name="special_attack">"💥 Especial"</string>
     <string name="mob">"👾 Mob"</string>
-    <string name="mindmg">"⏬ Min. Damage:"</string>
-    <string name="damage">"💪 Damage"</string>
-    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
-    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
-    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
+    <string name="mindmg">"⏬ Min. Dano:"</string>
+    <string name="damage">"💪 Dano"</string>
+    <string name="not_strong_enough">"🙁 Você não é forte o suficiente para danificar esse mob."</string>
+    <string name="not_strong_enough_crit">"🙁 Você não é forte o suficiente para dar critico nesse mob."</string>
+    <string name="maxcritdmg">"🔥 Max. critico de dano"</string>
 </resources>
