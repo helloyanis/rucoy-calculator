@@ -68,17 +68,17 @@
     <string name="nextlevel1">"✨ Şu seviyeye ulaşman için"</string>
     <string name="nextlevel2">" deneyim puanına ihtiyacın var"</string>
     <string-array name="atk_styles_array">
-        <item>"Auto attack"</item>
-        <item>"⚔️ Melee special attack"</item>
-        <item>"🏹 Distance special attack"</item>
-        <item>"🪄 Magic special attack"</item>
+        <item>"Otomatik saldırı"</item>
+        <item>"⚔️ Savaşçı yeteneği"</item>
+        <item>"🏹 Okçu yeteneği"</item>
+        <item>"🪄 Büyücü yeteneği"</item>
     </string-array>
-    <string name="auto_attack">"Auto"</string>
-    <string name="special_attack">"💥 Special"</string>
-    <string name="mob">"👾 Mob"</string>
-    <string name="mindmg">"⏬ Min. Damage:"</string>
-    <string name="damage">"💪 Damage"</string>
-    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
-    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
-    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
+    <string name="auto_attack">"Oto"</string>
+    <string name="special_attack">"💥 Yetenek"</string>
+    <string name="mob">"👾 Canavar"</string>
+    <string name="mindmg">"⏬ Min. Hasar:"</string>
+    <string name="damage">"💪 Hasar"</string>
+    <string name="not_strong_enough">"🙁 Bu canavara normal hasar vurabilecek kadar güçlü değilsin."</string>
+    <string name="not_strong_enough_crit">"🙁 Bu canavara kritik hasarı vurabilecek kadar güçlü değilsin."</string>
+    <string name="maxcritdmg">"🔥 Maks. kritik hasarı"</string>
 </resources>
