@@ -68,17 +68,17 @@
     <string name="nextlevel1">"✨ Вам нужно "</string>
     <string name="nextlevel2">" опыта чтобы достичь уровня "</string>
     <string-array name="atk_styles_array">
-        <item>"Auto attack"</item>
-        <item>"⚔️ Melee special attack"</item>
-        <item>"🏹 Distance special attack"</item>
-        <item>"🪄 Magic special attack"</item>
+        <item>"Автоматическая атака"</item>
+        <item>"⚔️ Способность война"</item>
+        <item>"🏹 Способность лучника"</item>
+        <item>"🪄 Способность мага"</item>
     </string-array>
-    <string name="auto_attack">"Auto"</string>
-    <string name="special_attack">"💥 Special"</string>
-    <string name="mob">"👾 Mob"</string>
-    <string name="mindmg">"⏬ Min. Damage:"</string>
-    <string name="damage">"💪 Damage"</string>
-    <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
-    <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
-    <string name="maxcritdmg">"🔥 Max. critical damage"</string>
+    <string name="auto_attack">"Автоматическая атака"</string>
+    <string name="special_attack">"💥 Способность"</string>
+    <string name="mob">"👾 Моб"</string>
+    <string name="mindmg">"⏬ Минимальный урон:"</string>
+    <string name="damage">"💪 Урон"</string>
+    <string name="not_strong_enough">"🙁 Вы недостаточно сильны чтобы нанести некритический урон данному мобу."</string>
+    <string name="not_strong_enough_crit">"🙁 Вы недостаточно сильны чтобы нанести критический урон данному мобу."</string>
+    <string name="maxcritdmg">"🔥 Максимальный критический урон"</string>
 </resources>

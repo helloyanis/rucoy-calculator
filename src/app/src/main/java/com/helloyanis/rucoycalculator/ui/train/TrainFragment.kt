@@ -855,7 +855,7 @@ ${getString(R.string.maxdmg1)} ($attacktypestring) ${max_damage.toInt()}
         } else {
             getString(R.string.not_strong_enough_crit)
         }
-        binding.str0.text=/*str0 + "\n" + */str1 + "\n" + str2
+        binding.str0.text=str0 + "\n" + str1 + "\n" + str2
     }
 }
 
