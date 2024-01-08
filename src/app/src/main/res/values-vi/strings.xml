@@ -82,7 +82,6 @@
     <string name="not_strong_enough_crit">"🙁 bạn không đủ mạnh để gây sát thương chí mạng cho quái này."</string>
     <string name="maxcritdmg">"🔥 Sát thương chí mạng lớn nhất"</string>
     <string name="usecritring">"Use Spiked ring (Critical hit prob. &amp; dmg up)"</string>
-    <string name="usecritring">"Use Spiked ring (Critical hit prob. &amp; dmg x2.5)"</string>
     <string name="infotab_nodata_title">"Base level is not set!"</string>
     <string name="infotab_nodata_desc">"Please go to the tab \"Train and damage\" and set your base level there before coming back here!"</string>
     <string name="popups_okbtn">"OK"</string>

@@ -211,7 +211,7 @@ class TrainFragment : Fragment() {
                                     if (preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL].toString() != "1") {
                                         MaterialAlertDialogBuilder(it)
                                             .setTitle(resources.getString(R.string.offlinetutorial_title))
-                                            .setMessage(resources.getString(R.string.offlinetutorial_title))
+                                            .setMessage(resources.getString(R.string.offlinetutorial_desc))
                                             .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
 
                                             }
