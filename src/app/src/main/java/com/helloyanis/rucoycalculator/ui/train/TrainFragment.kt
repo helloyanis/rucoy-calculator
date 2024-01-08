@@ -10,10 +10,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.semantics.Role.Companion.Switch
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -21,32 +23,35 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.TrainBinding
-import com.helloyanis.rucoycalculator.ui.train.Formulas.accuracy_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.auto_max_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.auto_min_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.average_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.crit_accuracy_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.findStatLevel_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.max_crit_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.max_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.max_raw_crit_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.max_tickrate_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.min_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.normal_accuracy_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.powertickrate_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_max_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.special_magic_min_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.special_meldist_max_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.special_meldist_min_raw_damage_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.stat0to54_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.stat55to99_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.threshold_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.time_to_kill_Calc
-import com.helloyanis.rucoycalculator.ui.train.Formulas.total_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas
+import com.helloyanis.rucoycalculator.formulas.Formulas.accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.auto_max_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.auto_min_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.average_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.crit_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.findStatLevel_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.max_crit_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.max_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.max_raw_crit_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.max_tickrate_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.min_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.normal_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.powertickrate_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.special_magic_max_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.special_magic_min_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.special_meldist_max_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.special_meldist_min_raw_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.stat0to54_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.stat55to99_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.threshold_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.time_to_kill_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.total_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.mobs
 import kotlinx.coroutines.launch
 
 
@@ -268,6 +273,14 @@ class TrainFragment : Fragment() {
             }
         })
 
+
+
+        binding.critring.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+            if (b) updateoutput()
+            else updateoutput()
+        }
+
+
         return binding.root
 
     }
@@ -312,100 +325,114 @@ class TrainFragment : Fragment() {
         }
 
 
-        when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition){
-                0->{
-                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
-                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
-                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
-                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
-                    if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                        train()
-                    }
-                }
-                1->{
-                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.VISIBLE
-                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
-                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
-                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
-                    if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!="") {
-                        ptrain()
-                    }
-                }
-                2->{
-                    binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                    binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.VISIBLE
-                    binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
-                    binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
-                    binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
-                    binding.root.findViewById<EditText>(R.id.hours).visibility=View.VISIBLE
-                    binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.VISIBLE
-                    binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.GONE
-                    binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.GONE
-                    if(binding.root.findViewById<EditText>(R.id.stat).text.toString()!="") {
-                        offline()
-                    }
-                }
-            3->{
+        when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition) {
+            0 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.baselevel).visibility=View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility=View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.stat).visibility=View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statlabel).visibility=View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.statgoal).visibility=View.GONE
-                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility=View.GONE
-                binding.root.findViewById<EditText>(R.id.weaponatk).visibility=View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility=View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.tick).visibility=View.GONE
-                binding.root.findViewById<TextView>(R.id.ticklabel).visibility=View.GONE
-                binding.root.findViewById<Button>(R.id.tickhelp).visibility=View.GONE
-                binding.root.findViewById<EditText>(R.id.hours).visibility=View.GONE
-                binding.root.findViewById<TextView>(R.id.hourslabel).visibility=View.GONE
-                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility=View.VISIBLE
-                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility=View.VISIBLE
-                if(binding.root.findViewById<EditText>(R.id.baselevel).text.toString()!="" && binding.root.findViewById<EditText>(R.id.stat).text.toString()!="" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()!=""){
+                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
+                        R.id.stat
+                    ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
+                ) {
+                    train()
+                }
+            }
+
+            1 -> {
+                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.tick).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.VISIBLE
+                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
+                        R.id.stat
+                    ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
+                ) {
+                    ptrain()
+                }
+            }
+
+            2 -> {
+                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.hours).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.VISIBLE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                if (binding.root.findViewById<EditText>(R.id.stat).text.toString() != "") {
+                    offline()
+                }
+            }
+
+            3 -> {
+                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
+                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
+                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
+                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
+                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.VISIBLE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.VISIBLE
+                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
+                        R.id.stat
+                    ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
+                ) {
                     dmg()
                 }
             }
-            }
+
         }
+        }
+
     private fun train(){
         val stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
         val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
         val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
         val min_raw_damage: Double = Formulas.auto_min_raw_damage_Calc(stat1, weaponatk, base)
         val max_raw_damage: Double = Formulas.auto_max_raw_damage_Calc(stat1, weaponatk, base)
-        val max_raw_crit_damage: Double = max_raw_crit_damage_Calc(max_raw_damage)
+        val max_raw_crit_damage: Double = max_raw_crit_damage_Calc(max_raw_damage,binding.critring.isChecked)
         var accuracy = 0.0
         var str0=""
 
@@ -422,7 +449,7 @@ class TrainFragment : Fragment() {
                 continue
             }
             accuracy =
-                accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x)
+                accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x,binding.critring.isChecked)
             if (accuracy >= 0.1749) {
                 pos = x
                 break
@@ -436,7 +463,7 @@ class TrainFragment : Fragment() {
         val max_damage: Double = max_damage_Calc(max_raw_damage, pos)
         val max_crit_damage: Double = max_crit_damage_Calc(max_raw_crit_damage, pos)
         val avgdmg: Double =
-            average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage)
+            average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage,binding.critring.isChecked)
         val tickrate: Double = Formulas.tickrate_Calc(accuracy, 3600.toDouble())
 
         //In certain cases you can effective train on two mobs
@@ -499,13 +526,14 @@ class TrainFragment : Fragment() {
             val new_max_raw_damage: Double =
                 Formulas.auto_max_raw_damage_Calc(statneeded, weaponatk, base)
             val new_max_raw_critdamage: Double =
-                max_raw_crit_damage_Calc(new_max_raw_damage)
+                max_raw_crit_damage_Calc(new_max_raw_damage,binding.critring.isChecked)
             new_max_damage = max_damage_Calc(new_max_raw_damage, newpos)
             newaccuracy = accuracy_Calc(
                 new_max_raw_critdamage,
                 new_max_raw_damage,
                 new_min_raw_damage,
-                newpos
+                newpos,
+                binding.critring.isChecked
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
                 str0+=
@@ -586,7 +614,7 @@ class TrainFragment : Fragment() {
             }
         }
 
-        val max_raw_crit_damage = max_raw_crit_damage_Calc(max_raw_damage)
+        val max_raw_crit_damage = max_raw_crit_damage_Calc(max_raw_damage,binding.critring.isChecked)
         var accuracy = 0.0
         var pos = 0
         val threshold = threshold_Calc(tick)
@@ -598,7 +626,7 @@ class TrainFragment : Fragment() {
             if (x == 13 || x == 19 || x == 20 || x == 22 || x == 24 || x == 25 || x == 26 || x == 29 || x == 31 || x == 33 || x == 36 || x == 37 || x >= 39) {
                 continue
             }
-            accuracy = accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x)
+            accuracy = accuracy_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, x,binding.critring.isChecked)
             if (accuracy >= threshold) {
                 pos = x
                 break
@@ -611,7 +639,7 @@ class TrainFragment : Fragment() {
         val min_damage = min_damage_Calc(min_raw_damage, pos)
         val max_damage = max_damage_Calc(max_raw_damage, pos)
         val max_crit_damage = max_crit_damage_Calc(max_raw_crit_damage, pos)
-        val avgdmg = average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage)
+        val avgdmg = average_damage_Calc(accuracy, max_damage, min_damage, max_crit_damage,binding.critring.isChecked)
         val totalaccuracy = total_accuracy_Calc(accuracy, tick)
         val maxtickrate: Double = max_tickrate_Calc(tick).toDouble()
         val powertickrate = powertickrate_Calc(totalaccuracy, maxtickrate)
@@ -661,13 +689,14 @@ class TrainFragment : Fragment() {
                 new_max_raw_damage =
                     special_meldist_max_raw_damage_Calc(statneeded.toDouble(), weaponatk, base)
             }
-            val new_max_raw_crit_damage = max_raw_crit_damage_Calc(new_max_raw_damage)
+            val new_max_raw_crit_damage = max_raw_crit_damage_Calc(new_max_raw_damage,binding.critring.isChecked)
             new_max_damage = max_damage_Calc(new_max_raw_damage, newpos)
             newaccuracy = accuracy_Calc(
                 new_max_raw_crit_damage,
                 new_max_raw_damage,
                 new_min_raw_damage,
-                newpos
+                newpos,
+                binding.critring.isChecked
             )
             if (new_max_damage >= 1 && !checked) { //if you can already deal damage to the next mob
                 str0 +=
@@ -829,7 +858,7 @@ class TrainFragment : Fragment() {
                 getString(R.string.special_attack)+ " 🏹"
             }
         }
-        val max_raw_crit_damage = max_raw_crit_damage_Calc(max_raw_damage)
+        val max_raw_crit_damage = max_raw_crit_damage_Calc(max_raw_damage,binding.critring.isChecked)
         val min_damage = min_damage_Calc(min_raw_damage, mob)
         val max_damage = max_damage_Calc(max_raw_damage, mob)
         val max_crit_damage = max_crit_damage_Calc(max_raw_crit_damage, mob)

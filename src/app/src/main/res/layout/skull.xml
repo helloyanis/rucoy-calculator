@@ -11,17 +11,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.skull.SkullFragment">
 
-        <EditText
-            android:id="@+id/baselevelskull"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/base_level"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/baselevelskulllabel" />
-
         <TextView
             android:id="@+id/yellowskullvalue"
             android:layout_width="0dp"
@@ -126,6 +115,7 @@
             android:id="@+id/mainstat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/baselevelskull" />
@@ -137,6 +127,15 @@
             android:text="@string/base_level"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/baselevelskull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baselevelskulllabel" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

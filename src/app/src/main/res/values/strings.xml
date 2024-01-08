@@ -74,11 +74,12 @@
         <item>"🪄 Magic special attack"</item>
     </string-array>
     <string name="auto_attack">"Auto"</string>
-    <string name="special_attack">💥 Special</string>
-    <string name="mob">👾 Mob</string>
+    <string name="special_attack">"💥 Special"</string>
+    <string name="mob">"👾 "Mob"</string>
     <string name="mindmg">"⏬ Min. Damage:"</string>
     <string name="damage">"💪 Damage"</string>
     <string name="not_strong_enough">"🙁 You aren't strong enough to deal normal damage to this mob."</string>
     <string name="not_strong_enough_crit">"🙁 You aren't strong enough to deal critical damage to this mob."</string>
     <string name="maxcritdmg">"🔥 Max. critical damage"</string>
+    <string name="usecritring">Use Spiked ring (Critical hit prob. &amp; dmg x2.5)</string>
 </resources>

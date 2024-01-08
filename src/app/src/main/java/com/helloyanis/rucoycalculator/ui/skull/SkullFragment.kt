@@ -21,7 +21,7 @@ import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.SkullBinding
-import com.helloyanis.rucoycalculator.ui.train.Formulas
+import com.helloyanis.rucoycalculator.formulas.Formulas
 import kotlinx.coroutines.launch
 
 
@@ -30,13 +30,7 @@ class SkullFragment : Fragment() {
     private val binding get() = _binding!!
     private val dataStore: DataStore<Preferences>
         get() = (requireActivity() as MainActivity).dataStore
-    private val STAT_KEY = stringPreferencesKey("stat_key")
-    private val WEAPON_ATK_KEY = stringPreferencesKey("weapon_atk_key")
     private val BASE_LEVEL_KEY = stringPreferencesKey("base_level_key")
-    private val TICK_KEY = stringPreferencesKey("tick_key")
-    private val PTRAIN_CLASS_KEY = stringPreferencesKey("ptrain_class_key")
-    private val HOURS_KEY = stringPreferencesKey("hours_key")
-    private val STAT_GOAL_KEY = stringPreferencesKey("stat_goal_key")
     // Define keys for other preferences as needed
     private var isInit = true
     override fun onCreateView(
@@ -48,13 +42,12 @@ class SkullFragment : Fragment() {
         lifecycleScope.launch {
             dataStore?.data?.collect { preferences ->
                 if(isInit) {
-
-                    binding.root.findViewById<EditText>(R.id.baselevelskull).text =
+                    binding.root.findViewById<TextView>(R.id.baselevelskull).text =
                         Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
-
+                    preferences[BASE_LEVEL_KEY]?.let { calcskull(it.toDouble()) }
                     isInit = false
-                    if (binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()!="") {
-                        calcskull(binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString().toDouble())
+                    if (binding.root.findViewById<TextView>(R.id.baselevelskull).text.toString()!="") {
+                        calcskull(binding.root.findViewById<TextView>(R.id.baselevelskull).text.toString().toDouble())
                     }else{
                         setalldisplays("-")
                     }
@@ -62,25 +55,6 @@ class SkullFragment : Fragment() {
                 }
             }
         }
-
-        val editTextNumber = binding.root.findViewById<EditText>(R.id.baselevelskull)
-        // Ajoutez un écouteur de texte à votre EditText
-        editTextNumber.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                val userInput = s.toString()
-                if (userInput.isNotEmpty()) {
-                    calcskull(userInput.toDouble())
-                }
-            }
-        })
 
         return binding.root
     }
@@ -99,11 +73,11 @@ class SkullFragment : Fragment() {
         binding.root.findViewById<TextView>(R.id.mainstat).text = string
     }
     private fun calcskull(double: Double) {
-        val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevelskull).text.toString()
+        val baseLevelValue = double
         lifecycleScope.launch {
             // Save values to DataStore
             dataStore?.edit { preferences ->
-                preferences[BASE_LEVEL_KEY] = baseLevelValue
+                preferences[BASE_LEVEL_KEY] = baseLevelValue.toString()
             }
         }
         binding.root.findViewById<TextView>(R.id.mainstat).text =  "❤️ "+String.format(
