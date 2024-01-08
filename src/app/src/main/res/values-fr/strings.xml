@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Calculatrice Rucoy</string>
-    <string name="title_train">Train &amp; dégâts</string>
-    <string name="title_ptrain">Super entrainement (Power train)</string>
-    <string name="title_credits">Crédits</string>
-    <string name="title_skull">Infos stats</string>
-    <string name="base_level">Niveau de base</string>
-    <string name="stat_level">Niveau de stat (avec bonus)</string>
-    <string name="weapon_atk">Attaque de l\'arme</string>
-    <string name="stat_goal">Objectif de stat</string>
-    <string name="hours">Heures</string>
-    <string name="tick">Tick (4 par défaut)</string>
-    <string name="tickrate_help">Qu\'est-ce que le tick?</string>
-    <string name="prtain_switch">Super entrainement (Power training)</string>
+    <string name="app_name">"Calculatrice Rucoy"</string>
+    <string name="title_train">"Train &amp; dégâts"</string>
+    <string name="title_ptrain">"Super entrainement (Power train)"</string>
+    <string name="title_credits">"Crédits"</string>
+    <string name="title_skull">"Infos stats"</string>
+    <string name="base_level">"Niveau de base"</string>
+    <string name="stat_level">"Niveau de stat (avec bonus)"</string>
+    <string name="weapon_atk">"Attaque de l'arme"</string>
+    <string name="stat_goal">"Objectif de stat"</string>
+    <string name="hours">"Heures"</string>
+    <string name="tick">"Tick (4 par défaut)"</string>
+    <string name="tickrate_help">"Qu'est-ce que le tick?"</string>
+    <string name="prtain_switch">"Super entrainement (Power training)"</string>
     <string-array name="classes_array">
-        <item>Mêlée</item>
-        <item>Distance</item>
-        <item>Magie</item>
+        <item>"Mêlée ⚔️"</item>
+        <item>"Distance 🏹"</item>
+        <item>"Magie 🪄""</item>
     </string-array>
     <string-array name="train_methods_array">
-        <item>⚔️ Entrainement en ligne</item>
-        <item>🔥 Super entrainement (Power Training)</item>
-        <item>💤 Entrainement hors-ligne</item>
-        <item>💪 Dégâts</item>
+        <item>"⚔️ Entrainement en ligne"</item>
+        <item>"🔥 Super entrainement (Power Training)"</item>
+        <item>"💤 Entrainement hors-ligne"</item>
+        <item>"💪 Dégâts"</item>
     </string-array>
     <string name="credits_content">"Cette application non officielle a été créée par helloyanis\nFormules d'entrainement par Mims\nCode (parfois) par ChatGPT!\nCette application est gratuite et open-source! Jetez un oeil sur le GitHub!\nSoutenez-moi pour m'aider à maintenir l'application et à ajouter de nouvelles fonctions!\nUne idée de fonctionnalité? Un bug? Créez une issue sur GitHub (en anglais de préférence)!"</string>
-    <string name="github">GitHub</string>
-    <string name="privacy">Confidentialité</string>
-    <string name="support_me">❤️ Soutenez-moi!</string>
+    <string name="github">"GitHub"</string>
+    <string name="privacy">"Confidentialité"</string>
+    <string name="support_me">"❤️ Soutenez-moi!"</string>
     <string name="rate">"🌟 Noter l'application!"</string>
     <string name="ratebackup">"🌟 La fenêtre n'apparaît pas? Cliquez encore pour ouvrir le Play Store."</string>
     <string name="melee">"Mêlée ⚔️"</string>
@@ -66,7 +66,7 @@
     <string name="levelexp2">" est à "</string>
     <string name="levelexp3">" exp!\n"</string>
     <string name="nextlevel1">"✨ Vous avez besoin de "</string>
-    <string name="nextlevel2">" éxperience pour atteindre le niveau "</string>
+    <string name="nextlevel2">" expérience pour atteindre le niveau "</string>
     <string name="tickrate_tooltip">"C'est combien de monstres vous attaquez avec 1 attaque spéciale!"</string>
     <string-array name="atk_styles_array">
         <item>"Attaque auto"</item>
@@ -82,4 +82,18 @@
     <string name="not_strong_enough">"🙁 Vous n'êtes pas assez fort pour infliger des dégâts normaux à ce monstre."</string>
     <string name="not_strong_enough_crit">"🙁 Vous n'êtes pas assez fort pour infliger des dégâts critiques à ce monstre."</string>
     <string name="maxcritdmg">"🔥 Dégâts critiques max. :"</string>
+    <string name="usecritring">"Use Spiked ring (Critical hit prob. &amp; dmg x2.5)"</string>
+    <string name="infotab_nodata_title">"Base level is not set!"</string>
+    <string name="infotab_nodata_desc">"Please go to the tab \"Train and damage\" and set your base level there before coming back here!"</string>
+    <string name="popups_okbtn">"OK"</string>
+    <string name="apptutorial_title">"Training calculator tutorial"</string>
+    <string name="apptutorial_desc">"Thank you for downloading the app! You are on the main calculator screen, the online training calculator.\n❗Important info!! Click on the top button to change your training style!"</string>
+    <string name="onlinetraintutorial_title">"Online training tutorial"</string>
+    <string name="onlinetraintutorial_desc">"This allows you to find which mobs to hit to train effectively without losing time or arrows/mana.\nJust fill in the required info:\n- Base level: The level of your character.\n- Stat level with buffs: How much your stat level is. You can see it in the game's settings. If you have a buff (like 10+5) write the total amount here (15).\n- Weapon attack : The attack value of your training weapon. You can see it by clicking your weapon in the inventory.\n- Use Spiked Ring : If you have a spiked ring, it increases your chances of critical hits and makes you able to train on other monsters."</string>
+    <string name="ptraintutorial_title">"Power training tutorial"</string>
+    <string name="ptraintutorial_desc">"Power training is when you train by using your special attack to hit multiple mobs at a time. It can be faster to level up with power training, but costs a lot of mana and your defense won't follow the fast pace of power training, which means it will not upgrade the defense very much.\nOn this particular calculator, use the menu to pick your class. This is important because the magic special attack deals more damage than the others."</string>
+    <string name="offlinetutorial_title">"Offline training tutorial"</string>
+    <string name="offlinetutorial_desc">"Offline training is when you use the dummy to train a stat while you're offline. It is slower than to train normally, and is limited in time. You can gain time by dealing damage to monsters when you're playing, or by buying diamonds.\nYou can also get training dummies as items and it will automatically train your stat when you are away.\nIf you have multiple dummies in your inventory, the exp you will get will be split between stats, you don't get more stat points!"</string>
+    <string name="damagetutorial_title">"Damage turorial"</string>
+    <string name="damagetutorial_desc">"This one is pretty straightforward, based on your stats, it tells you how much damage you do to a given monster. Don't forget to pick the monster and the attack type for the correct result!"</string>
 </resources>

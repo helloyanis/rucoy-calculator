@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         val Context.dataStore: DataStore<Preferences> by preferencesDataStore("savedvalues")
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DynamicColors.applyToActivitiesIfAvailable(this.application)

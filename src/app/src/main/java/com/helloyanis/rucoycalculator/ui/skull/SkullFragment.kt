@@ -17,6 +17,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
@@ -33,6 +34,8 @@ class SkullFragment : Fragment() {
     private val BASE_LEVEL_KEY = stringPreferencesKey("base_level_key")
     // Define keys for other preferences as needed
     private var isInit = true
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,17 +47,32 @@ class SkullFragment : Fragment() {
                 if(isInit) {
                     binding.root.findViewById<TextView>(R.id.baselevelskull).text =
                         Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
-                    preferences[BASE_LEVEL_KEY]?.let { calcskull(it.toDouble()) }
+                    preferences[BASE_LEVEL_KEY]?.let {
+                        if(it!="") calcskull(it.toDouble())
+                    }
                     isInit = false
                     if (binding.root.findViewById<TextView>(R.id.baselevelskull).text.toString()!="") {
                         calcskull(binding.root.findViewById<TextView>(R.id.baselevelskull).text.toString().toDouble())
                     }else{
+                        context?.let {
+                            MaterialAlertDialogBuilder(it)
+                                .setTitle(resources.getString(R.string.infotab_nodata_title))
+                                .setMessage(resources.getString(R.string.infotab_nodata_desc))
+                                .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                                    // Respond to positive button press
+                                }
+                                .show()
+                        }
+                        binding.baselevelskulllabel.setOnClickListener {
+
+                        }
                         setalldisplays("-")
                     }
 
                 }
             }
         }
+
 
         return binding.root
     }
