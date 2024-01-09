@@ -73,7 +73,7 @@
         <item>"🏹 Kĩ năng distance"</item>
         <item>"🪄 Kĩ năng magic"</item>
     </string-array>
-    <string name="auto_attack">"Tự động đánh"</string>
+    <string name="auto_attack">"Tự động đánh"</string>On this particular calculator, use the menu to pick your class. This is important because the magic special attack deals more damage than the others
     <string name="special_attack">"💥 Sử dụng kĩ năng"</string>
     <string name="mob">"👾 Quái"</string>
     <string name="mindmg">"⏬ Sát thương nhỏ nhất:"</string>
@@ -81,18 +81,18 @@
     <string name="not_strong_enough">"🙁 Bạn không đủ mạnh để gây sát thương cho con quái này."</string>
     <string name="not_strong_enough_crit">"🙁 bạn không đủ mạnh để gây sát thương chí mạng cho quái này."</string>
     <string name="maxcritdmg">"🔥 Sát thương chí mạng lớn nhất"</string>
-    <string name="usecritring">"Use Spiked ring (Critical hit prob. &amp; dmg up)"</string>
-    <string name="infotab_nodata_title">"Base level is not set!"</string>
-    <string name="infotab_nodata_desc">"Please go to the tab \"Train and damage\" and set your base level there before coming back here!"</string>
+    <string name="usecritring">"Sử dụng Spiked ring (Tăng cơ hội gây ra đòn đánh chí mạng &amp; tăng sát thương chí mạng)"</string>
+    <string name="infotab_nodata_title">"Bạn chưa nhập cấp độ nhân vật!"</string>
+    <string name="infotab_nodata_desc">"Hãy trở lại trang \"Train &amp; Sát thương\" và nhập cấp độ nhân vật của bạn trước khi vào trang này!"</string>
     <string name="popups_okbtn">"OK"</string>
-    <string name="apptutorial_title">"Training calculator tutorial"</string>
-    <string name="apptutorial_desc">"Thank you for downloading the app! You are on the main calculator screen, the online training calculator.\n❗Important info!! Click on the top button to change your training style!"</string>
-    <string name="onlinetraintutorial_title">"Online training tutorial"</string>
-    <string name="onlinetraintutorial_desc">"This allows you to find which mobs to hit to train effectively without losing time or arrows/mana.\nJust fill in the required info:\n- Base level: The level of your character.\n- Stat level with buffs: How much your stat level is. You can see it in the game's settings. If you have a buff (like 10+5) write the total amount here (15).\n- Weapon attack : The attack value of your training weapon. You can see it by clicking your weapon in the inventory.\n- Use Spiked Ring : If you have a spiked ring, it increases your chances of critical hits and makes you able to train on other monsters."</string>
-    <string name="ptraintutorial_title">"Power training tutorial"</string>
-    <string name="ptraintutorial_desc">"Power training is when you train by using your special attack to hit multiple mobs at a time. It can be faster to level up with power training, but costs a lot of mana and your defense won't follow the fast pace of power training, which means it will not upgrade the defense very much.\nOn this particular calculator, use the menu to pick your class. This is important because the magic special attack deals more damage than the others."</string>
-    <string name="offlinetutorial_title">"Offline training tutorial"</string>
-    <string name="offlinetutorial_desc">"Offline training is when you use the dummy to train a stat while you're offline. It is slower than to train normally, and is limited in time. You can gain time by dealing damage to monsters when you're playing, or by buying diamonds.\nYou can also get training dummies as items and it will automatically train your stat when you are away.\nIf you have multiple dummies in your inventory, the exp you will get will be split between stats, you don't get more stat points!"</string>
-    <string name="damagetutorial_title">"Damage turorial"</string>
-    <string name="damagetutorial_desc">"This one is pretty straightforward, based on your stats, it tells you how much damage you do to a given monster. Don't forget to pick the monster and the attack type for the correct result!"</string>
+    <string name="apptutorial_title">"Hướng dẫn sử dụng máy tính Rucoy"</string>
+    <string name="apptutorial_desc">"Cảm ơn bạn vì đã tải ứng dụng này!Bạn đang ở màn hình tính toán chính\n❗Thông tin quan trọng!! Bấm vào dòng đầu tiên để đổi phương thức train!"</string>
+    <string name="onlinetraintutorial_title">"Hướng dẫn Train kiểu thông thường"</string>
+    <string name="onlinetraintutorial_desc">"Ứng dụng cho phép bạn tìm ra con quái có thể train hiệu quả mà không mất quá nhiều thời gian hoặc arrow/mana.\nXin hãy điền vào những thông tin cần thiết:\n- Cấp độ nền tảng: Cấp độ nhân vật của bạn.\n- Cấp độ chỉ số đi kèm với buff: Nơi nhập cấp độ chỉ số(stat). Bạn có thể tìm thấy trong kho đồ của game. Nếu bạn đang có buff stat (ví dụ 10+5) thì hãy viết tổng của chúng ra:(15).\n- Sát thương vũ khí : Lượng sát thương mà vũ khí bạn sử dụng để train . Bạn có thể thấy nó bằng cách bấm vào vũ khí của bạn trong kho đồ.\n- Sử dụng item Spiked Ring : Nếu bạn có item Spiked Ring,nó sẽ tăng khả năng ra đòn chí mạng và giúp bạn có thể train những con quái khác."</string>
+    <string name="ptraintutorial_title">"Hướng dẫn về PT(Power Train)"</string>
+    <string name="ptraintutorial_desc">"PT(Power Train) là khi bạn train bằng cách sử dụng skill để đánh nhiều con quái cùng một lúc.Nó giúp bạn tăng chỉ số kĩ năng nhanh hơn,nhưng tốn nhiều mana và chỉ số phòng thủ(defense) sẽ không tăng kịp theo khả năng train của bạn .\nCụ thể ở máy tính này,hãy chọn đúng lớp/hệ nhân vật của bạn.Điều này là vô cùng quan trọng vì skill của magic gây nhiều sát thương hơn những skill còn lại."</string>
+    <string name="offlinetutorial_title">"Hướng dẫn offline train(dùng dummy)"</string>
+    <string name="offlinetutorial_desc">"Offline train là khi bạn sử dụng dummy để train trong lúc offline.Việc này diễn ra chậm hơn so với lúc train bình thường,và còn bị giới hạn thời gian train.Bạn có thể nhận được thời gian offline train bằng cách gây sát thương cho quái, hoặc mua bằng kim cương(diamond).\nBạn cũng có thể mua những con training dummy và nó sẽ tự động train cho bạn khi bạn offline(item dùng vĩnh viễn).\nNếu bạn có nhiều con training dummy trong túi đồ,kinh nghiệm bạn nhận được sẽ chia đề cho các chỉ số(stat) đó,bạn sẽ không nhận được nhiều exp hơn(kể cả exp defense)"</string>
+    <string name="damagetutorial_title">"Hướng dẫn về Sát thương"</string>
+    <string name="damagetutorial_desc">"Cái này khá đơn giản,dựa vào cấp độ chỉ số,máy tính sẽ cho bạn biết sát thương bạn có thể gây ra cho con quái.Đừng quên chọn quái và kiểu tấn công để có thể nhận được kết quả đúng nhất!"</string>
 </resources>
