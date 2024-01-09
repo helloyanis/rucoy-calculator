@@ -134,27 +134,7 @@ class TrainFragment : Fragment() {
         binding.tickhelp.setOnClickListener{
             Toast.makeText(context,getString(R.string.tickrate_tooltip), Toast.LENGTH_LONG).show()
         }
-        //Display app tutorial
-        context?.let {
-            lifecycleScope.launch {
-                dataStore?.data?.collect { preferences ->
-                    if (preferences[VIEWED_APP_TUTORIAL].toString() != "1") {
-                        MaterialAlertDialogBuilder(it)
-                            .setTitle(resources.getString(R.string.apptutorial_title))
-                            .setMessage(resources.getString(R.string.apptutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
 
-                            }
-                            .show()
-
-                        // Save values to DataStore
-                        dataStore?.edit { preferences ->
-                            preferences[VIEWED_APP_TUTORIAL] = "1"
-                        }
-                    }
-                }
-            }
-        }
         val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
         trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
@@ -255,7 +235,27 @@ class TrainFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
+        //Display app tutorial
+        context?.let {
+            lifecycleScope.launch {
+                dataStore?.data?.collect { preferences ->
+                    if (preferences[VIEWED_APP_TUTORIAL].toString() != "1") {
+                        MaterialAlertDialogBuilder(it)
+                            .setTitle(resources.getString(R.string.apptutorial_title))
+                            .setMessage(resources.getString(R.string.apptutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
 
+                            }
+                            .show()
+
+                        // Save values to DataStore
+                        dataStore?.edit { preferences ->
+                            preferences[VIEWED_APP_TUTORIAL] = "1"
+                        }
+                    }
+                }
+            }
+        }
         val classspinner = binding.root.findViewById<Spinner>(R.id.classspinner)
         classspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {

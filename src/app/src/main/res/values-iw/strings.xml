@@ -81,7 +81,7 @@
     <string name="not_strong_enough">"🙁 אתה לא מספיק חזק כדי לעשות התקפה רגילה ליצור זה."</string>
     <string name="not_strong_enough_crit">"🙁 אתה לא מספיק חזק כדי לעשות התקפה קריטית ליצור זה."</string>
     <string name="maxcritdmg">"🔥 נזק קריטי מירבי"</string>
-    <string name="usecritring">"שימוש בטבעת קוצנית (סיכוי התקפה קריטית &amp; נזק נוסף)"</string>
+    <string name="usecritring">"שימוש בטבעת קוצנית (סיכוי התקפה קריטית &amp;(נזק נוסף)"</string>
     <string name="infotab_nodata_title">"רמת הערך הבסיסית אינה מוגדרת!"</string>
     <string name="infotab_nodata_desc">"בבקשה לך לחלונית \"אימון ונזק\" ושים את רמת הבסיס שלך שם לפני חזרתך לחלונית זו!"</string>
     <string name="popups_okbtn">"אוקי"</string>
@@ -90,7 +90,7 @@
     <string name="onlinetraintutorial_title">"מדריך למחשבון מקוון"</string>
     <string name="onlinetraintutorial_desc">"מחשבון זה מאפשר לך לראות אילו יצורים תוכל להתאמן עליהם ביעילות בלי לבזבז זמן, חצים או מאנה.\nפשוט מלא את השדה הנדרש:\n- רמת הבסיס: הרמה של הדמות שלך\n- רמת ערך עם בונוסים: כמה רמת הערך שלך. אתה יכול לראות זאת בהגדרות המשחק. אם יש לך בונוס (כמו 10+5) רשום את הסכום הכולל (15).\n- כמות התקפת הנשק: כמות ההתקפה של הנשק שלך. אתה יכול לראות זאת באמצעות לחיצה על הנשק במלאי שלך.\n- שימוש בטבעת קוצנית: אם יש לך טבעת קוצנית, זה מוסיף את הסיכוי למכות קריטיות ונותן לך את האפשרות להתאמן על יצורים אחרים."</string>
     <string name="ptraintutorial_title">"מדריך אימון כוח"</string>
-    <string name="ptraintutorial_desc">"אימון כוח הוא כאשר אתה מתאמן עם התקפה מיוחדת כדי לפגוע בכמה יצורים בבת אחת. זה יכול להיות מהר יותר לעלות ברמות הערך באמצעות אימון זה, אך עולה המון מאנה וההגנה שלך לא תאפשר את האימון המהיר שלו. זה אומר שלא תוכל לעלות את ההגנה שלך כל כך.\nOn במחשבון זה, השתמש בתפריט כדי לבחור את שיוך הדמות (סוג התקפה: חרב, חץ וקשת וקסם). זה מאוד חשוב, בגלל המתקפה המיוחדת של הקסם - היא מובילה ליותר נזק מאשר כל סוג מתקפה אחרת!"</string>
+    <string name="ptraintutorial_desc">"אימון כוח הוא כאשר אתה מתאמן עם התקפה מיוחדת כדי לפגוע בכמה יצורים בבת אחת. זה יכול להיות מהר יותר לעלות ברמות הערך באמצעות אימון זה, אך עולה המון מאנה וההגנה שלך לא תאפשר את האימון המהיר שלו. זה אומר שלא תוכל לעלות את ההגנה שלך כל כך.\n במחשבון זה, השתמש בתפריט כדי לבחור את שיוך הדמות (סוג התקפה: חרב, חץ וקשת וקסם). זה מאוד חשוב, בגלל המתקפה המיוחדת של הקסם - היא מובילה ליותר נזק מאשר כל סוג מתקפה אחרת!"</string>
     <string name="offlinetutorial_title">"מדריך אימון לא מקוון"</string>
     <string name="offlinetutorial_desc">"אימון לא מקוון הוא כאשר אתה משתמש בבובת אימונים כדי להתאמן על רמת ערך בזמן שהינך לא מחובר. אתה יכול לצבור זמן באמצעות גרימת נזק ליצורים בזמן שאתה משחק, או באמצעות קנייתו עם יהלומים.\nאתה יכול גם להשיג את בובות האימונים כחפצים וזה יאמן את הדמות שלך בזמן שאתה לא מחובר (במקום לגשת לבובת אימונים ואז להתנתק).\nאם יש לך מספר בובות אימונים במלאי שלך, נקודות הניסיון נחלקות בין רמות הערך השונות, ולא מקבלים יותר נקודות מכך!"</string>
     <string name="damagetutorial_title">"מדריך נזק"</string>
