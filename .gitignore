@@ -15,6 +15,7 @@ captures/
 *.apk
 output.json
 src/app/release/*
+src/app/debug/*
 
 # IntelliJ
 *.iml
