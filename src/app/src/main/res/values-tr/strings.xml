@@ -27,7 +27,7 @@
         <item>"💤 Çevrimdışı eğitim"</item>
         <item>"💪 Hasar"</item>
     </string-array>
-    <string name="credits_content">"Bu helloyanis tarafından yapılan resmi olmayan bir uygulamadır. Uygulamada kullanılan formüller Mims Code ve bazen ChatGPT ile yapılmıştır! Bu uygulama ücretsiz ve açık kaynaklıdır! Daha fazla bilgi için GitHub'a göz atın! Bu uygulamayı sürdürmesi ve yeni özellikler eklemesine yardımcı olmak için helloyanisi destekleyin! Bir özellik fikri mi veya bir hata raporu mu? GitHub'a gidin ve bir sorun açın! (Çeviriyi yapan: Sunyear55)"</string>
+    <string name="credits_content">"Bu helloyanis tarafından yapılan resmi olmayan bir uygulamadır. Uygulamada kullanılan formüller Mims Code ve bazen ChatGPT ile yapılmıştır! Bu uygulama ücretsiz ve açık kaynaklıdır! Daha fazla bilgi için GitHub'a göz atın! Bu uygulamayı sürdürmesi ve yeni özellikler eklemesine yardımcı olmak için helloyanisi destekleyin! Bir özellik fikri mi veya bir hata raporu mu? GitHub'a gidin ve bir sorun açın! (Çeviriyi yapanlar: sunyear55 ve suferio)"</string>
     <string name="github">"GitHub"</string>
     <string name="privacy">"Gizlilik Politikası"</string>
     <string name="support_me">"❤️ Beni destekleyin!"</string>
@@ -81,18 +81,18 @@
     <string name="not_strong_enough">"🙁 Bu canavara normal hasar vurabilecek kadar güçlü değilsin."</string>
     <string name="not_strong_enough_crit">"🙁 Bu canavara kritik hasarı vurabilecek kadar güçlü değilsin."</string>
     <string name="maxcritdmg">"🔥 Maks. kritik hasarı"</string>
-    <string name="usecritring">"Use Spiked ring (Critical hit prob. &amp; dmg up)"</string>
-    <string name="infotab_nodata_title">"Base level is not set!"</string>
-    <string name="infotab_nodata_desc">"Please go to the tab \"Train and damage\" and set your base level there before coming back here!"</string>
-    <string name="popups_okbtn">"OK"</string>
-    <string name="apptutorial_title">"Training calculator tutorial"</string>
-    <string name="apptutorial_desc">"Thank you for downloading the app! You are on the main calculator screen, the online training calculator.\n❗Important info!! Click on the top button to change your training style!"</string>
-    <string name="onlinetraintutorial_title">"Online training tutorial"</string>
-    <string name="onlinetraintutorial_desc">"This allows you to find which mobs to hit to train effectively without losing time or arrows/mana.\nJust fill in the required info:\n- Base level: The level of your character.\n- Stat level with buffs: How much your stat level is. You can see it in the game's settings. If you have a buff (like 10+5) write the total amount here (15).\n- Weapon attack : The attack value of your training weapon. You can see it by clicking your weapon in the inventory.\n- Use Spiked Ring : If you have a spiked ring, it increases your chances of critical hits and makes you able to train on other monsters."</string>
-    <string name="ptraintutorial_title">"Power training tutorial"</string>
-    <string name="ptraintutorial_desc">"Power training is when you train by using your special attack to hit multiple mobs at a time. It can be faster to level up with power training, but costs a lot of mana and your defense won't follow the fast pace of power training, which means it will not upgrade the defense very much.\nOn this particular calculator, use the menu to pick your class. This is important because the magic special attack deals more damage than the others."</string>
-    <string name="offlinetutorial_title">"Offline training tutorial"</string>
-    <string name="offlinetutorial_desc">"Offline training is when you use the dummy to train a stat while you're offline. It is slower than to train normally, and is limited in time. You can gain time by dealing damage to monsters when you're playing, or by buying diamonds.\nYou can also get training dummies as items and it will automatically train your stat when you are away.\nIf you have multiple dummies in your inventory, the exp you will get will be split between stats, you don't get more stat points!"</string>
-    <string name="damagetutorial_title">"Damage turorial"</string>
-    <string name="damagetutorial_desc">"This one is pretty straightforward, based on your stats, it tells you how much damage you do to a given monster. Don't forget to pick the monster and the attack type for the correct result!"</string>
+    <string name="usecritring">"Dikenli yüzük kullanın (Kritik vuruş olasılığı. &amp; hasar)"</string>
+    <string name="infotab_nodata_title">"Temel seviye ayarlanmadı!"</string>
+    <string name="infotab_nodata_desc">"Sekmesine gidin "Eğitim ve hasar" ve geri dönmeden önce temel seviyenizi ayarlayın!"</string>
+    <string name="popups_okbtn">"Tamam"</string>
+    <string name="apptutorial_title">"Eğitim hesaplama rehberi"</string>
+    <string name="apptutorial_desc">"Uygulamamızı indirdiğiniz için teşekkür ederiz! Ana hesaplama ekranındasınız, çevrimiçi eğitim hesaplama makinesi.\n❗Önemli bilgi!! Eğitim stilinizi değiştirmek için yukarıdaki butona basın!"</string>
+    <string name="onlinetraintutorial_title">"Çevrimiçi eğitim rehberi"</string>
+    <string name="onlinetraintutorial_desc">"Zaman veya ok/mana kaybetmeden etkili bir şekilde eğitim yapmak için hangi yaratıklara saldırmanız gerektiğini bulmanızı sağlar.\nSadece gerekli bilgileri girin:\n- Temel seviye: Karakterinizin seviyesi.\n- Güçlendirmelerle birlikte özelliklerinizin seviyesi: Özellik seviyeniz. Oyunun ayarlar kısmından görebilirsiniz. Eğer güçlendirmeniz varsa (örneğin 10+5) toplam değeri buraya girin (15).\n- Silah saldırı gücü : Eğitim silahınızın saldırı değeri. Envanterinizden silahınıza tıklayarak görebilirsiniz.\n- Dikenli yüzük kullanımı : Dikenli yüzüğünüz varsa, kritik vuruş şanısınızı arttırır ve diğer canavarlarla eğitim yapabilmenizi sağlar."</string>
+    <string name="ptraintutorial_title">"Yetenek eğitimi rehberi"</string>
+    <string name="ptraintutorial_desc">"Yetenek eğitimi, özel yeteneğinizi kullanarak aynı anda birden fazla yaratığa vurarak yaptığınız eğitimdir. Yetenek eğitimi ile seviye atlamanız daha hızlı olur, ama bu çok fazla manaya mâl olur ve savunmanız yetenek eğitiminin hızına yetişemez, yani, savunmanız çok fazla yükselmez.\nBu spesifik hesaplama makinesinde, menüyü kullanarak sınıfınızı seçiniz. Bu önemli çünkü büyücü yeteneği diğer sınıflara göre daha fazla hasar veriyor."</string>
+    <string name="offlinetutorial_title">"Çevrimdışı eğitim rehberi"</string>
+    <string name="offlinetutorial_desc">"Çevrimdışı eğitim oyundan çıktığınızda kuklayı kullanarak yaptığınız eğitimdir. Normal bir şekilde eğitim yapmaktan daha yavaş ve zaman kısıtlaması vardır. Süre kazanmak için oyunu oynarken canavarlara vurabilir veya elmaslarla süre satın alabilirsiniz. \nAyrıca bu kuklaları eşya olarak satın alabilirsiniz ve bu sayede oyundan çıktığınızda otomatik olarak özelliklerinizin seviyesini kasabilirsiniz.\nEğer envanterinizde birden fazla kuklaya sahipseniz, kazandığınz exp puanları diğer özellikleriniz arasında dağıtılır, daha fazla özellik puanı kazanmazsınız!"</string>
+    <string name="damagetutorial_title">"Hasar rehberi"</string>
+    <string name="damagetutorial_desc">"Bu oldukça sekme basit, temel özellik seviyenize bağlı olarak, verilen yaratığa ne kadar hasar vuracağınızı gösterir.Doğru sonuç almak için yaratık tipini seçmeyi ve aynı zamanda sınıfınızı doğru seçmeyi unutmayın!"</string>
 </resources>
