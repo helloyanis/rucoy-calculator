@@ -81,7 +81,7 @@
     <string name="not_strong_enough">"🙁 Bu canavara normal hasar vurabilecek kadar güçlü değilsin."</string>
     <string name="not_strong_enough_crit">"🙁 Bu canavara kritik hasarı vurabilecek kadar güçlü değilsin."</string>
     <string name="maxcritdmg">"🔥 Maks. kritik hasarı"</string>
-    <string name="usecritring">"Dikenli yüzük kullanın (Kritik vuruş olasılığı. &amp; hasar)"</string>
+    <string name="usecritring">"Dikenli yüzük kullanımı (Kritik vuruş olasılığı. &amp; hasar)"</string>
     <string name="infotab_nodata_title">"Temel seviye ayarlanmadı!"</string>
     <string name="infotab_nodata_desc">"Sekmesine gidin "Eğitim ve hasar" ve geri dönmeden önce temel seviyenizi ayarlayın!"</string>
     <string name="popups_okbtn">"Tamam"</string>
@@ -94,5 +94,5 @@
     <string name="offlinetutorial_title">"Çevrimdışı eğitim rehberi"</string>
     <string name="offlinetutorial_desc">"Çevrimdışı eğitim oyundan çıktığınızda kuklayı kullanarak yaptığınız eğitimdir. Normal bir şekilde eğitim yapmaktan daha yavaş ve zaman kısıtlaması vardır. Süre kazanmak için oyunu oynarken canavarlara vurabilir veya elmaslarla süre satın alabilirsiniz. \nAyrıca bu kuklaları eşya olarak satın alabilirsiniz ve bu sayede oyundan çıktığınızda otomatik olarak özelliklerinizin seviyesini kasabilirsiniz.\nEğer envanterinizde birden fazla kuklaya sahipseniz, kazandığınz exp puanları diğer özellikleriniz arasında dağıtılır, daha fazla özellik puanı kazanmazsınız!"</string>
     <string name="damagetutorial_title">"Hasar rehberi"</string>
-    <string name="damagetutorial_desc">"Bu oldukça sekme basit, temel özellik seviyenize bağlı olarak, verilen yaratığa ne kadar hasar vuracağınızı gösterir.Doğru sonuç almak için yaratık tipini seçmeyi ve aynı zamanda sınıfınızı doğru seçmeyi unutmayın!"</string>
+    <string name="damagetutorial_desc">"Bu sekme oldukça basit, temel özellik seviyenize bağlı olarak, verilen yaratığa ne kadar hasar vuracağınızı gösterir.Doğru sonuç almak için yaratık tipini seçmeyi ve aynı zamanda sınıfınızı doğru seçmeyi unutmayın!"</string>
 </resources>
