@@ -115,7 +115,7 @@
             android:entries="@array/train_methods_array"
             android:spinnerMode="dialog"
             android:theme="@style/Theme.RucoyCalculator"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/showtutorial"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -229,6 +229,14 @@
             android:text="@string/usecritring"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tickhelp" />
+
+        <Button
+            android:id="@+id/showtutorial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ℹ️"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

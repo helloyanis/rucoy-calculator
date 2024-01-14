@@ -135,6 +135,54 @@ class TrainFragment : Fragment() {
             Toast.makeText(context,getString(R.string.tickrate_tooltip), Toast.LENGTH_LONG).show()
         }
 
+        binding.showtutorial.setOnClickListener {
+            when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition){
+                0->{
+                    context?.let { ctx ->
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.onlinetraintutorial_title))
+                            .setMessage(resources.getString(R.string.onlinetraintutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+
+                            }.show()
+                    }
+                }
+                1->{
+                    context?.let { ctx ->
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.ptraintutorial_title))
+                            .setMessage(resources.getString(R.string.ptraintutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+
+                            }
+                            .show()
+                    }
+                }
+                2->{
+                    context?.let { ctx ->
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.offlinetutorial_title))
+                            .setMessage(resources.getString(R.string.offlinetutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+
+                            }
+                            .show()
+                    }
+                }
+                3->{
+                    context?.let { ctx ->
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.damagetutorial_title))
+                            .setMessage(resources.getString(R.string.damagetutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+
+                            }
+                            .show()
+                    }
+                }
+            }
+        }
+
         val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
         trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
