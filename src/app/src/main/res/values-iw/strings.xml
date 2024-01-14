@@ -83,7 +83,7 @@
     <string name="maxcritdmg">"🔥 נזק קריטי מירבי"</string>
     <string name="usecritring">"שימוש בטבעת קוצנית (סיכוי התקפה קריטית &amp;(כפול 2.5 נזק נוסף)"</string>
     <string name="infotab_nodata_title">"רמת הערך הבסיסית אינה מוגדרת!"</string>
-    <string name="infotab_nodata_desc">"בבקשה לך לחלונית \"אימון & נזק\" ושים את רמת הבסיס שלך לפני חזרתך לחלונית זו!"</string>
+    <string name="infotab_nodata_desc">"בבקשה לך לחלונית \"אימון &amp; נזק\" ושים את רמת הבסיס שלך לפני חזרתך לחלונית זו!"</string>
     <string name="popups_okbtn">"אישור"</string>
     <string name="apptutorial_title">"מדריך למחשבון Rucoy"</string>
     <string name="apptutorial_desc">"תודה שהתקנת את האפליקציה! הינך נמצא בחלון המחשבון הראשי, מחשבון האימון המקוון.\n❗שימו לב!! לחצו על הכפתור העליון כדי לשנות את סוג האימון שהינך רוצה לחשב!"</string>
