@@ -52,6 +52,7 @@ import com.helloyanis.rucoycalculator.formulas.Formulas.stat55to99_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.total_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Mob
 import com.helloyanis.rucoycalculator.formulas.mobs
 import kotlinx.coroutines.launch
 
@@ -982,14 +983,14 @@ class TrainFragment : Fragment() {
         } else {
             binding.root.findViewById<TextView>(R.id.str0).text=getString(R.string.offlineinvalidinput)
         }
-
     }
     private fun dmg() {
         val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
         val stat1 = binding.root.findViewById<EditText>(R.id.stat).text.toString().toDouble()
         val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
         val attacktype = binding.root.findViewById<Spinner>(R.id.atkstylespinner).selectedItemPosition
-        val mob = binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition
+        val sortedMobs = mobs.sortedBy { it.mob_level }
+        val mob = mobs.indexOf(sortedMobs[binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition])
         val str0: String
         val str1: String
         val str2: String
