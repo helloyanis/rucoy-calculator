@@ -5,7 +5,7 @@ A calculator for various things related to Rucoy Online!
 Get the apk file from [the releases page!](https://github.com/helloyanis/rucoy-calculator/releases/latest)
 
 ## ‼️Important! If you can't install!
-- If you have the app from the Google Play Store, please __UNUNSTALL__ it first, since the app signature is not the same. You can't install the GitHub version over the Play Store version, and vice versa.
+- If you have the app from the Google Play Store, please __UNINSTALL__ it first, since the app signature is not the same. You can't install the GitHub version over the Play Store version, and vice versa.
 - If you don't do this, the app install will crash with an error like "Failed to install", "Package is corrupt", "Could not install app".
 - Google play Protect also likes to stop you from installing the app since the signature is different from the one in the store. Please allow the app (when you get the pop-up, click on "More info" and "Install anyways". It's not a virus, and if you want to check for yourself, the whole code is above!)
 
