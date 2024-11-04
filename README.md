@@ -14,6 +14,7 @@ Get the apk file from [the releases page!](https://github.com/helloyanis/rucoy-c
 - Training calculation
 - Power training calculation
 - Skull gold calculation
+- Damage calculation
 
   Get it on [google play store](https://play.google.com/store/apps/details?id=com.helloyanis.rucoycalculator), F-Droid! (Soon) or the releases page.
   Note : The google play version is a little bit behind because it needs time to be verified by the Google play team!
