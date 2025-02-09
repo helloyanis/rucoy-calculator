@@ -1,4 +1,8 @@
 Calculate various things related to Rucoy Online:
 * Training calculation : Input your stats and get which mob to train on!
-* Power training calculation : Not yet avilable
+* Power training calculation : Know which mob to power-train on, based on your stats and class!
+* Offline training calculation : Know how much time is needed to level up a stat with offline training!
+* Damage calculation : Know how much damage you will deal to any mob in the game!
 * Skull calculation : Get how much gold you need to skull!
+
+Works fully offline, has multiple languages, and is completely free! Say goodbye to Rucoy's Gold supporter and its session analytics!
