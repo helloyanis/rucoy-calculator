@@ -95,4 +95,9 @@
     <string name="offlinetutorial_desc">"אימון לא מקוון מתרחש כאשר יש שימוש בבובת אימונים, המאפשרת להתאמן על רמת ערך בזמן שהינך לא מחובר. ניתן לצבור זמן באמצעות גרימת נזק ליצורים בזמן המשחק, או באמצעות קנייתו עם יהלומים.\nאפשר גם להשיג את בובות האימונים כחפצים במלאי שלך, וזה יאמן את הדמות שלך בזמן שאתה לא מחובר (במקום לגשת לבובת אימונים לפני ההתנתקות במשחק).\nאם יש לך מספר בובות אימונים במלאי שלך, נקודות הניסיון נחלקות בין רמות הערך השונות, ולא מקבלים יותר נקודות מכך!"</string>
     <string name="damagetutorial_title">"מדריך למחשבון נזק"</string>
     <string name="damagetutorial_desc">"מחשבון זה הוא די פשוט להבנה: באמצעות רמות הערך שלך, מחשבון זה אומר כמה נזק מושלך ליצור מסוים. אל תשכחו לבחור את היצור וסוג ההתקפה כדי לקבל את התוצאות הנכונות והמדויקות יותר!"</string>
+    <string name="can_not_oneshot_1">"☹️ You can't oneshot a "</string>
+    <string name="can_not_oneshot_2">" yet!"</string>
+    <string name="can_oneshot">"🏆 You can oneshot a "</string>
+    <string name="oneshot_consistency_1">" with "</string>
+    <string name="oneshot_consistency_2">"% consistency!"</string>
 </resources>

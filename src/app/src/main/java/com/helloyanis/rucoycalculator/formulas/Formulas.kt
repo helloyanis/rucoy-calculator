@@ -209,12 +209,12 @@ object Formulas {
         max_raw_damage: Double,
         min_raw_damage: Double,
         mob: Int
-    ): Any {
+    ): Double {
         val health: Int = mobs.get(mob).mob_health
         val defense: Int = mobs.get(mob).mob_defense
         val totaldefense = health + defense
         if (totaldefense - max_raw_crit_damage > 0) {
-            return 0
+            return 0.toDouble()
         }
         val range = max_raw_damage - min_raw_damage
         val normaloneshots = max_raw_damage - totaldefense

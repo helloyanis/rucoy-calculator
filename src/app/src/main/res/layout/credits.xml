@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratebackup" />
+            app:layout_constraintTop_toBottomOf="@+id/rate" />
 
         <Button
             android:id="@+id/privacy"
@@ -68,15 +68,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/privacy" />
 
-        <Button
-            android:id="@+id/ratebackup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/ratebackup"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rate"
-            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

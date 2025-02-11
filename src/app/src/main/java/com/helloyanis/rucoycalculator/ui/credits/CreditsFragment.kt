@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.play.core.review.ReviewManagerFactory
 import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.CreditsBinding
 
@@ -67,29 +66,13 @@ class CreditsFragment : Fragment() {
 
         val ratebutton = binding.rate
 
-        ratebutton.setOnClickListener{
-                val manager = ReviewManagerFactory.create(requireContext())
-                val request = manager.requestReviewFlow()
-                request.addOnCompleteListener { request ->
-                    if (request.isSuccessful) {
-                        // We got the ReviewInfo object
-                        val reviewInfo = request.result
-                        val flow = manager.launchReviewFlow(requireActivity(), reviewInfo)
-                        flow.addOnCompleteListener { _ ->
-                            binding.root.findViewById<TextView>(R.id.rate).visibility=View.GONE
-                            binding.root.findViewById<TextView>(R.id.ratebackup).visibility=View.VISIBLE
-
-                        }
-                    } else {
-                        Toast.makeText(context, "Could not find the Play Store installed on your device!", Toast.LENGTH_LONG).show()
-                    }
-                }
-        }
-
-        val ratebackupbutton = binding.ratebackup
-
-        ratebackupbutton.setOnClickListener{
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.helloyanis.rucoycalculator")))
+        ratebutton.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=com.helloyanis.rucoycalculator")
+                )
+            )
         }
 
         return root

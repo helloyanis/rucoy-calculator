@@ -96,4 +96,9 @@
     <string name="offlinetutorial_desc">"L'entrainement hors-ligne, c'est quand vous utilisez le mannequin (dummy) pour entrainer une stat lorsque vous êtes hors-ligne. C'est plus lent que l'entrainement normal, et limité dans le temps. Vous pouvez gagner du temps en faisant des dégâts à des monstres quand vous êtes en ligne, ou bien en achetant du temps avec des diamants.\nVous pouvez également obtenir des mannequins d'entrainement en tant qu'objets, et cela va entrainer votre stat automatiquement quand vous êtes déconnecté.\nEn avoir plusieurs dans son inventaire n'augmente pas le nombre d'xp de stat gagné, l'xp sera juste divisée sur plusieurs stats."</string>
     <string name="damagetutorial_title">"Tutoriel pour les dégâts"</string>
     <string name="damagetutorial_desc">"Celle-ci est assez facile à comprendre, selon vos stats, cete calculatrice vous donne les dégâts que vous pouvez faire à un monstre. N'oubliez pas de choisir le monstre et le type d'attaque pour un résultat correct!"</string>
+    <string name="can_not_oneshot_1">"☹️ Vous ne pouvez pas encore tuer un "</string>
+    <string name="can_not_oneshot_2">" en un coup!"</string>
+    <string name="can_oneshot">"🏆 Vous pouvez tuer un "</string>
+    <string name="oneshot_consistency_1">" en un coup, avec "</string>
+    <string name="oneshot_consistency_2">"% de chance!"</string>
 </resources>

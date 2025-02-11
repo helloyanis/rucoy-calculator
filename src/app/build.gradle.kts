@@ -65,7 +65,6 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
-    implementation("com.google.android.play:core-ktx:1.8.1")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
 

@@ -34,6 +34,7 @@ import com.helloyanis.rucoycalculator.formulas.Formulas.accuracy_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.auto_max_raw_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.auto_min_raw_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.average_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.consistency_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.crit_accuracy_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.findStatLevel_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.max_crit_damage_Calc
@@ -88,9 +89,8 @@ class TrainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = TrainBinding.inflate(inflater, container, false)
-        val trainViewModel = ViewModelProvider(this).get(TrainViewModel::class.java)
         lifecycleScope.launch {
-            dataStore?.data?.collect { preferences ->
+            dataStore.data.collect { preferences ->
                 if(isInit) {
                     binding.root.findViewById<EditText>(R.id.baselevel).text =
                         Editable.Factory.getInstance().newEditable(preferences[BASE_LEVEL_KEY] ?: "")
@@ -143,7 +143,7 @@ class TrainFragment : Fragment() {
                         MaterialAlertDialogBuilder(ctx)
                             .setTitle(resources.getString(R.string.onlinetraintutorial_title))
                             .setMessage(resources.getString(R.string.onlinetraintutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }.show()
                     }
@@ -153,7 +153,7 @@ class TrainFragment : Fragment() {
                         MaterialAlertDialogBuilder(ctx)
                             .setTitle(resources.getString(R.string.ptraintutorial_title))
                             .setMessage(resources.getString(R.string.ptraintutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }
                             .show()
@@ -164,7 +164,7 @@ class TrainFragment : Fragment() {
                         MaterialAlertDialogBuilder(ctx)
                             .setTitle(resources.getString(R.string.offlinetutorial_title))
                             .setMessage(resources.getString(R.string.offlinetutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }
                             .show()
@@ -175,7 +175,7 @@ class TrainFragment : Fragment() {
                         MaterialAlertDialogBuilder(ctx)
                             .setTitle(resources.getString(R.string.damagetutorial_title))
                             .setMessage(resources.getString(R.string.damagetutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }
                             .show()
@@ -192,18 +192,18 @@ class TrainFragment : Fragment() {
                     0->{
                         context?.let {
                             lifecycleScope.launch {
-                                dataStore?.data?.collect { preferences ->
+                                dataStore.data.collect { preferences ->
                                     if (preferences[VIEWED_ONLINE_TRAIN_TUTORIAL].toString() != "1") {
                                         MaterialAlertDialogBuilder(it)
                                             .setTitle(resources.getString(R.string.onlinetraintutorial_title))
                                             .setMessage(resources.getString(R.string.onlinetraintutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                                             }
                                             .show()
 
                                         // Save values to DataStore
-                                        dataStore?.edit { preferences ->
+                                        dataStore.edit { preferences ->
                                             preferences[VIEWED_ONLINE_TRAIN_TUTORIAL] = "1"
                                         }
                                     }
@@ -214,18 +214,18 @@ class TrainFragment : Fragment() {
                     1->{
                         context?.let {
                             lifecycleScope.launch {
-                                dataStore?.data?.collect { preferences ->
+                                dataStore.data.collect { preferences ->
                                     if (preferences[VIEWED_POWER_TRAIN_TUTORIAL].toString() != "1") {
                                         MaterialAlertDialogBuilder(it)
                                             .setTitle(resources.getString(R.string.ptraintutorial_title))
                                             .setMessage(resources.getString(R.string.ptraintutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                                             }
                                             .show()
 
                                         // Save values to DataStore
-                                        dataStore?.edit { preferences ->
+                                        dataStore.edit { preferences ->
                                             preferences[VIEWED_POWER_TRAIN_TUTORIAL] = "1"
                                         }
                                     }
@@ -236,18 +236,18 @@ class TrainFragment : Fragment() {
                     2->{
                         context?.let {
                             lifecycleScope.launch {
-                                dataStore?.data?.collect { preferences ->
+                                dataStore.data.collect { preferences ->
                                     if (preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL].toString() != "1") {
                                         MaterialAlertDialogBuilder(it)
                                             .setTitle(resources.getString(R.string.offlinetutorial_title))
                                             .setMessage(resources.getString(R.string.offlinetutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                                             }
                                             .show()
 
                                         // Save values to DataStore
-                                        dataStore?.edit { preferences ->
+                                        dataStore.edit { preferences ->
                                             preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL] = "1"
                                         }
                                     }
@@ -258,18 +258,18 @@ class TrainFragment : Fragment() {
                     3->{
                         context?.let {
                             lifecycleScope.launch {
-                                dataStore?.data?.collect { preferences ->
+                                dataStore.data.collect { preferences ->
                                     if (preferences[VIEWED_DAMAGE_TUTORIAL].toString() != "1") {
                                         MaterialAlertDialogBuilder(it)
                                             .setTitle(resources.getString(R.string.damagetutorial_title))
                                             .setMessage(resources.getString(R.string.damagetutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                                             }
                                             .show()
 
                                         // Save values to DataStore
-                                        dataStore?.edit { preferences ->
+                                        dataStore.edit { preferences ->
                                             preferences[VIEWED_DAMAGE_TUTORIAL] = "1"
                                         }
                                     }
@@ -287,18 +287,18 @@ class TrainFragment : Fragment() {
         //Display app tutorial
         context?.let {
             lifecycleScope.launch {
-                dataStore?.data?.collect { preferences ->
+                dataStore.data.collect { preferences ->
                     if (preferences[VIEWED_APP_TUTORIAL].toString() != "1") {
                         MaterialAlertDialogBuilder(it)
                             .setTitle(resources.getString(R.string.apptutorial_title))
                             .setMessage(resources.getString(R.string.apptutorial_desc))
-                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { dialog, which ->
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }
                             .show()
 
                         // Save values to DataStore
-                        dataStore?.edit { preferences ->
+                        dataStore.edit { preferences ->
                             preferences[VIEWED_APP_TUTORIAL] = "1"
                         }
                     }
@@ -306,7 +306,7 @@ class TrainFragment : Fragment() {
             }
         }
         val classspinner = binding.root.findViewById<Spinner>(R.id.classspinner)
-        classspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+        classspinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                 updateoutput()
             }
@@ -314,9 +314,9 @@ class TrainFragment : Fragment() {
             override fun onNothingSelected(adapterView: AdapterView<*>?) {
                 // Handle case when nothing is selected
             }
-        })
+        }
         val mobspinner = binding.root.findViewById<Spinner>(R.id.mobspinner)
-        mobspinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+        mobspinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                 updateoutput()
             }
@@ -324,9 +324,9 @@ class TrainFragment : Fragment() {
             override fun onNothingSelected(adapterView: AdapterView<*>?) {
                 // Handle case when nothing is selected
             }
-        })
+        }
         val atkstylespinner = binding.root.findViewById<Spinner>(R.id.atkstylespinner)
-        atkstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+        atkstylespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                 updateoutput()
             }
@@ -334,7 +334,7 @@ class TrainFragment : Fragment() {
             override fun onNothingSelected(adapterView: AdapterView<*>?) {
                 // Handle case when nothing is selected
             }
-        })
+        }
 
 
         val editTextBaseLevel = binding.root.findViewById<EditText>(R.id.baselevel)
@@ -480,7 +480,7 @@ class TrainFragment : Fragment() {
         val statGoalValue = binding.root.findViewById<EditText>(R.id.statgoal).text.toString()
         lifecycleScope.launch {
             // Save values to DataStore
-            dataStore?.edit { preferences ->
+            dataStore.edit { preferences ->
                 preferences[BASE_LEVEL_KEY] = baseLevelValue
                 preferences[STAT_KEY] = statValue
                 preferences[WEAPON_ATK_KEY] = weaponAtkValue
@@ -991,7 +991,6 @@ class TrainFragment : Fragment() {
         val attacktype = binding.root.findViewById<Spinner>(R.id.atkstylespinner).selectedItemPosition
         val sortedMobs = mobs.sortedBy { it.mob_level }
         val mob = mobs.indexOf(sortedMobs[binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition])
-        val str0: String
         val str1: String
         val str2: String
         var attacktypestring = ""
@@ -1038,7 +1037,7 @@ class TrainFragment : Fragment() {
         val max_crit_damage = max_crit_damage_Calc(max_raw_crit_damage, mob)
         val normalaccuracy = normal_accuracy_Calc(max_raw_damage, min_raw_damage, mob)
         val critaccuracy = crit_accuracy_Calc(max_raw_crit_damage, max_raw_damage, mob)
-        str0 = """${getString(R.string.mob)+": " + mobs[mob].mob_name}
+        val str0: String = """${getString(R.string.mob)+": " + mobs[mob].mob_name}
              """.trimIndent()
         str1 = if (normalaccuracy == 1.00) {
             """${getString(R.string.mindmg)} ($attacktypestring) ${min_damage.toInt()}
@@ -1058,7 +1057,101 @@ ${getString(R.string.maxdmg1)} ($attacktypestring) ${max_damage.toInt()}
         } else {
             getString(R.string.not_strong_enough_crit)
         }
-        binding.str0.text=str0 + "\n" + str1 + "\n" + str2
+        val oneShotData = oneshot(attacktype, mob, base.toInt(), stat1.toInt(),0,weaponatk.toInt())
+        binding.str0.text=str0 + "\n" + str1 + "\n" + str2 + "\n" + oneShotData
+
+    }
+
+    fun oneshot(
+        attacktype: Int,
+        mob: Int,
+        base: Int,
+        stat: Int,
+        buff: Int,
+        weaponatk: Int
+    ): String {
+        var str0 = ""
+        var currentConsistency = 0.0
+
+        val attackstrings: Array<String>
+
+        var min_raw_damage = 0.0
+        var max_raw_damage = 0.0
+        var max_raw_crit_damage = 0.0
+
+        when (attacktype) {
+            0 -> attackstrings = arrayOf("(Auto)", "Auto Attack")
+            1 -> attackstrings = arrayOf("(Special ⚔️)", "Melee Special ⚔️")
+            2 -> attackstrings = arrayOf("(Special 🏹)", "Distance Special 🏹")
+            else -> attackstrings = arrayOf("(Special 🔥)", "Magic Special 🔥")
+        }
+
+        if (stat >= 5) {
+            val stat1 = stat + buff
+            when (attacktype) {
+                0 -> {
+                    min_raw_damage = Formulas.auto_min_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_damage = Formulas.auto_max_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_crit_damage = Formulas.max_raw_crit_damage_Calc(
+                        max_raw_damage,
+                        binding.critring.isChecked
+                    )
+                }
+
+                3 -> {
+                    min_raw_damage = Formulas.special_magic_min_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_damage = Formulas.special_magic_max_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_crit_damage = Formulas.max_raw_crit_damage_Calc(
+                        max_raw_damage,
+                        binding.critring.isChecked
+                    )
+                }
+
+                else -> {
+                    min_raw_damage = Formulas.special_meldist_min_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_damage = Formulas.special_meldist_max_raw_damage_Calc(
+                        stat1.toDouble(),
+                        weaponatk.toDouble(),
+                        base.toDouble()
+                    )
+                    max_raw_crit_damage = Formulas.max_raw_crit_damage_Calc(
+                        max_raw_damage,
+                        binding.critring.isChecked
+                    )
+                }
+            }
+
+            currentConsistency =
+                consistency_Calc(max_raw_crit_damage, max_raw_damage, min_raw_damage, mob)
+            if (currentConsistency > 0) {
+                str0 =
+                    "${getString(R.string.can_oneshot)}${mobs[mob].mob_name}${getString(R.string.oneshot_consistency_1)}${(currentConsistency * 100).toInt()}${getString(R.string.oneshot_consistency_2)}"
+            } else {
+                str0 =
+                    "${getString(R.string.can_not_oneshot_1)}${mobs[mob].mob_name}${getString(R.string.can_not_oneshot_2)}"
+            }
+        }
+        return str0
     }
 }
 
