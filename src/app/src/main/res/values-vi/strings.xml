@@ -73,7 +73,7 @@
         <item>"🏹 Kĩ năng distance"</item>
         <item>"🪄 Kĩ năng magic"</item>
     </string-array>
-    <string name="auto_attack">"Tự động đánh"</string>On this particular calculator, use the menu to pick your class. This is important because the magic special attack deals more damage than the others
+    <string name="auto_attack">"Tự động đánh"</string>
     <string name="special_attack">"💥 Sử dụng kĩ năng"</string>
     <string name="mob">"👾 Quái"</string>
     <string name="mindmg">"⏬ Sát thương nhỏ nhất:"</string>
@@ -95,9 +95,9 @@
     <string name="offlinetutorial_desc">"Offline train là khi bạn sử dụng dummy để train trong lúc offline.Việc này diễn ra chậm hơn so với lúc train bình thường,và còn bị giới hạn thời gian train.Bạn có thể nhận được thời gian offline train bằng cách gây sát thương cho quái, hoặc mua bằng kim cương(diamond).\nBạn cũng có thể mua những con training dummy và nó sẽ tự động train cho bạn khi bạn offline(item dùng vĩnh viễn).\nNếu bạn có nhiều con training dummy trong túi đồ,kinh nghiệm bạn nhận được sẽ chia đều cho các chỉ số(stat) đó,bạn sẽ không nhận được nhiều exp hơn(kể cả exp defense)"</string>
     <string name="damagetutorial_title">"Hướng dẫn về Sát thương"</string>
     <string name="damagetutorial_desc">"Cái này khá đơn giản,dựa vào cấp độ chỉ số,máy tính sẽ cho bạn biết sát thương bạn có thể gây ra cho con quái.Đừng quên chọn quái và kiểu tấn công để có thể nhận được kết quả đúng nhất!"</string>
-    <string name="can_not_oneshot_1">"☹️ You can't oneshot a "</string>
-    <string name="can_not_oneshot_2">" yet!"</string>
-    <string name="can_oneshot">"🏆 You can oneshot a "</string>
-    <string name="oneshot_consistency_1">" with "</string>
-    <string name="oneshot_consistency_2">"% consistency!"</string>
+    <string name="can_not_oneshot_1">"☹️ Bạn chưa thể oneshot quái  "</string>
+    <string name="can_not_oneshot_2">" "</string>
+    <string name="can_oneshot">"🏆 Bạn đã có thể oneshot quái  "</string>
+    <string name="oneshot_consistency_1">" với "</string>
+    <string name="oneshot_consistency_2">"% Tỷ lệ chính xác!"</string>
 </resources>
