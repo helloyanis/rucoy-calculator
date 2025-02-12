@@ -23,6 +23,7 @@
             android:id="@+id/baselevelLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/base_level"
             app:layout_constraintEnd_toEndOf="parent"
