@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
@@ -7,13 +6,12 @@ plugins {
 android {
     namespace = "com.helloyanis.rucoycalculator"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.helloyanis.rucoycalculator"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 81
-        versionName = "8.1"
+        targetSdk = 35
+        versionCode = 82
+        versionName = "8.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,13 +57,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
-    implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
-    implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
-    implementation("androidx.compose.material3:material3:1.2.0")
-    implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
+    implementation(libs.androidx.datastore.preferences.v100)
+    implementation(libs.androidx.datastore.preferences.rxjava2.v100)
+    implementation(libs.androidx.datastore.preferences.rxjava3.v100)
+    implementation(libs.androidx.runtime)
+    implementation(libs.datastore.preferences)
+    implementation(libs.datastore.preferences.rxjava2)
+    implementation(libs.datastore.preferences.rxjava3)
+    implementation(libs.material.v1120)
 
 }

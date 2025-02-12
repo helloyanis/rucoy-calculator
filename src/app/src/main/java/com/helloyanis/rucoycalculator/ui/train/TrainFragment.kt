@@ -13,16 +13,13 @@ import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.compose.ui.semantics.Role.Companion.Switch
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.helloyanis.rucoycalculator.MainActivity
@@ -498,22 +495,16 @@ class TrainFragment : Fragment() {
         when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition) {
             0 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
                 binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
-                binding.root.findViewById<Switch>(R.id.critring).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
                     ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
@@ -524,22 +515,16 @@ class TrainFragment : Fragment() {
 
             1 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.tick).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.VISIBLE
                 binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
-                binding.root.findViewById<Switch>(R.id.critring).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
                     ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
@@ -550,22 +535,16 @@ class TrainFragment : Fragment() {
 
             2 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
                 binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.hours).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
-                binding.root.findViewById<Switch>(R.id.critring).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.GONE
                 if (binding.root.findViewById<EditText>(R.id.stat).text.toString() != "") {
                     offline()
                 }
@@ -573,22 +552,16 @@ class TrainFragment : Fragment() {
 
             3 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.baselevel).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.baselevellabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.stat).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.statlabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.statgoal).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.statgoallabel).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.weaponatk).visibility = View.VISIBLE
-                binding.root.findViewById<TextView>(R.id.weaponatklabel).visibility = View.VISIBLE
-                binding.root.findViewById<EditText>(R.id.tick).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.ticklabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
                 binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
-                binding.root.findViewById<EditText>(R.id.hours).visibility = View.GONE
-                binding.root.findViewById<TextView>(R.id.hourslabel).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.VISIBLE
-                binding.root.findViewById<Switch>(R.id.critring).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
                     ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
@@ -1073,18 +1046,9 @@ ${getString(R.string.maxdmg1)} ($attacktypestring) ${max_damage.toInt()}
         var str0 = ""
         var currentConsistency = 0.0
 
-        val attackstrings: Array<String>
-
         var min_raw_damage = 0.0
         var max_raw_damage = 0.0
         var max_raw_crit_damage = 0.0
-
-        when (attacktype) {
-            0 -> attackstrings = arrayOf("(Auto)", "Auto Attack")
-            1 -> attackstrings = arrayOf("(Special ⚔️)", "Melee Special ⚔️")
-            2 -> attackstrings = arrayOf("(Special 🏹)", "Distance Special 🏹")
-            else -> attackstrings = arrayOf("(Special 🔥)", "Magic Special 🔥")
-        }
 
         if (stat >= 5) {
             val stat1 = stat + buff
