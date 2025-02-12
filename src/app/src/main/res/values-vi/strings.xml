@@ -96,7 +96,7 @@
     <string name="damagetutorial_title">"Hướng dẫn về Sát thương"</string>
     <string name="damagetutorial_desc">"Cái này khá đơn giản,dựa vào cấp độ chỉ số,máy tính sẽ cho bạn biết sát thương bạn có thể gây ra cho con quái.Đừng quên chọn quái và kiểu tấn công để có thể nhận được kết quả đúng nhất!"</string>
     <string name="can_not_oneshot_1">"☹️ Bạn chưa thể oneshot quái  "</string>
-    <string name="can_not_oneshot_2">" "</string>
+    <string name="can_not_oneshot_2">""</string>
     <string name="can_oneshot">"🏆 Bạn đã có thể oneshot quái  "</string>
     <string name="oneshot_consistency_1">" với "</string>
     <string name="oneshot_consistency_2">"% Tỷ lệ chính xác!"</string>
