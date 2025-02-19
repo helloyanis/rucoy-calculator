@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace = "com.helloyanis.rucoycalculator"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.helloyanis.rucoycalculator"
         minSdk = 24
         targetSdk = 35
-        versionCode = 82
-        versionName = "8.2"
+        versionCode = 83
+        versionName = "8.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
