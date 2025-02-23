@@ -10,12 +10,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -51,7 +49,6 @@ import com.helloyanis.rucoycalculator.formulas.Formulas.stat55to99_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.total_accuracy_Calc
-import com.helloyanis.rucoycalculator.formulas.Mob
 import com.helloyanis.rucoycalculator.formulas.mobs
 import kotlinx.coroutines.launch
 

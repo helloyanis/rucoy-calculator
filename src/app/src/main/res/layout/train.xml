@@ -161,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:inputType="none"
+                android:focusable="false"
                 app:simpleItems="@array/train_methods_array"
                 android:theme="@style/Theme.RucoyCalculator" />
         </com.google.android.material.textfield.TextInputLayout>
