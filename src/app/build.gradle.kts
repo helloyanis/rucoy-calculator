@@ -10,21 +10,12 @@ android {
         applicationId = "com.helloyanis.rucoycalculator"
         minSdk = 24
         targetSdk = 35
-        versionCode = 83
-        versionName = "8.3"
+        versionCode = 84
+        versionName = "8.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -42,7 +33,10 @@ android {
     androidResources {
         generateLocaleConfig = true
     }
-
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
 }
 
 dependencies {

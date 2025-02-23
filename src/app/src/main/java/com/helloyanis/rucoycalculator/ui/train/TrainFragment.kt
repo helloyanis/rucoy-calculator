@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.EditText
@@ -78,6 +79,7 @@ class TrainFragment : Fragment() {
     private val VIEWED_OFFLINE_TRAIN_TUTORIAL = stringPreferencesKey("viewed_offline_train_tutorial_key")
     private val VIEWED_DAMAGE_TUTORIAL = stringPreferencesKey("viewed_damage_tutorial_key")
     // Define keys for other preferences as needed
+    private var trainstyleValue: Int = 0
     private var isInit = true
     @SuppressLint("CutPasteId")
     override fun onCreateView(
@@ -99,8 +101,10 @@ class TrainFragment : Fragment() {
                         Editable.Factory.getInstance().newEditable(preferences[TICK_KEY] ?: "4")
                     binding.root.findViewById<Spinner>(R.id.classspinner).setSelection(
                         preferences[PTRAIN_CLASS_KEY]?.toInt() ?: 0)
-                    binding.root.findViewById<Spinner>(R.id.trainstylespinner).setSelection(
-                        preferences[TRAIN_STYLE_KEY]?.toInt() ?: 0)
+                    trainstyleValue = preferences[TRAIN_STYLE_KEY]?.toInt() ?: 0
+                    if (trainstyleValue < resources.getStringArray(R.array.train_methods_array).size) {
+                        binding.root.findViewById<AutoCompleteTextView>(R.id.trainstylespinner).setText(resources.getStringArray(R.array.train_methods_array)[trainstyleValue], false)
+                    }
                     binding.root.findViewById<Spinner>(R.id.mobspinner).setSelection(
                         preferences[MOB_KEY]?.toInt() ?: 0)
                     binding.root.findViewById<Spinner>(R.id.atkstylespinner).setSelection(
@@ -129,12 +133,8 @@ class TrainFragment : Fragment() {
         binding.mobspinner.adapter = spinnerArrayAdapter
 
 
-        binding.tickhelp.setOnClickListener{
-            Toast.makeText(context,getString(R.string.tickrate_tooltip), Toast.LENGTH_LONG).show()
-        }
-
         binding.showtutorial.setOnClickListener {
-            when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition){
+            when(trainstyleValue){
                 0->{
                     context?.let { ctx ->
                         MaterialAlertDialogBuilder(ctx)
@@ -181,94 +181,96 @@ class TrainFragment : Fragment() {
             }
         }
 
-        val trainstylespinner = binding.root.findViewById<Spinner>(R.id.trainstylespinner)
-        trainstylespinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
-                updateoutput()
-                when (i){
-                    0->{
-                        context?.let {
-                            lifecycleScope.launch {
-                                dataStore.data.collect { preferences ->
-                                    if (preferences[VIEWED_ONLINE_TRAIN_TUTORIAL].toString() != "1") {
-                                        MaterialAlertDialogBuilder(it)
-                                            .setTitle(resources.getString(R.string.onlinetraintutorial_title))
-                                            .setMessage(resources.getString(R.string.onlinetraintutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+        val trainstylespinner = binding.root.findViewById<AutoCompleteTextView>(R.id.trainstylespinner)
+        trainstylespinner.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            trainstyleValue = position
+            updateoutput()
+            when (position) {
+                0 -> {
+                    context?.let {
+                        lifecycleScope.launch {
+                            dataStore.data.collect { preferences ->
+                                if (preferences[VIEWED_ONLINE_TRAIN_TUTORIAL].toString() != "1") {
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.onlinetraintutorial_title))
+                                        .setMessage(resources.getString(R.string.onlinetraintutorial_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
-                                            }
-                                            .show()
-
-                                        // Save values to DataStore
-                                        dataStore.edit { preferences ->
-                                            preferences[VIEWED_ONLINE_TRAIN_TUTORIAL] = "1"
                                         }
+                                        .show()
+
+                                    // Save values to DataStore
+                                    dataStore.edit { preferences ->
+                                        preferences[VIEWED_ONLINE_TRAIN_TUTORIAL] = "1"
                                     }
                                 }
                             }
                         }
                     }
-                    1->{
-                        context?.let {
-                            lifecycleScope.launch {
-                                dataStore.data.collect { preferences ->
-                                    if (preferences[VIEWED_POWER_TRAIN_TUTORIAL].toString() != "1") {
-                                        MaterialAlertDialogBuilder(it)
-                                            .setTitle(resources.getString(R.string.ptraintutorial_title))
-                                            .setMessage(resources.getString(R.string.ptraintutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+                }
 
-                                            }
-                                            .show()
+                1 -> {
+                    context?.let {
+                        lifecycleScope.launch {
+                            dataStore.data.collect { preferences ->
+                                if (preferences[VIEWED_POWER_TRAIN_TUTORIAL].toString() != "1") {
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.ptraintutorial_title))
+                                        .setMessage(resources.getString(R.string.ptraintutorial_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
-                                        // Save values to DataStore
-                                        dataStore.edit { preferences ->
-                                            preferences[VIEWED_POWER_TRAIN_TUTORIAL] = "1"
                                         }
+                                        .show()
+
+                                    // Save values to DataStore
+                                    dataStore.edit { preferences ->
+                                        preferences[VIEWED_POWER_TRAIN_TUTORIAL] = "1"
                                     }
                                 }
                             }
                         }
                     }
-                    2->{
-                        context?.let {
-                            lifecycleScope.launch {
-                                dataStore.data.collect { preferences ->
-                                    if (preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL].toString() != "1") {
-                                        MaterialAlertDialogBuilder(it)
-                                            .setTitle(resources.getString(R.string.offlinetutorial_title))
-                                            .setMessage(resources.getString(R.string.offlinetutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+                }
 
-                                            }
-                                            .show()
+                2 -> {
+                    context?.let {
+                        lifecycleScope.launch {
+                            dataStore.data.collect { preferences ->
+                                if (preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL].toString() != "1") {
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.offlinetutorial_title))
+                                        .setMessage(resources.getString(R.string.offlinetutorial_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
-                                        // Save values to DataStore
-                                        dataStore.edit { preferences ->
-                                            preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL] = "1"
                                         }
+                                        .show()
+
+                                    // Save values to DataStore
+                                    dataStore.edit { preferences ->
+                                        preferences[VIEWED_OFFLINE_TRAIN_TUTORIAL] = "1"
                                     }
                                 }
                             }
                         }
                     }
-                    3->{
-                        context?.let {
-                            lifecycleScope.launch {
-                                dataStore.data.collect { preferences ->
-                                    if (preferences[VIEWED_DAMAGE_TUTORIAL].toString() != "1") {
-                                        MaterialAlertDialogBuilder(it)
-                                            .setTitle(resources.getString(R.string.damagetutorial_title))
-                                            .setMessage(resources.getString(R.string.damagetutorial_desc))
-                                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+                }
 
-                                            }
-                                            .show()
+                3 -> {
+                    context?.let {
+                        lifecycleScope.launch {
+                            dataStore.data.collect { preferences ->
+                                if (preferences[VIEWED_DAMAGE_TUTORIAL].toString() != "1") {
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.damagetutorial_title))
+                                        .setMessage(resources.getString(R.string.damagetutorial_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
-                                        // Save values to DataStore
-                                        dataStore.edit { preferences ->
-                                            preferences[VIEWED_DAMAGE_TUTORIAL] = "1"
                                         }
+                                        .show()
+
+                                    // Save values to DataStore
+                                    dataStore.edit { preferences ->
+                                        preferences[VIEWED_DAMAGE_TUTORIAL] = "1"
                                     }
                                 }
                             }
@@ -276,11 +278,7 @@ class TrainFragment : Fragment() {
                     }
                 }
             }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-        })
+        }
         //Display app tutorial
         context?.let {
             lifecycleScope.launch {
@@ -460,17 +458,12 @@ class TrainFragment : Fragment() {
 
     private fun updateoutput(){
         binding.root.findViewById<TextView>(R.id.str0).text = ""
-        //binding.root.findViewById<TextView>(R.id.str1).text = ""
-        //binding.root.findViewById<TextView>(R.id.str2).text = ""
-        //binding.root.findViewById<TextView>(R.id.str3).text = ""
-        //binding.root.findViewById<TextView>(R.id.str4).text = ""
-        //binding.root.findViewById<TextView>(R.id.str5).text = ""
         val baseLevelValue = binding.root.findViewById<EditText>(R.id.baselevel).text.toString()
         val statValue = binding.root.findViewById<EditText>(R.id.stat).text.toString()
         val weaponAtkValue = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString()
         val tickValue = binding.root.findViewById<EditText>(R.id.tick).text.toString()
         val ptrainClassValue = binding.root.findViewById<Spinner>(R.id.classspinner).selectedItemPosition.toString()
-        val trainStyleValue = binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition.toString()
+        val trainStyleValue = trainstyleValue.toString()
         val atkStyleValue = binding.root.findViewById<Spinner>(R.id.atkstylespinner).selectedItemPosition.toString()
         val mobValue = binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition.toString()
         val hoursValue = binding.root.findViewById<EditText>(R.id.hours).text.toString()
@@ -492,7 +485,7 @@ class TrainFragment : Fragment() {
         }
 
 
-        when(binding.root.findViewById<Spinner>(R.id.trainstylespinner).selectedItemPosition) {
+        when(trainstyleValue) {
             0 -> {
                 binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.VISIBLE
@@ -500,7 +493,6 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
-                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
@@ -520,7 +512,6 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.VISIBLE
-                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.VISIBLE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
@@ -540,7 +531,6 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.VISIBLE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
-                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
@@ -557,7 +547,6 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.VISIBLE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
-                binding.root.findViewById<Button>(R.id.tickhelp).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.VISIBLE

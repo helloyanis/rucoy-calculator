@@ -28,7 +28,7 @@
             android:hint="@string/base_level"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trainstylespinner">
+            app:layout_constraintTop_toBottomOf="@+id/trainstylespinnerLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/baselevel"
@@ -96,13 +96,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tickLayout"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/tick"
-            android:imeActionLabel="Test"
             android:inputType="number"
             android:visibility="gone"
+            app:helperText="@string/tickrate_tooltip"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weaponatkLayout"
             tools:visibility="visible">
@@ -122,7 +123,6 @@
             android:width="200dp"
             android:ems="10"
             android:hint="@string/stat_goal"
-            android:imeActionLabel="Test"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,40 +145,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/critring" />
 
-        <Spinner
-            android:id="@+id/trainstylespinner"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/trainstylespinnerLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:entries="@array/train_methods_array"
-            android:spinnerMode="dialog"
-            android:theme="@style/Theme.RucoyCalculator"
             app:layout_constraintBottom_toBottomOf="@+id/showtutorial"
             app:layout_constraintEnd_toStartOf="@+id/showtutorial"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
 
-        <Button
-            android:id="@+id/tickhelp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tickrate_help"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/tickLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tickLayout"
-            app:layout_constraintTop_toBottomOf="@+id/weaponatkLayout"
-            tools:visibility="visible" />
+            <AutoCompleteTextView
+                android:id="@+id/trainstylespinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="none"
+                app:simpleItems="@array/train_methods_array"
+                android:theme="@style/Theme.RucoyCalculator" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="48dp" />
 
         <Spinner
             android:id="@+id/mobspinner"
