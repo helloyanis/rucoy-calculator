@@ -99,9 +99,7 @@ class TrainFragment : Fragment() {
                     binding.root.findViewById<Spinner>(R.id.classspinner).setSelection(
                         preferences[PTRAIN_CLASS_KEY]?.toInt() ?: 0)
                     trainstyleValue = preferences[TRAIN_STYLE_KEY]?.toInt() ?: 0
-                    if (trainstyleValue < resources.getStringArray(R.array.train_methods_array).size) {
-                        binding.root.findViewById<AutoCompleteTextView>(R.id.trainstylespinner).setText(resources.getStringArray(R.array.train_methods_array)[trainstyleValue], false)
-                    }
+                    binding.root.findViewById<AutoCompleteTextView>(R.id.trainstylespinner).setText(resources.getStringArray(R.array.train_methods_array)[trainstyleValue], false)
                     binding.root.findViewById<Spinner>(R.id.mobspinner).setSelection(
                         preferences[MOB_KEY]?.toInt() ?: 0)
                     binding.root.findViewById<Spinner>(R.id.atkstylespinner).setSelection(
@@ -450,6 +448,29 @@ class TrainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val trainMethods = resources.getStringArray(R.array.train_methods_array)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, trainMethods)
+        val trainStyleSpinner = binding.root.findViewById<AutoCompleteTextView>(R.id.trainstylespinner)
+
+        // Attach the adapter to the AutoCompleteTextView
+        trainStyleSpinner.dismissDropDown()
+        trainStyleSpinner.setAdapter(adapter)
+
+
+
+        // Set the selected item again (if needed)
+        lifecycleScope.launch {
+            dataStore.data.collect { preferences ->
+                if (isInit) {
+                    trainstyleValue = preferences[TRAIN_STYLE_KEY]?.toInt() ?: 0
+                    trainStyleSpinner.setText(trainMethods[trainstyleValue], false)
+                }
+            }
+        }
     }
 
 

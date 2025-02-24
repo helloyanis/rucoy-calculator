@@ -1,6 +1,5 @@
 package com.helloyanis.rucoycalculator
 
-import GitHubReleaseChecker
 import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DynamicColors.applyToActivitiesIfAvailable(this.application)
-        val repositoryUrl = "https://api.github.com/repos/helloyanis/rucoy-calculator"
-        //GitHubReleaseChecker(this, repositoryUrl).execute()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
