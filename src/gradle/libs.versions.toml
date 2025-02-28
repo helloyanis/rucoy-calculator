@@ -1,5 +1,5 @@
 [versions]
-agp = "8.8.1"
+agp = "8.8.2"
 datastore-preferences = "1.1.2"
 datastore-preferences-rxjava2 = "1.1.2"
 datastore-preferences-rxjava3 = "1.1.2"
