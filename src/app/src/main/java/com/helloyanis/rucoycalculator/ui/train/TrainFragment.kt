@@ -1,6 +1,7 @@
 package com.helloyanis.rucoycalculator.ui.train
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +14,9 @@ import android.widget.AutoCompleteTextView
 import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Switch
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -21,6 +24,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.materialswitch.MaterialSwitch
 import com.helloyanis.rucoycalculator.MainActivity
 import com.helloyanis.rucoycalculator.MainActivity.Companion.dataStore
 import com.helloyanis.rucoycalculator.R
@@ -32,12 +36,17 @@ import com.helloyanis.rucoycalculator.formulas.Formulas.auto_min_raw_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.average_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.consistency_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.crit_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.defense_accuracy_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.findStatLevel_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.high_defense_calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.low_defense_calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.max_crit_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.max_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.max_damage_defense_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.max_raw_crit_damage_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.max_tickrate_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.min_damage_Calc
+import com.helloyanis.rucoycalculator.formulas.Formulas.min_damage_defense_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.normal_accuracy_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.powertickrate_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.special_magic_max_raw_damage_Calc
@@ -49,6 +58,7 @@ import com.helloyanis.rucoycalculator.formulas.Formulas.stat55to99_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.threshold_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.time_to_kill_Calc
 import com.helloyanis.rucoycalculator.formulas.Formulas.total_accuracy_Calc
+import com.helloyanis.rucoycalculator.formulas.Mob
 import com.helloyanis.rucoycalculator.formulas.mobs
 import kotlinx.coroutines.launch
 
@@ -75,6 +85,14 @@ class TrainFragment : Fragment() {
     private val VIEWED_POWER_TRAIN_TUTORIAL = stringPreferencesKey("viewed_power_train_tutorial_key")
     private val VIEWED_OFFLINE_TRAIN_TUTORIAL = stringPreferencesKey("viewed_offline_train_tutorial_key")
     private val VIEWED_DAMAGE_TUTORIAL = stringPreferencesKey("viewed_damage_tutorial_key")
+    private val VIEWED_DEFESE_TUTORIAL = stringPreferencesKey("viewed_defense_tutorial_key")
+    private val DEFENSE_KEY = stringPreferencesKey("defense_key")
+    private val ARMOR_SHIELD_KEY = stringPreferencesKey("armor_shield_key")
+    private val ARMOR_OTHER_KEY = stringPreferencesKey("armor_other_key")
+    private val MAX_MOB_ATTACK_KEY = stringPreferencesKey("max_mob_attack_key")
+    private val MIN_MOB_ATTACK_KEY = stringPreferencesKey("min_mob_attack_key")
+    private val CRIT_RING_KEY = stringPreferencesKey("crit_ring_key")
+    private val VIEWED_PLAYSTORE_PHASEOUT_KEY = stringPreferencesKey("viewed_playstore_phaseout_key")
     // Define keys for other preferences as needed
     private var trainstyleValue: Int = 0
     private var isInit = true
@@ -108,6 +126,18 @@ class TrainFragment : Fragment() {
                         Editable.Factory.getInstance().newEditable(preferences[HOURS_KEY] ?: "")
                     binding.root.findViewById<EditText>(R.id.statgoal).text =
                         Editable.Factory.getInstance().newEditable(preferences[STAT_GOAL_KEY] ?: "")
+                    binding.root.findViewById<MaterialSwitch>(R.id.critring).isChecked =
+                        preferences[CRIT_RING_KEY]?.toBoolean() == true
+                    binding.root.findViewById<EditText>(R.id.defense).text =
+                        Editable.Factory.getInstance().newEditable(preferences[DEFENSE_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.shieldArmor).text =
+                        Editable.Factory.getInstance().newEditable(preferences[ARMOR_SHIELD_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.otherArmor).text =
+                        Editable.Factory.getInstance().newEditable(preferences[ARMOR_OTHER_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.mobMaxAtk).text =
+                        Editable.Factory.getInstance().newEditable(preferences[MAX_MOB_ATTACK_KEY] ?: "")
+                    binding.root.findViewById<EditText>(R.id.mobMinAtk).text =
+                        Editable.Factory.getInstance().newEditable(preferences[MIN_MOB_ATTACK_KEY] ?: "")
 
                     isInit = false
                 }
@@ -167,6 +197,24 @@ class TrainFragment : Fragment() {
                         MaterialAlertDialogBuilder(ctx)
                             .setTitle(resources.getString(R.string.damagetutorial_title))
                             .setMessage(resources.getString(R.string.damagetutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+
+                            }
+                            .show()
+                    }
+                }
+                4->{
+                    context?.let { ctx ->
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.defensetutorial_title))
+                            .setMessage(resources.getString(R.string.defensetutorial_desc))
+                            .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+
+                            }
+                            .show()
+                        MaterialAlertDialogBuilder(ctx)
+                            .setTitle(resources.getString(R.string.defensetutorial_title))
+                            .setMessage(resources.getString(R.string.defensetutorial_wip_desc))
                             .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
 
                             }
@@ -272,6 +320,36 @@ class TrainFragment : Fragment() {
                         }
                     }
                 }
+                4->{
+                    context?.let {
+                        lifecycleScope.launch {
+                            dataStore.data.collect { preferences ->
+                                if (preferences[VIEWED_DEFESE_TUTORIAL].toString() != "1") {
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.defensetutorial_title))
+                                        .setMessage(resources.getString(R.string.defensetutorial_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+
+                                        }
+                                        .show()
+
+                                    MaterialAlertDialogBuilder(it)
+                                        .setTitle(resources.getString(R.string.defensetutorial_title))
+                                        .setMessage(resources.getString(R.string.defensetutorial_wip_desc))
+                                        .setPositiveButton(resources.getString(R.string.popups_okbtn)) { _, _ ->
+
+                                        }
+                                        .show()
+
+                                    // Save values to DataStore
+                                    dataStore.edit { preferences ->
+                                        preferences[VIEWED_DEFESE_TUTORIAL] = "1"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         //Display app tutorial
@@ -290,6 +368,29 @@ class TrainFragment : Fragment() {
                         // Save values to DataStore
                         dataStore.edit { preferences ->
                             preferences[VIEWED_APP_TUTORIAL] = "1"
+                        }
+                    }else{
+                        // Show play store phase out popup
+                        if (preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY].toString() != "1") {
+                            MaterialAlertDialogBuilder(it)
+                                .setTitle(resources.getString(R.string.playstore_phaseOut_dialog_title))
+                                .setMessage(resources.getString(R.string.playstore_phaseOut_dialog_content))
+                                .setNegativeButton(resources.getString(R.string.playstore_phaseOut_dialog_dismiss)) { _, _ ->
+
+                                }
+                                .setPositiveButton(resources.getString(R.string.playstore_phaseOut_dialog_learnMore)) { _, _ ->
+                                    val i = Intent(
+                                        Intent.ACTION_VIEW,
+                                        "https://github.com/helloyanis/rucoy-calculator/blob/main/Google Play phase out.md".toUri()
+                                    )
+                                    startActivity(i)
+                                }
+                                .show()
+
+                            // Save values to DataStore
+                            dataStore.edit { preferences ->
+                                preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY] = "1"
+                            }
                         }
                     }
                 }
@@ -433,6 +534,109 @@ class TrainFragment : Fragment() {
             }
         })
 
+        val editTextDefense = binding.root.findViewById<EditText>(R.id.defense)
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextDefense.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val editTextShieldArmor = binding.root.findViewById<EditText>(R.id.shieldArmor)
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextShieldArmor.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val editTextOtherArmor = binding.root.findViewById<EditText>(R.id.otherArmor)
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextOtherArmor.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val editTextMaxMobAttack = binding.root.findViewById<EditText>(R.id.mobMaxAtk)
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextMaxMobAttack.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val editTextMinMobAttack = binding.root.findViewById<EditText>(R.id.mobMinAtk)
+        // Ajoutez un écouteur de texte à votre EditText
+        editTextMinMobAttack.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val userInput = s.toString()
+                updateoutput()
+            }
+        })
+
+        val critring = binding.root.findViewById<MaterialSwitch>(R.id.critring)
+        // Ajoutez un écouteur de texte à votre Switch
+        critring.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+            if (b) {
+                lifecycleScope.launch {
+                    dataStore.edit { preferences ->
+                        preferences[CRIT_RING_KEY] = "true"
+                    }
+                }
+            } else {
+                lifecycleScope.launch {
+                    dataStore.edit { preferences ->
+                        preferences[CRIT_RING_KEY] = "false"
+                    }
+                }
+            }
+            updateoutput()
+        }
 
 
         binding.critring.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
@@ -486,6 +690,12 @@ class TrainFragment : Fragment() {
         val mobValue = binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition.toString()
         val hoursValue = binding.root.findViewById<EditText>(R.id.hours).text.toString()
         val statGoalValue = binding.root.findViewById<EditText>(R.id.statgoal).text.toString()
+        val critRingValue = binding.root.findViewById<MaterialSwitch>(R.id.critring).isChecked.toString()
+        val defenseValue = binding.root.findViewById<EditText>(R.id.defense).text.toString()
+        val shieldArmorValue = binding.root.findViewById<EditText>(R.id.shieldArmor).text.toString()
+        val otherArmorValue = binding.root.findViewById<EditText>(R.id.otherArmor).text.toString()
+        val maxMobAttackValue = binding.root.findViewById<EditText>(R.id.mobMaxAtk).text.toString()
+        val minMobAttackValue = binding.root.findViewById<EditText>(R.id.mobMinAtk).text.toString()
         lifecycleScope.launch {
             // Save values to DataStore
             dataStore.edit { preferences ->
@@ -499,6 +709,12 @@ class TrainFragment : Fragment() {
                 preferences[MOB_KEY] = mobValue
                 preferences[HOURS_KEY] = hoursValue
                 preferences[STAT_GOAL_KEY] = statGoalValue
+                preferences[DEFENSE_KEY] = defenseValue
+                preferences[ARMOR_SHIELD_KEY] = shieldArmorValue
+                preferences[ARMOR_OTHER_KEY] = otherArmorValue
+                preferences[MAX_MOB_ATTACK_KEY] = maxMobAttackValue
+                preferences[MIN_MOB_ATTACK_KEY] = minMobAttackValue
+                preferences[CRIT_RING_KEY] = critRingValue
             }
         }
 
@@ -514,6 +730,11 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.defenseLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.shieldArmorLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.otherArmorLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMaxAtkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMinAtkLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
@@ -533,7 +754,12 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.defenseLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.shieldArmorLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.otherArmorLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMaxAtkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMinAtkLayout).visibility = View.GONE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
                     ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
@@ -552,7 +778,12 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.defenseLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.shieldArmorLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.otherArmorLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMaxAtkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMinAtkLayout).visibility = View.GONE
                 if (binding.root.findViewById<EditText>(R.id.stat).text.toString() != "") {
                     offline()
                 }
@@ -568,12 +799,39 @@ class TrainFragment : Fragment() {
                 binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
                 binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.VISIBLE
                 binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.defenseLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.shieldArmorLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.otherArmorLayout).visibility = View.GONE
                 binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMaxAtkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMinAtkLayout).visibility = View.GONE
                 if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != "" && binding.root.findViewById<EditText>(
                         R.id.stat
                     ).text.toString() != "" && binding.root.findViewById<EditText>(R.id.weaponatk).text.toString() != ""
                 ) {
                     dmg()
+                }
+            }
+            4->{
+                binding.root.findViewById<Spinner>(R.id.classspinner).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.baselevelLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.statgoalLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.weaponatkLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.tickLayout).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.hoursLayout).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.atkstylespinner).visibility = View.GONE
+                binding.root.findViewById<Spinner>(R.id.mobspinner).visibility = View.GONE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.defenseLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.shieldArmorLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.otherArmorLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMinAtkLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.mobMaxAtkLayout).visibility = View.VISIBLE
+                binding.root.findViewById<com.google.android.material.materialswitch.MaterialSwitch>(R.id.critring).visibility = View.GONE
+                if (binding.root.findViewById<EditText>(R.id.baselevel).text.toString() != ""  && binding.root.findViewById<EditText>(R.id.defense).text.toString() != "" && binding.root.findViewById<EditText>(R.id.otherArmor).text.toString() != "" && binding.root.findViewById<EditText>(R.id.shieldArmor).text.toString() != "" &&
+                    binding.root.findViewById<EditText>(R.id.mobMaxAtk).text.toString() != "" && binding.root.findViewById<EditText>(R.id.mobMinAtk).text.toString() != ""
+                ) {
+                    defense()
                 }
             }
 
@@ -746,7 +1004,7 @@ class TrainFragment : Fragment() {
         val weaponatk = binding.root.findViewById<EditText>(R.id.weaponatk).text.toString().toDouble()
         val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
         val classtype = binding.root.findViewById<Spinner>(R.id.classspinner).selectedItemPosition
-        var tick = 4.toDouble()
+        var tick = binding.root.findViewById<EditText>(R.id.tick).text.toString().toDouble()
         if(binding.root.findViewById<EditText>(R.id.tick).text.toString()!=""){
             tick = binding.root.findViewById<EditText>(R.id.tick).text.toString().toDouble() //Change this later
         }
@@ -1040,6 +1298,49 @@ ${getString(R.string.maxdmg1)} ($attacktypestring) ${max_damage.toInt()}
         val oneShotData = oneshot(attacktype, mob, base.toInt(), stat1.toInt(),0,weaponatk.toInt())
         binding.str0.text=str0 + "\n" + str1 + "\n" + str2 + "\n" + oneShotData
 
+    }
+    private fun defense() {
+            val base = binding.root.findViewById<EditText>(R.id.baselevel).text.toString().toDouble()
+            val defense = binding.root.findViewById<EditText>(R.id.defense).text.toString().toDouble()
+            var armorShield = binding.root.findViewById<EditText>(R.id.shieldArmor).text.toString().toDouble()
+            val classtype = binding.root.findViewById<Spinner>(R.id.classspinner).selectedItemPosition
+            if(classtype!=0){
+                armorShield=10.0
+            }
+            val armorOther = binding.root.findViewById<EditText>(R.id.otherArmor).text.toString().toDouble()
+            val sortedMobs = mobs.sortedBy { it.mob_level }
+            val mob = mobs.indexOf(sortedMobs[binding.root.findViewById<Spinner>(R.id.mobspinner).selectedItemPosition])
+            val str1: String
+            val str2: String
+            val max_raw_damage= binding.root.findViewById<EditText>(R.id.mobMaxAtk).text.toString().toDouble() //TODO replace with actual mob values
+            val min_raw_damage= binding.root.findViewById<EditText>(R.id.mobMinAtk).text.toString().toDouble() //TODO replace with actual mob values
+            val high_defense = high_defense_calc(base, defense, armorShield, armorOther)
+            val low_defense = low_defense_calc(base, defense, armorShield, armorOther)
+            val normalaccuracy = defense_accuracy_Calc(mobs[mob].mob_defense.toDouble(), low_defense, high_defense)
+            val min_damage_high_def = min_damage_defense_Calc(high_defense,min_raw_damage.toInt())
+            val max_damage_high_def = max_damage_defense_Calc(high_defense,max_raw_damage.toInt())
+            val str0: String = """${getString(R.string.mob)+" " + mobs[mob].mob_name}
+             """.trimIndent()
+            str1 = if (max_damage_high_def > 0) {
+                """${getString(R.string.high_def)}
+${getString(R.string.mindmg)} ${min_damage_high_def.toInt()}
+${getString(R.string.maxdmg1)}${max_damage_high_def.toInt()}
+            """.trimIndent()
+            } else {
+                """${getString(R.string.high_def)}${getString(R.string.can_not_hurt_you)}"""
+            }
+            val min_damage_low_def = min_damage_defense_Calc(low_defense,min_raw_damage.toInt())
+            val max_damage_low_def = max_damage_defense_Calc(low_defense,max_raw_damage.toInt())
+            val low_defense_accuracy = defense_accuracy_Calc(mobs[mob].mob_defense.toDouble(), min_damage_low_def.toDouble(), max_damage_low_def.toDouble())
+            str2 = if (max_damage_low_def > 0) {
+                """${getString(R.string.low_def)}
+${getString(R.string.mindmg)} ${min_damage_low_def.toInt()}
+${getString(R.string.maxdmg1)}${max_damage_low_def.toInt()}
+        """.trimIndent()
+                } else {
+                """${getString(R.string.low_def)}${getString(R.string.can_not_hurt_you)}"""
+                }
+            binding.str0.text=str0 + "\n" + str1 + "\n" + str2
     }
 
     fun oneshot(

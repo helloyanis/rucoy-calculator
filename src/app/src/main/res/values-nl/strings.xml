@@ -26,6 +26,7 @@
         <item>"🔥 Krachttraining"</item>
         <item>"💤 Offline training"</item>
         <item>"💪 Schade"</item>
+        <item>"🛡️ Defense"</item>
     </string-array>
     <string name="credits_content">"Dit is een onofficiële applicatie gemaakt door Helloyanis, tranining formules door Mims (soms door ChatGPT)! Deze applicatie is gratis en is open-source! Check uit de GitHub! Steun mij om mij te helpen met het instandhouden van deze applicatie en het toevoegen van nieuwe functies! Een idee voor een functie? Een bug rapporteren? Ga naar GitHub en maak een issue aan!"</string>
     <string name="github">"GitHub"</string>
@@ -100,4 +101,27 @@
     <string name="can_oneshot">"🏆 You can oneshot a "</string>
     <string name="oneshot_consistency_1">" with "</string>
     <string name="oneshot_consistency_2">"% consistency!"</string>
+    <string name="defense">defense</string>
+    <string name="armor">Armor</string>
+    <string name="playstore_phaseOut_dialog_title">"This application is no longer available on the Google Play Store"</string>
+    <string name="playstore_phaseOut_dialog_content">"Due to the fact that you are forced to reveal personal data such as your real name on Google Play, even for free and open source apps, I have decided to unpublish the app from the Google Play Store. You can now find it on F-Droid."</string>
+    <string name="playstore_phaseOut_dialog_dismiss">"I understand"</string>
+    <string name="playstore_phaseOut_dialog_learnMore">"Learn more"</string>
+    <string name="playstore_phaseOut_faq_title">"FAQ about the removal from Google Play Store"</string>
+    <string name="defensetutorial_title">"Defense tutorial"</string>
+    <string name="defensetutorial_desc">"This allows you to find how much damage you can take!\nYour defense by default is in \"Higher defense\" state. If you get hit, you switch to \"Lower defense\" state, where you take more damage. This lasts for 1 second and you'll recover your \"Higher defense\" state. So getting attacked by multiple mobs at a time can make you take significantly more damage, even if they usually wouldn't damage you at all."</string>
+    <string name="defensetutorial_wip_desc">"⚠️ This is NOT WORKING YET!! and uses a temporary formula to calculate it.\nTo implement this calculator, I need to know the mob's attack level. So I need your help!\nFill in the fields with your stats, and pick a mob you can get damaged by in-game. Note the damage you take, and try to adjust the values of the minimum attack and maximum attack so it matches the ones you see in-game. Then, send them to me through a GitHub issue or e-mail at rucoycalculator@outlook.fr with the mob and its attack stats so I can add it to the app in a future update!\nAlso try to change your equipment and see if it still corresponds to the calculator's value! (If not that means my formula is wrong)."</string>
+    <string name="defense_level">"Defense level"</string>
+    <string name="shield_armor">"Shield armor"</string>
+    <string name="shield_armor_help">"The armor value of your equipped shield"</string>
+    <string name="other_armor">"Other armor"</string>
+    <string name="other_armor_help">"The cumulated armor of all your equipment, EXCEPT FOR the shield!"</string>
+    <string name="averagetime_def">"⏱️ Average time to kill you :"</string>
+    <string name="high_def">"For high defense :"</string>
+    <string name="low_def">"For low defense :"</string>
+    <string name="can_not_get_oneshot">"🛡️ You can't get oneshot by a "</string>
+    <string name="can_oneshot_1">"☠️ You can get oneshot by a "</string>
+    <string name="min_mob_atk">"Minimum mob attack"</string>
+    <string name="max_mob_atk">"Maximum mob attack"</string>
+    <string name="can_not_hurt_you">" This mob can't deal any damage to you!"</string>
 </resources>

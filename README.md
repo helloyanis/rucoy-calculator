@@ -16,7 +16,7 @@ Get the apk file from [the releases page!](https://github.com/helloyanis/rucoy-c
 - Skull gold calculation
 - Damage calculation
 
-  Get it on [google play store](https://play.google.com/store/apps/details?id=com.helloyanis.rucoycalculator), [F-Droid](https://f-droid.org/fr/packages/com.helloyanis.rucoycalculator/) or the [releases page](https://github.com/helloyanis/rucoy-calculator/releases/latest).
-  Note : The google play version may be a little bit behind because it needs time to be verified by the Google play team!
+  ~~Get it on [google play store](https://play.google.com/store/apps/details?id=com.helloyanis.rucoycalculator)~~, [F-Droid](https://f-droid.org/fr/packages/com.helloyanis.rucoycalculator/) or the [releases page](https://github.com/helloyanis/rucoy-calculator/releases/latest).
+  **Note : The google play version is no longer available! [Read here for more info!](https://github.com/helloyanis/rucoy-calculator/blob/main/Google%20Play%20phase%20out.md)**
 
 Thank you to Mims for [the training formulas](https://github.com/Mimsqueeze/Mims-Rucoy-Calculator)!

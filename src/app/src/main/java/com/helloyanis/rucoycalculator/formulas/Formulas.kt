@@ -11,6 +11,14 @@ object Formulas {
         return stat * weaponatk / 10 + base / 4
     }
 
+    fun high_defense_calc(base: Double, defense: Double, shieldArmor: Double, otherArmor: Double): Double {
+        return (base/4) + defense + (defense * shieldArmor / 50) + otherArmor
+    }
+
+    fun low_defense_calc(base: Double, defense: Double, shieldArmor: Double, otherArmor: Double): Double {
+        return (base/8) + defense/2 + (defense * shieldArmor / 100) + otherArmor
+    }
+
     fun special_meldist_min_raw_damage_Calc(stat: Double, weaponatk: Double, base: Double): Double {
         return 1.5 * (stat * weaponatk / 20 + base / 4)
     }
@@ -28,7 +36,15 @@ object Formulas {
     }
 
     fun min_damage_Calc(min_raw_damage: Double, pos: Int): Double {
-        var min_damage: Double = min_raw_damage - mobs.get(pos).mob_defense
+        var min_damage: Double = min_raw_damage - mobs[pos].mob_defense
+        if (min_damage < 0) {
+            min_damage = 0.0
+        }
+        return min_damage
+    }
+
+    fun min_damage_defense_Calc(defense: Double, pos: Int): Double { //TODO Pos should be mob index, now is value of min attack
+        var min_damage: Double = pos - defense
         if (min_damage < 0) {
             min_damage = 0.0
         }
@@ -36,7 +52,11 @@ object Formulas {
     }
 
     fun max_damage_Calc(max_raw_damage: Double, pos: Int): Double {
-        return max_raw_damage - mobs.get(pos).mob_defense
+        return max_raw_damage - mobs[pos].mob_defense
+    }
+
+    fun max_damage_defense_Calc(defense: Double, pos: Int): Double { //TODO Pos should be mob index, now is value of max attack
+        return pos - defense
     }
 
     fun max_raw_crit_damage_Calc(max_raw_damage: Double, crit_ring: Boolean): Double {
@@ -54,6 +74,15 @@ object Formulas {
     fun normal_accuracy_Calc(max_raw_damage: Double, min_raw_damage: Double, x: Int): Double {
         var normalaccuracy: Double =
             (max_raw_damage - mobs.get(x).mob_defense) / (max_raw_damage - min_raw_damage)
+        if (normalaccuracy > 1.00) {
+            normalaccuracy = 1.00
+        }
+        return normalaccuracy
+    }
+
+    fun defense_accuracy_Calc(max_raw_damage: Double, min_raw_damage: Double, defense: Double): Double {
+        var normalaccuracy: Double =
+            (max_raw_damage - defense) / (max_raw_damage - min_raw_damage)
         if (normalaccuracy > 1.00) {
             normalaccuracy = 1.00
         }
@@ -550,7 +579,10 @@ private val weapons = arrayOf( /*00*/
     )
 )
 
-class Mob(val mob_name: String, val mob_defense: Int, val mob_health: Int, val mob_level: Int) {
+class Mob(val mob_name: String, val mob_defense: Int, val mob_health: Int, val mob_level: Int, val mob_min_attack: Int = 0, val mob_max_attack: Int = 0) {
+    override fun toString(): String {
+        return mob_name
+    }
 }
 
 class Weapon(

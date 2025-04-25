@@ -46,13 +46,14 @@
             android:hint="@string/stat_level"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hoursLayout">
+            app:layout_constraintTop_toBottomOf="@+id/hoursLayout"
+            tools:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/stat"
-                android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -66,13 +67,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/baselevelLayout"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hours"
-                android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +107,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weaponatkLayout"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tick"
@@ -131,6 +132,108 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/statgoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/defenseLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/defense_level"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otherArmorLayout"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/defense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shieldArmorLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/shield_armor"
+            android:visibility="gone"
+            app:helperText="@string/shield_armor_help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tickLayout"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shieldArmor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/otherArmorLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/other_armor"
+            android:visibility="gone"
+            app:helperText="@string/other_armor_help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shieldArmorLayout"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/otherArmor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobMinAtkLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/min_mob_atk"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobMaxAtkLayout"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobMinAtk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobMaxAtkLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:ems="10"
+            android:hint="@string/max_mob_atk"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/mobMinAtkLayout"
+            app:layout_constraintStart_toStartOf="@+id/critring"
+            app:layout_constraintTop_toBottomOf="@+id/defenseLayout"
+            tools:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobMaxAtk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
@@ -195,7 +298,7 @@
             android:layout_height="wrap_content"
             android:text="@string/usecritring"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tickLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/mobMinAtkLayout" />
 
         <Button
             android:id="@+id/showtutorial"

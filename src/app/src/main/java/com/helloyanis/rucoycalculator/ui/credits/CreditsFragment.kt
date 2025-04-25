@@ -1,5 +1,8 @@
 package com.helloyanis.rucoycalculator.ui.credits
 
+import android.animation.Animator
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
@@ -13,8 +16,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.helloyanis.rucoycalculator.R
 import com.helloyanis.rucoycalculator.databinding.CreditsBinding
+import android.animation.AnimatorListenerAdapter
+import androidx.core.net.toUri
 
 class CreditsFragment : Fragment() {
 
@@ -25,8 +29,8 @@ class CreditsFragment : Fragment() {
         Color.RED, Color.GREEN, Color.CYAN, Color.BLUE, Color.MAGENTA
     )
     private var currentIndex = 0
+    private val delayMillis = 2000L // total time for one full transition
     private val handler = Handler(Looper.getMainLooper())
-    private val delayMillis = 2000L // Change color every 1 second
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,14 +57,16 @@ class CreditsFragment : Fragment() {
         val privacybutton = binding.privacy
 
         privacybutton.setOnClickListener{
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://gist.githubusercontent.com/helloyanis/25ae600a5d2d162a2912ec0a24ed2084/raw/74708abcb5688e54ebb59ac91830a3d4a2d26ba3/privacy.md"))
+            val i = Intent(Intent.ACTION_VIEW,
+                "https://gist.githubusercontent.com/helloyanis/25ae600a5d2d162a2912ec0a24ed2084/raw/74708abcb5688e54ebb59ac91830a3d4a2d26ba3/privacy.md".toUri())
             startActivity(i)
         }
 
         val githubbutton = binding.github
 
         githubbutton.setOnClickListener{
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/helloyanis/rucoy-calculator"))
+            val i = Intent(Intent.ACTION_VIEW,
+                "https://github.com/helloyanis/rucoy-calculator".toUri())
             startActivity(i)
         }
 
@@ -70,9 +76,26 @@ class CreditsFragment : Fragment() {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("market://details?id=com.helloyanis.rucoycalculator")
+                    "market://details?id=com.helloyanis.rucoycalculator".toUri()
                 )
             )
+        }
+
+        val playstorePhaseOutButton = binding.playStorePlaseOutFaq
+        val currentTimeStamp = System.currentTimeMillis()
+        val playStorePhaseOutTimeStamp = 1645563204900 // 2023-10-24 00:00:00 UTC
+        println("Current Time: $currentTimeStamp")
+        if (currentTimeStamp < playStorePhaseOutTimeStamp) {
+            playstorePhaseOutButton.visibility = View.GONE
+        } else {
+            playstorePhaseOutButton.visibility = View.VISIBLE
+            playstorePhaseOutButton.setOnClickListener {
+                val i = Intent(
+                    Intent.ACTION_VIEW,
+                    "https://github.com/helloyanis/rucoy-calculator/blob/main/Google Play phase out.md".toUri()
+                )
+                startActivity(i)
+            }
         }
 
         return root
@@ -86,17 +109,24 @@ class CreditsFragment : Fragment() {
     }
 
     private fun startRainbowEffect(button: View) {
-        handler.postDelayed(object : Runnable {
-            override fun run() {
-                // Change the button's background color
-                button.setBackgroundColor(colors[currentIndex])
-
-                // Increment the index, or loop back to 0 if it reaches the end
-                currentIndex = (currentIndex + 1) % colors.size
-
-                // Schedule the next color change
-                handler.postDelayed(this, delayMillis)
+        fun animateColorTransition(startColor: Int, endColor: Int) {
+            val colorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), startColor, endColor)
+            colorAnimator.duration = delayMillis
+            colorAnimator.addUpdateListener { animator ->
+                val animatedColor = animator.animatedValue as Int
+                button.setBackgroundColor(animatedColor)
             }
-        }, delayMillis)
+            colorAnimator.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    currentIndex = (currentIndex + 1) % colors.size
+                    val nextColor = colors[(currentIndex + 1) % colors.size]
+                    animateColorTransition(colors[currentIndex], nextColor)
+                }
+            })
+            colorAnimator.start()
+        }
+        // Start with initial transition
+        val nextColor = colors[(currentIndex + 1) % colors.size]
+        animateColorTransition(colors[currentIndex], nextColor)
     }
 }

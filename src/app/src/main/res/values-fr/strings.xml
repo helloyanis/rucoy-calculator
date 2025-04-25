@@ -23,6 +23,7 @@
         <item>"🔥 Super entrainement (Power Training)"</item>
         <item>"💤 Entrainement hors-ligne"</item>
         <item>"💪 Dégâts"</item>
+        <item>"🛡️ Défense"</item>
     </string-array>
     <string name="credits_content">"Cette application non officielle a été créée par helloyanis\nFormules d'entrainement par Mims\nCode (parfois) par ChatGPT!\nCette application est gratuite et open-source! Jetez un oeil sur le GitHub!\nSoutenez-moi pour m'aider à maintenir l'application et à ajouter de nouvelles fonctions!\nUne idée de fonctionnalité? Un bug? Créez une issue sur GitHub (en anglais de préférence)!"</string>
     <string name="github">"GitHub"</string>
@@ -101,4 +102,27 @@
     <string name="can_oneshot">"🏆 Vous pouvez tuer un "</string>
     <string name="oneshot_consistency_1">" en un coup, avec "</string>
     <string name="oneshot_consistency_2">"% de chance!"</string>
+    <string name="defense">defense</string>
+    <string name="armor">Armor</string>
+    <string name="playstore_phaseOut_dialog_title">"Cette application n'est plus disponible sur le Google Play Store!"</string>
+    <string name="playstore_phaseOut_dialog_content">"A cause du fait qu'il est nécéssaire de rendre public des informations personelles sur Google Play, comme le nom complet, même pour des applications gratuites et open-source, j'ai décidé de dépublier l'application du Google Play Store. Vous pouvez la télécharger sur F-Droid."</string>
+    <string name="playstore_phaseOut_dialog_dismiss">"Je comprends"</string>
+    <string name="playstore_phaseOut_dialog_learnMore">"En savoir +"</string>
+    <string name="playstore_phaseOut_faq_title">"FAQ sur la suppression du Play Store"</string>
+    <string name="defensetutorial_title">"Tutoriel pour la défense"</string>
+    <string name="defensetutorial_desc">"Ceci vous permet de savoir combien de dégâts vous allez subir!\nVotre défense par défaut est en \"Défense haute\". Si vous vous faites attaquer, vous passez en \"Défense basse\", où vous prendrez plus de dégâts. Ceci dure 1 seconde avant de revenir à votre \"Défense haute\". Donc être attaqué par plusieurs monstres à la fois peut vous infliger bien plus de dégâts, même si vous n'en subissez pas autant avec 1 seul attaquant."</string>
+    <string name="defensetutorial_wip_desc">"⚠️ Ceci n'est PAS ENCORE FONCTIONNEL!! et utilise une formule temporaire pour le calculer.\nPour développer cette calculatrice, j'ai besoin de connaître l'attaque des mobs. J'ai donc besoin de votre aide!\nRemplissez les champs avec vos stats, et choisissez un mob qui peut vous infliger des dégâts en jeu. Gardez en mémoire les valeurs des dégâts, et essayez d'ajuster les valeurs d'attaque minimum et maximum du mob pour que ça corresponde à ce que vous voyez en jeu. Ensuite, créez une issue GitHub ou envoyez un e-mail à rucoycalculator@outlook.fr avec le mob et ses stats d'attaque pour pouvoir l'ajouter à l'application dans une mise à jour!\nEssayez aussi de changer votre équipement et vérifiez si cela correspond toujours aux valeurs de la calculatrice! (Si non, cela signifie que ma formule est fausse)."</string>
+    <string name="defense_level">"Niveau de défense"</string>
+    <string name="shield_armor">"Armure du bouclier"</string>
+    <string name="shield_armor_help">"La valeur d'armure de votre bouclier équipé"</string>
+    <string name="other_armor">"Autre armure"</string>
+    <string name="other_armor_help">"L'armure cumulée sur toutes vos pièces d'équipement SAUF votre bouclier!"</string>
+    <string name="averagetime_def">"⏱️ Temps moyen pour vous tuer :"</string>
+    <string name="high_def">"Pour la défense élevée :"</string>
+    <string name="low_def">"Pour la défense basse :"</string>
+    <string name="can_not_get_oneshot">"🛡️ Vous ne pouvez pas vous faire tuer en un coup par "</string>
+    <string name="can_oneshot_1">"☠️ Vous pouvez vous faire tuer en un coup par "</string>
+    <string name="min_mob_atk">"Attaque min. du mob"</string>
+    <string name="max_mob_atk">"Attaque max. du mob"</string>
+    <string name="can_not_hurt_you">" Ce mob ne peut pas vous infliger de dégâts!"</string>
 </resources>
