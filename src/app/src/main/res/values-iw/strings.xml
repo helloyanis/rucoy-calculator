@@ -26,7 +26,7 @@
         <item>"🔥 אימון כוח"</item>
         <item>"💤 אימון לא מקוון (לא מחובר)"</item>
         <item>"💪 נזק"</item>
-        <item>"🛡️ Defense"</item>
+        <item>"🛡️ הגנה"</item>
     </string-array>
     <string name="credits_content">"זוהי אפליקציה לא רשמית שנעשה על ידי פורמטי אימונים של helloyanis באמצעות Mims Code, (ולפעמים) גם באמצעות ChatGPT! אפליקציה זו ניתנת בחינם ובעלת גישה לקוד פתוח! מוזמנים לראות זאת בגיטהאב! (GitHub!) תמכו בי כדי שאוכל להמשיך לתחזק את האפליקציה ולהוסיף לשם עוד פיצ'רים נוספים! יש לכם רעיון לפיצ'ר? יש לכם באג? לכו לגיטהאב ותפתחו דף בעיה חדש שם! קרדיט נוסף ותודה מיוחדת מוענקת עבור התרגום מאנגלית לעברית! אם יש לכם רעיונות לשפר לגבי התרגום או הינכם פשוט רוצים לומר תודה, צרו קשר בדיסקורד או חפשו אותי בגיטהאב - thegamerking777"</string>
     <string name="github">"גיטהאב"</string>
@@ -101,27 +101,27 @@
     <string name="can_oneshot">"🏆 אתה יכול להביס במכה אחת את "</string>
     <string name="oneshot_consistency_1">" עם "</string>
     <string name="oneshot_consistency_2">"% עקביות!"</string>
-    <string name="defense">defense</string>
-    <string name="armor">Armor</string>
-    <string name="playstore_phaseOut_dialog_title">"This application is no longer available on the Google Play Store"</string>
-    <string name="playstore_phaseOut_dialog_content">"Due to the fact that you are forced to reveal personal data such as your real name on Google Play, even for free and open source apps, I have decided to unpublish the app from the Google Play Store. You can now find it on F-Droid."</string>
-    <string name="playstore_phaseOut_dialog_dismiss">"I understand"</string>
-    <string name="playstore_phaseOut_dialog_learnMore">"Learn more"</string>
-    <string name="playstore_phaseOut_faq_title">"FAQ about the removal from Google Play Store"</string>
-    <string name="defensetutorial_title">"Defense tutorial"</string>
-    <string name="defensetutorial_desc">"This allows you to find how much damage you can take!\nYour defense by default is in \"Higher defense\" state. If you get hit, you switch to \"Lower defense\" state, where you take more damage. This lasts for 1 second and you'll recover your \"Higher defense\" state. So getting attacked by multiple mobs at a time can make you take significantly more damage, even if they usually wouldn't damage you at all."</string>
-    <string name="defensetutorial_wip_desc">"⚠️ This is NOT WORKING YET!! and uses a temporary formula to calculate it.\nTo implement this calculator, I need to know the mob's attack level. So I need your help!\nFill in the fields with your stats, and pick a mob you can get damaged by in-game. Note the damage you take, and try to adjust the values of the minimum attack and maximum attack so it matches the ones you see in-game. Then, send them to me through a GitHub issue or e-mail at rucoycalculator@outlook.fr with the mob and its attack stats so I can add it to the app in a future update!\nAlso try to change your equipment and see if it still corresponds to the calculator's value! (If not that means my formula is wrong)."</string>
-    <string name="defense_level">"Defense level"</string>
-    <string name="shield_armor">"Shield armor"</string>
-    <string name="shield_armor_help">"The armor value of your equipped shield"</string>
-    <string name="other_armor">"Other armor"</string>
-    <string name="other_armor_help">"The cumulated armor of all your equipment, EXCEPT FOR the shield!"</string>
-    <string name="averagetime_def">"⏱️ Average time to kill you :"</string>
-    <string name="high_def">"For high defense :"</string>
-    <string name="low_def">"For low defense :"</string>
-    <string name="can_not_get_oneshot">"🛡️ You can't get oneshot by a "</string>
-    <string name="can_oneshot_1">"☠️ You can get oneshot by a "</string>
-    <string name="min_mob_atk">"Minimum mob attack"</string>
-    <string name="max_mob_atk">"Maximum mob attack"</string>
-    <string name="can_not_hurt_you">" This mob can't deal any damage to you!"</string>
+    <string name="defense">הגנה</string>
+    <string name="armor">שיריון</string>
+    <string name="playstore_phaseOut_dialog_title">"אפליקציה זו אינה זמינה יותר דרך חנות גוגל פליי"</string>
+    <string name="playstore_phaseOut_dialog_content">"בשל העובדה שהינכם מוכרחים לחשוף את המידע האישי שלכם כמו שמכם האמיתי בגוגל פליי, אפילו עבור אפליקציות חינמיות וקוד פתוח, החלטתי להוריד את האפליקציה מחנות גוגל פליי. ניתן למצוא את האפליקציה הזו דרך F-Droid."</string>
+    <string name="playstore_phaseOut_dialog_dismiss">"הבנתי"</string>
+    <string name="playstore_phaseOut_dialog_learnMore">"למדו עוד"</string>
+    <string name="playstore_phaseOut_faq_title">"שאלות תכופות לגבי הורדת האפליקציה מחנות גוגל פליי"</string>
+    <string name="defensetutorial_title">"הדרכה על הגנה"</string>
+    <string name="defensetutorial_desc">"זה מאפשר לך לדעת כמה נזק תוכל לספוג!\n ההגנה שלך כברירת מחדל נמצאת במצב \"הגנה גבוהה\". אם נפגעת, ההגנה עוברת למצב  \"הגנה נמוכה\", שם תקבל יותר נזק. מצב זה נשאר לשנייה אחת, שלאחריה תחזור למצב  \"הגנה גבוהה\". כך שהתקפה מרובה ממספר יצורים באותו הזמן יכולה לגרום לנזק משמעותי יותר, אפילו אם הם לא מהווים עבורך נזק ממש כהתקפת יצור יחיד."</string>
+    <string name="defensetutorial_wip_desc">"⚠️ זה עדיין לא עובד!! השימוש שלו מבוצע על ידי נוסחה זמנית.\nכדי ליישם את המחשבון וחישובו, אני חייב לדעת על רמת המתקפה של היצור, לכן אצטרך את עזרתך!\nבבקשה מלא בשדות את נתוניך, ותבחר ביצור שהינך מקבל נזק במשחק. שים לב לנזק שקיבלת, ולאחר מכן כוון את ערכי ההתקפה המינימלית והמקסימאלית , כך שיתאימו לנזק שהינך מקבל באותה העת במשחק. אחר כך, שלח את הנתונים אליי דרך פתיחת קריאה בגיטהאב או דרך המייל:   rucoycalculator@outlook.fr עם היצור ונתוני התקפתם, כך שאוכל להוסיף אותם לאפליקציה בעדכון הבא!\nבנוסף, שנו את הציוד במשחק, ונסו לראות אם זה מתאים לערכי המחשבון! (אם לא, זאת אומרת שהמחשבון שלי שבור)."</string>
+    <string name="defense_level">"רמת הגנה"</string>
+    <string name="shield_armor">"רמת שיריון"</string>
+    <string name="shield_armor_help">"ערך המגן של השיריון המצויד שלך"</string>
+    <string name="other_armor">"שיריון אחר"</string>
+    <string name="other_armor_help">"ההגנה המצטברת שלך עם כל הציוד שלך, ללא השיריון!"</string>
+    <string name="averagetime_def">"⏱️ זמן ממוצע להריגתך במשחק: "</string>
+    <string name="high_def">"עבור הגנה גבוהה: "</string>
+    <string name="low_def">"עבור הגנה נמוכה: "</string>
+    <string name="can_not_get_oneshot">"🛡️ אתה לא יכול לקבל במכה אחת על ידי "</string>
+    <string name="can_oneshot_1">"☠️ אתה יכול לקבל במכה אחת על ידי "</string>
+    <string name="min_mob_atk">"התקפת יצור מינימלית"</string>
+    <string name="max_mob_atk">"התקפת יצור מקסימאלית"</string>
+    <string name="can_not_hurt_you">" היצור הזה לא יכול לגרום לך נזק!"</string>
 </resources>
