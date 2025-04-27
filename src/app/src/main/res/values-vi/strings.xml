@@ -26,7 +26,7 @@
         <item>"🔥 Power training(PT)"</item>
         <item>"💤 Offline training"</item>
         <item>"💪 Sát thương"</item>
-        <item>"🛡️ Defense"</item>
+        <item>"🛡️ Phòng thủ"</item>
     </string-array>
     <string name="credits_content">"Đây là một ứng dụng không chính thức bởi GM Rucoy mà được làm bởi helloyanis,công thức train bởi Mims Code và (đôi khi) bởi Chat GPT,Việt hoá bởi LinhVitVN! Ứng dụng này hoàn toàn miễn phí và mã nguồn mở! Xem ngay trên GitHub! Ủng hộ tôi để giúp tôi duy trì ứng dụng này và thêm nhiều tính năng mới! Có ý tưởng mới về tính năng? muốn báo cáo lỗi? Hãy lên GitHub và mở mục issue!"</string>
     <string name="github">"GitHub</string>
@@ -122,6 +122,6 @@
     <string name="can_not_get_oneshot">"🛡️ Bạn không thể bị oneshot bởi "</string>
     <string name="can_oneshot_1">"☠️ Bạn có thể bị oneshot bởi "</string>
     <string name="min_mob_atk">"Sát thương nhỏ nhất do quái gây ra"</string>
-    <string name="max_mob_atk">"át thương lớn  nhất do quái gây ra"</string>
+    <string name="max_mob_atk">"Sát thương lớn  nhất do quái gây ra"</string>
     <string name="can_not_hurt_you">" Con quái này không thể làm bạn mất máu!"</string>
 </resources>
