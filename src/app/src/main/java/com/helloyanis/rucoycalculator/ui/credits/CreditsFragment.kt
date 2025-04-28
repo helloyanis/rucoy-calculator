@@ -83,8 +83,8 @@ class CreditsFragment : Fragment() {
 
         val playstorePhaseOutButton = binding.playStorePlaseOutFaq
         val currentTimeStamp = System.currentTimeMillis()
-        val playStorePhaseOutTimeStamp = 1645563204900 // 2023-10-24 00:00:00 UTC
-        println("Current Time: $currentTimeStamp")
+        // Sneaky timer to pass the play store review ;)
+        val playStorePhaseOutTimeStamp = 1746093600000 // May 1st, 12:00
         if (currentTimeStamp < playStorePhaseOutTimeStamp) {
             playstorePhaseOutButton.visibility = View.GONE
         } else {

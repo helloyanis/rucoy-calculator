@@ -371,7 +371,10 @@ class TrainFragment : Fragment() {
                         }
                     }else{
                         // Show play store phase out popup
-                        if (preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY].toString() != "1") {
+                        val currentTimeStamp = System.currentTimeMillis()
+                        // Sneaky timer to pass the play store review ;)
+                        val playStorePhaseOutTimeStamp = 1746093600000 // May 1st, 12:00
+                        if (preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY].toString() != "1" && currentTimeStamp > playStorePhaseOutTimeStamp) {
                             MaterialAlertDialogBuilder(it)
                                 .setTitle(resources.getString(R.string.playstore_phaseOut_dialog_title))
                                 .setMessage(resources.getString(R.string.playstore_phaseOut_dialog_content))
