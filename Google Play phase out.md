@@ -15,6 +15,9 @@ Yes, the app is still available on F-Droid and GitHub releases. If you downloade
 ## Is F-Droid safe?
 Yes, F-Droid is a trusted open source app store. The F-Droid team has built the app from the source code on this GitHub repository. You can check the source code and the build process on their website. F-Droid is a great alternative to Google Play Store for open source apps and it's way more developer-friendly. You can also check the [F-Droid FAQ](https://f-droid.org/en/docs/FAQ/) for more information about how it works.
 
+## Do I need to keep F-Droid installed after getting Rucoy Calculator from it?
+Yes, if you would like to install future updates automatically! If you don't care about updates you can uninstall it, but it's best to keep it there to get the latest features!
+
 ## Why was the app removed from Google Play Store?
 The app was removed from Google Play Store because Google requires you to reveal your personal info, like your full name, even for free and open source apps. I don't want to publicly share my full name, so I decided to remove the app from Google Play Store. 
 
