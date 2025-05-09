@@ -124,4 +124,5 @@
     <string name="min_mob_atk">"התקפת יצור מינימלית"</string>
     <string name="max_mob_atk">"התקפת יצור מקסימאלית"</string>
     <string name="can_not_hurt_you">" היצור הזה לא יכול לגרום לך נזק!"</string>
+    <string name="dont_remind_me">"Don't remind me again"</string>
 </resources>

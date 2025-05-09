@@ -96,6 +96,7 @@ class TrainFragment : Fragment() {
     // Define keys for other preferences as needed
     private var trainstyleValue: Int = 0
     private var isInit = true
+    private var shownPlayStorePhaseOutThisSession = false
     @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -371,16 +372,19 @@ class TrainFragment : Fragment() {
                         }
                     }else{
                         // Show play store phase out popup
-                        val currentTimeStamp = System.currentTimeMillis()
-                        // Sneaky timer to pass the play store review ;)
-                        val playStorePhaseOutTimeStamp = 1746093600000 // May 1st, 12:00
-                        if (preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY].toString() != "1" && currentTimeStamp > playStorePhaseOutTimeStamp) {
+                        if (preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY].toString() != "2" && !shownPlayStorePhaseOutThisSession) {
+                            shownPlayStorePhaseOutThisSession=true
                             MaterialAlertDialogBuilder(it)
                                 .setTitle(resources.getString(R.string.playstore_phaseOut_dialog_title))
                                 .setMessage(resources.getString(R.string.playstore_phaseOut_dialog_content))
-                                .setNegativeButton(resources.getString(R.string.playstore_phaseOut_dialog_dismiss)) { _, _ ->
-
+                                .setNegativeButton(resources.getString(R.string.dont_remind_me)) { _, _ ->
+                                    lifecycleScope.launch {
+                                        dataStore.edit { preferences ->
+                                            preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY] = "2"
+                                        }
+                                    }
                                 }
+                                .setNeutralButton (resources.getString(R.string.playstore_phaseOut_dialog_dismiss)){ _,_ ->}
                                 .setPositiveButton(resources.getString(R.string.playstore_phaseOut_dialog_learnMore)) { _, _ ->
                                     val i = Intent(
                                         Intent.ACTION_VIEW,
@@ -389,11 +393,6 @@ class TrainFragment : Fragment() {
                                     startActivity(i)
                                 }
                                 .show()
-
-                            // Save values to DataStore
-                            dataStore.edit { preferences ->
-                                preferences[VIEWED_PLAYSTORE_PHASEOUT_KEY] = "1"
-                            }
                         }
                     }
                 }

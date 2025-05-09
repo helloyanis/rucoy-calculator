@@ -124,5 +124,6 @@
     <string name="min_mob_atk">"Minimum mob attack"</string>
     <string name="max_mob_atk">"Maximum mob attack"</string>
     <string name="can_not_hurt_you">" This mob can't deal any damage to you!"</string>
+    <string name="dont_remind_me">"Don't remind me again"</string>
 </resources>
         

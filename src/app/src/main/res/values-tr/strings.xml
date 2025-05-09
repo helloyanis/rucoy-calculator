@@ -124,4 +124,5 @@
     <string name="min_mob_atk">"Minimum yaratık saldırısı"</string>
     <string name="max_mob_atk">"Maximum yaratık saldırısı"</string>
     <string name="can_not_hurt_you">" Bu yaratık sana hasar veremez!"</string>
+    <string name="dont_remind_me">"Don't remind me again"</string>
 </resources>

@@ -124,4 +124,5 @@
     <string name="min_mob_atk">"Sát thương nhỏ nhất do quái gây ra"</string>
     <string name="max_mob_atk">"Sát thương lớn  nhất do quái gây ra"</string>
     <string name="can_not_hurt_you">" Con quái này không thể làm bạn mất máu!"</string>
+    <string name="dont_remind_me">"Don't remind me again"</string>
 </resources>
